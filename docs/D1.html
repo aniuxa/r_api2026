@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Curso: De las APIs a los gráficos: explorando datos sociales con R - 2&nbsp; Día 1 — ¿Qué es una API? Tipos, ventajas y fuentes que usaremos</title>
+<title>Curso: De las APIs a los gráficos: explorando datos sociales con R - 1&nbsp; Día 1 — ¿Qué es una API? Tipos, ventajas y fuentes que usaremos</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -110,7 +110,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./D1.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Día 1 — ¿Qué es una API? Tipos, ventajas y fuentes que usaremos</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./D1.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Día 1 — ¿Qué es una API? Tipos, ventajas y fuentes que usaremos</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -142,7 +142,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">{.unnumbered}</span></span></a>
+ <span class="menu-text">Contenido</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -154,7 +154,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./D1.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Día 1 — ¿Qué es una API? Tipos, ventajas y fuentes que usaremos</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Día 1 — ¿Qué es una API? Tipos, ventajas y fuentes que usaremos</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -184,41 +184,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#propósito-del-día-1" id="toc-propósito-del-día-1" class="nav-link active" data-scroll-target="#propósito-del-día-1"><span class="header-section-number">2.1</span> Propósito del día 1</a></li>
-  <li><a href="#qué-es-una-api" id="toc-qué-es-una-api" class="nav-link" data-scroll-target="#qué-es-una-api"><span class="header-section-number">2.2</span> ¿Qué es una API?</a>
+  <li><a href="#propósito-del-día-1" id="toc-propósito-del-día-1" class="nav-link active" data-scroll-target="#propósito-del-día-1"><span class="header-section-number">1.1</span> Propósito del día 1</a></li>
+  <li><a href="#qué-es-una-api" id="toc-qué-es-una-api" class="nav-link" data-scroll-target="#qué-es-una-api"><span class="header-section-number">1.2</span> ¿Qué es una API?</a>
   <ul class="collapse">
-  <li><a href="#partes-típicas-de-una-consulta-url" id="toc-partes-típicas-de-una-consulta-url" class="nav-link" data-scroll-target="#partes-típicas-de-una-consulta-url"><span class="header-section-number">2.2.1</span> Partes típicas de una consulta (URL)</a></li>
+  <li><a href="#partes-típicas-de-una-consulta-url" id="toc-partes-típicas-de-una-consulta-url" class="nav-link" data-scroll-target="#partes-típicas-de-una-consulta-url"><span class="header-section-number">1.2.1</span> Partes típicas de una consulta (URL)</a></li>
   </ul></li>
-  <li><a href="#tipos-de-api-que-nos-importan-en-el-curso" id="toc-tipos-de-api-que-nos-importan-en-el-curso" class="nav-link" data-scroll-target="#tipos-de-api-que-nos-importan-en-el-curso"><span class="header-section-number">2.3</span> Tipos de API que nos importan en el curso</a>
+  <li><a href="#tipos-de-api-que-nos-importan-en-el-curso" id="toc-tipos-de-api-que-nos-importan-en-el-curso" class="nav-link" data-scroll-target="#tipos-de-api-que-nos-importan-en-el-curso"><span class="header-section-number">1.3</span> Tipos de API que nos importan en el curso</a>
   <ul class="collapse">
-  <li><a href="#por-estilo-de-diseño-restrestful" id="toc-por-estilo-de-diseño-restrestful" class="nav-link" data-scroll-target="#por-estilo-de-diseño-restrestful"><span class="header-section-number">2.3.1</span> Por estilo de diseño: REST/RESTful</a></li>
-  <li><a href="#por-acceso-pública-privada-de-socios-compuesta" id="toc-por-acceso-pública-privada-de-socios-compuesta" class="nav-link" data-scroll-target="#por-acceso-pública-privada-de-socios-compuesta"><span class="header-section-number">2.3.2</span> Por acceso: pública, privada, de socios, compuesta</a></li>
+  <li><a href="#por-estilo-de-diseño-restrestful" id="toc-por-estilo-de-diseño-restrestful" class="nav-link" data-scroll-target="#por-estilo-de-diseño-restrestful"><span class="header-section-number">1.3.1</span> Por estilo de diseño: REST/RESTful</a></li>
+  <li><a href="#por-acceso-pública-privada-de-socios-compuesta" id="toc-por-acceso-pública-privada-de-socios-compuesta" class="nav-link" data-scroll-target="#por-acceso-pública-privada-de-socios-compuesta"><span class="header-section-number">1.3.2</span> Por acceso: pública, privada, de socios, compuesta</a></li>
   </ul></li>
-  <li><a href="#ventajas-y-desventajas-de-usar-apis" id="toc-ventajas-y-desventajas-de-usar-apis" class="nav-link" data-scroll-target="#ventajas-y-desventajas-de-usar-apis"><span class="header-section-number">2.4</span> Ventajas y desventajas de usar APIs</a>
+  <li><a href="#ventajas-y-desventajas-de-usar-apis" id="toc-ventajas-y-desventajas-de-usar-apis" class="nav-link" data-scroll-target="#ventajas-y-desventajas-de-usar-apis"><span class="header-section-number">1.4</span> Ventajas y desventajas de usar APIs</a>
   <ul class="collapse">
-  <li><a href="#ventajas" id="toc-ventajas" class="nav-link" data-scroll-target="#ventajas"><span class="header-section-number">2.4.1</span> Ventajas</a></li>
-  <li><a href="#desventajas-riesgos" id="toc-desventajas-riesgos" class="nav-link" data-scroll-target="#desventajas-riesgos"><span class="header-section-number">2.4.2</span> Desventajas / riesgos</a></li>
+  <li><a href="#ventajas" id="toc-ventajas" class="nav-link" data-scroll-target="#ventajas"><span class="header-section-number">1.4.1</span> Ventajas</a></li>
+  <li><a href="#desventajas-riesgos" id="toc-desventajas-riesgos" class="nav-link" data-scroll-target="#desventajas-riesgos"><span class="header-section-number">1.4.2</span> Desventajas / riesgos</a></li>
   </ul></li>
-  <li><a href="#fuentes-confiables-que-consultaremos-y-qué-aporta-cada-una" id="toc-fuentes-confiables-que-consultaremos-y-qué-aporta-cada-una" class="nav-link" data-scroll-target="#fuentes-confiables-que-consultaremos-y-qué-aporta-cada-una"><span class="header-section-number">2.5</span> Fuentes confiables que consultaremos y qué aporta cada una</a>
+  <li><a href="#fuentes-confiables-que-consultaremos-y-qué-aporta-cada-una" id="toc-fuentes-confiables-que-consultaremos-y-qué-aporta-cada-una" class="nav-link" data-scroll-target="#fuentes-confiables-que-consultaremos-y-qué-aporta-cada-una"><span class="header-section-number">1.5</span> Fuentes confiables que consultaremos y qué aporta cada una</a>
   <ul class="collapse">
-  <li><a href="#banco-mundial-world-development-indicators" id="toc-banco-mundial-world-development-indicators" class="nav-link" data-scroll-target="#banco-mundial-world-development-indicators"><span class="header-section-number">2.5.1</span> 1) Banco Mundial (World Development Indicators)</a></li>
-  <li><a href="#naciones-unidas-world-population-prospects-2024-wpp-2024" id="toc-naciones-unidas-world-population-prospects-2024-wpp-2024" class="nav-link" data-scroll-target="#naciones-unidas-world-population-prospects-2024-wpp-2024"><span class="header-section-number">2.5.2</span> 2) Naciones Unidas — World Population Prospects 2024 (WPP 2024)</a></li>
-  <li><a href="#inegi-méxico-api-de-indicadores" id="toc-inegi-méxico-api-de-indicadores" class="nav-link" data-scroll-target="#inegi-méxico-api-de-indicadores"><span class="header-section-number">2.5.3</span> 3) INEGI (México) — API de Indicadores</a></li>
-  <li><a href="#banco-de-méxico-sie-series-de-tiempo" id="toc-banco-de-méxico-sie-series-de-tiempo" class="nav-link" data-scroll-target="#banco-de-méxico-sie-series-de-tiempo"><span class="header-section-number">2.5.4</span> 4) Banco de México — SIE (Series de tiempo)</a></li>
-  <li><a href="#cepalstat-cepal" id="toc-cepalstat-cepal" class="nav-link" data-scroll-target="#cepalstat-cepal"><span class="header-section-number">2.5.5</span> 5) CEPALSTAT (CEPAL)</a></li>
-  <li><a href="#ocde-fmi-eurostat-y-un-comtrade" id="toc-ocde-fmi-eurostat-y-un-comtrade" class="nav-link" data-scroll-target="#ocde-fmi-eurostat-y-un-comtrade"><span class="header-section-number">2.5.6</span> 6) OCDE, FMI, Eurostat y UN Comtrade</a></li>
-  <li><a href="#datamx.io-y-portales-ckan" id="toc-datamx.io-y-portales-ckan" class="nav-link" data-scroll-target="#datamx.io-y-portales-ckan"><span class="header-section-number">2.5.7</span> 7) Datamx.io y portales CKAN</a></li>
-  <li><a href="#bibliografía-y-metadatos-crossref" id="toc-bibliografía-y-metadatos-crossref" class="nav-link" data-scroll-target="#bibliografía-y-metadatos-crossref"><span class="header-section-number">2.5.8</span> 8) Bibliografía y metadatos — Crossref</a></li>
+  <li><a href="#banco-mundial-world-development-indicators" id="toc-banco-mundial-world-development-indicators" class="nav-link" data-scroll-target="#banco-mundial-world-development-indicators"><span class="header-section-number">1.5.1</span> 1) Banco Mundial (World Development Indicators)</a></li>
+  <li><a href="#naciones-unidas-world-population-prospects-2024-wpp-2024" id="toc-naciones-unidas-world-population-prospects-2024-wpp-2024" class="nav-link" data-scroll-target="#naciones-unidas-world-population-prospects-2024-wpp-2024"><span class="header-section-number">1.5.2</span> 2) Naciones Unidas — World Population Prospects 2024 (WPP 2024)</a></li>
+  <li><a href="#inegi-méxico-api-de-indicadores" id="toc-inegi-méxico-api-de-indicadores" class="nav-link" data-scroll-target="#inegi-méxico-api-de-indicadores"><span class="header-section-number">1.5.3</span> 3) INEGI (México) — API de Indicadores</a></li>
+  <li><a href="#banco-de-méxico-sie-series-de-tiempo" id="toc-banco-de-méxico-sie-series-de-tiempo" class="nav-link" data-scroll-target="#banco-de-méxico-sie-series-de-tiempo"><span class="header-section-number">1.5.4</span> 4) Banco de México — SIE (Series de tiempo)</a></li>
+  <li><a href="#cepalstat-cepal" id="toc-cepalstat-cepal" class="nav-link" data-scroll-target="#cepalstat-cepal"><span class="header-section-number">1.5.5</span> 5) CEPALSTAT (CEPAL)</a></li>
+  <li><a href="#ocde-fmi-eurostat-y-un-comtrade" id="toc-ocde-fmi-eurostat-y-un-comtrade" class="nav-link" data-scroll-target="#ocde-fmi-eurostat-y-un-comtrade"><span class="header-section-number">1.5.6</span> 6) OCDE, FMI, Eurostat y UN Comtrade</a></li>
+  <li><a href="#datamx.io-y-portales-ckan" id="toc-datamx.io-y-portales-ckan" class="nav-link" data-scroll-target="#datamx.io-y-portales-ckan"><span class="header-section-number">1.5.7</span> 7) Datamx.io y portales CKAN</a></li>
+  <li><a href="#bibliografía-y-metadatos-crossref" id="toc-bibliografía-y-metadatos-crossref" class="nav-link" data-scroll-target="#bibliografía-y-metadatos-crossref"><span class="header-section-number">1.5.8</span> 8) Bibliografía y metadatos — Crossref</a></li>
   </ul></li>
-  <li><a href="#ejemplos-prácticos-mínimos-r" id="toc-ejemplos-prácticos-mínimos-r" class="nav-link" data-scroll-target="#ejemplos-prácticos-mínimos-r"><span class="header-section-number">2.6</span> Ejemplos prácticos mínimos (R)</a>
+  <li><a href="#ejemplos-prácticos-mínimos-r" id="toc-ejemplos-prácticos-mínimos-r" class="nav-link" data-scroll-target="#ejemplos-prácticos-mínimos-r"><span class="header-section-number">1.6</span> Ejemplos prácticos mínimos (R)</a>
   <ul class="collapse">
-  <li><a href="#a-patrón-general-con-httr2-jsonlite-get-json" id="toc-a-patrón-general-con-httr2-jsonlite-get-json" class="nav-link" data-scroll-target="#a-patrón-general-con-httr2-jsonlite-get-json"><span class="header-section-number">2.6.1</span> A) Patrón general con <code>{httr2}</code> + <code>{jsonlite}</code> (GET + JSON)</a></li>
-  <li><a href="#b-banco-de-méxico-sie-estructura-de-endpoint-con-token" id="toc-b-banco-de-méxico-sie-estructura-de-endpoint-con-token" class="nav-link" data-scroll-target="#b-banco-de-méxico-sie-estructura-de-endpoint-con-token"><span class="header-section-number">2.6.2</span> B) Banco de México (SIE) — estructura de endpoint (con token)</a></li>
-  <li><a href="#c-inegi-vía-paquete-más-amigable-para-docencia" id="toc-c-inegi-vía-paquete-más-amigable-para-docencia" class="nav-link" data-scroll-target="#c-inegi-vía-paquete-más-amigable-para-docencia"><span class="header-section-number">2.6.3</span> C) INEGI — vía paquete (más amigable para docencia)</a></li>
-  <li><a href="#d-ckan-datamx-búsqueda-de-datasets-por-palabra-clave" id="toc-d-ckan-datamx-búsqueda-de-datasets-por-palabra-clave" class="nav-link" data-scroll-target="#d-ckan-datamx-búsqueda-de-datasets-por-palabra-clave"><span class="header-section-number">2.6.4</span> D) CKAN / Datamx — búsqueda de datasets por palabra clave</a></li>
+  <li><a href="#a-patrón-general-con-httr2-jsonlite-get-json" id="toc-a-patrón-general-con-httr2-jsonlite-get-json" class="nav-link" data-scroll-target="#a-patrón-general-con-httr2-jsonlite-get-json"><span class="header-section-number">1.6.1</span> A) Patrón general con <code>{httr2}</code> + <code>{jsonlite}</code> (GET + JSON)</a></li>
+  <li><a href="#b-banco-de-méxico-sie-estructura-de-endpoint-con-token" id="toc-b-banco-de-méxico-sie-estructura-de-endpoint-con-token" class="nav-link" data-scroll-target="#b-banco-de-méxico-sie-estructura-de-endpoint-con-token"><span class="header-section-number">1.6.2</span> B) Banco de México (SIE) — estructura de endpoint (con token)</a></li>
+  <li><a href="#c-inegi-vía-paquete-más-amigable-para-docencia" id="toc-c-inegi-vía-paquete-más-amigable-para-docencia" class="nav-link" data-scroll-target="#c-inegi-vía-paquete-más-amigable-para-docencia"><span class="header-section-number">1.6.3</span> C) INEGI — vía paquete (más amigable para docencia)</a></li>
+  <li><a href="#d-ckan-datamx-búsqueda-de-datasets-por-palabra-clave" id="toc-d-ckan-datamx-búsqueda-de-datasets-por-palabra-clave" class="nav-link" data-scroll-target="#d-ckan-datamx-búsqueda-de-datasets-por-palabra-clave"><span class="header-section-number">1.6.4</span> D) CKAN / Datamx — búsqueda de datasets por palabra clave</a></li>
   </ul></li>
-  <li><a href="#lecturas-y-tareas-sugeridas-para-cerrar-el-día-1" id="toc-lecturas-y-tareas-sugeridas-para-cerrar-el-día-1" class="nav-link" data-scroll-target="#lecturas-y-tareas-sugeridas-para-cerrar-el-día-1"><span class="header-section-number">2.7</span> Lecturas y tareas sugeridas para cerrar el día 1</a></li>
-  <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias"><span class="header-section-number">2.8</span> Referencias</a></li>
+  <li><a href="#lecturas-y-tareas-sugeridas-para-cerrar-el-día-1" id="toc-lecturas-y-tareas-sugeridas-para-cerrar-el-día-1" class="nav-link" data-scroll-target="#lecturas-y-tareas-sugeridas-para-cerrar-el-día-1"><span class="header-section-number">1.7</span> Lecturas y tareas sugeridas para cerrar el día 1</a></li>
+  <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias"><span class="header-section-number">1.8</span> Referencias</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/aniuxa/r_api2026/edit/main/D1.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/aniuxa/r_api2026/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -227,7 +227,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Día 1 — ¿Qué es una API? Tipos, ventajas y fuentes que usaremos</span></h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Día 1 — ¿Qué es una API? Tipos, ventajas y fuentes que usaremos</span></h1>
 </div>
 
 
@@ -242,15 +242,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="propósito-del-día-1" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="propósito-del-día-1"><span class="header-section-number">2.1</span> Propósito del día 1</h2>
+<section id="propósito-del-día-1" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="propósito-del-día-1"><span class="header-section-number">1.1</span> Propósito del día 1</h2>
 <p>En este primer día introducimos el concepto de <strong>API</strong>, los tipos más comunes y por qué son útiles para trabajar con datos sociales. Además, dejamos instaladas las fuentes (paquetes) que consultaremos durante el curso y mostramos ejemplos prácticos mínimos (reproducibles y adaptables).</p>
 <blockquote class="blockquote">
 <p>Nota de autoría y uso: algunas secciones (en particular, el listado de APIs económicas y la lógica de ejemplos) se inspiran en el material didáctico publicado por Jeffry Bonilla (2024) en RPubs.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> El encuadre de API REST/RESTful y terminología general se apoya, entre otros, en documentación de AWS.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
 </blockquote>
 </section>
-<section id="qué-es-una-api" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="qué-es-una-api"><span class="header-section-number">2.2</span> ¿Qué es una API?</h2>
+<section id="qué-es-una-api" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="qué-es-una-api"><span class="header-section-number">1.2</span> ¿Qué es una API?</h2>
 <p>Una <strong>API</strong> (<em>Application Programming Interface</em>) es un conjunto de reglas que permite que un software se comunique con otro: define qué se pide, cómo se pide y qué se recibe a cambio.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a><br>
 En la práctica, cuando hablamos de <strong>APIs de datos</strong>, nos referimos a servicios que exponen información (por ejemplo, series de tiempo, indicadores o catálogos) para consultarla de manera automatizada desde R u otro lenguaje.</p>
 <p>Además de definiciones generales, en este curso usaremos dos guías de referencia:</p>
@@ -258,8 +258,8 @@ En la práctica, cuando hablamos de <strong>APIs de datos</strong>, nos referimo
 <li>Una guía orientada a <strong>datos abiertos</strong> y publicación/reutilización mediante APIs (Iniciativa Aporta / datos.gob.es).<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></li>
 <li>Una guía práctica sobre <strong>Web APIs</strong>, URLs, endpoints y métodos HTTP (Caballero, 2022).<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></li>
 </ul>
-<section id="partes-típicas-de-una-consulta-url" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="partes-típicas-de-una-consulta-url"><span class="header-section-number">2.2.1</span> Partes típicas de una consulta (URL)</h3>
+<section id="partes-típicas-de-una-consulta-url" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="partes-típicas-de-una-consulta-url"><span class="header-section-number">1.2.1</span> Partes típicas de una consulta (URL)</h3>
 <p>En el mundo web, una consulta suele expresarse como una <strong>URL</strong> con:</p>
 <ul>
 <li><strong>Dominio</strong>: dónde vive el servicio (por ejemplo, <code>api.worldbank.org</code>).</li>
@@ -270,10 +270,10 @@ En la práctica, cuando hablamos de <strong>APIs de datos</strong>, nos referimo
 <p>Estas piezas (URL + parámetros + headers) son la “gramática” mínima para pedir datos a una API.<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a></p>
 </section>
 </section>
-<section id="tipos-de-api-que-nos-importan-en-el-curso" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="tipos-de-api-que-nos-importan-en-el-curso"><span class="header-section-number">2.3</span> Tipos de API que nos importan en el curso</h2>
-<section id="por-estilo-de-diseño-restrestful" class="level3" data-number="2.3.1">
-<h3 data-number="2.3.1" class="anchored" data-anchor-id="por-estilo-de-diseño-restrestful"><span class="header-section-number">2.3.1</span> Por estilo de diseño: REST/RESTful</h3>
+<section id="tipos-de-api-que-nos-importan-en-el-curso" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="tipos-de-api-que-nos-importan-en-el-curso"><span class="header-section-number">1.3</span> Tipos de API que nos importan en el curso</h2>
+<section id="por-estilo-de-diseño-restrestful" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="por-estilo-de-diseño-restrestful"><span class="header-section-number">1.3.1</span> Por estilo de diseño: REST/RESTful</h3>
 <p>Muchas fuentes públicas se consultan vía <strong>APIs RESTful</strong>, un estilo común para intercambiar información en la web.<a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a><br>
 En REST es frecuente usar métodos HTTP como:</p>
 <ul>
@@ -282,8 +282,8 @@ En REST es frecuente usar métodos HTTP como:</p>
 </ul>
 <p>Las respuestas suelen venir en <strong>JSON</strong> (y a veces XML o CSV).<a href="#fn11" class="footnote-ref" id="fnref11" role="doc-noteref"><sup>11</sup></a></p>
 </section>
-<section id="por-acceso-pública-privada-de-socios-compuesta" class="level3" data-number="2.3.2">
-<h3 data-number="2.3.2" class="anchored" data-anchor-id="por-acceso-pública-privada-de-socios-compuesta"><span class="header-section-number">2.3.2</span> Por acceso: pública, privada, de socios, compuesta</h3>
+<section id="por-acceso-pública-privada-de-socios-compuesta" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="por-acceso-pública-privada-de-socios-compuesta"><span class="header-section-number">1.3.2</span> Por acceso: pública, privada, de socios, compuesta</h3>
 <p>Para fines prácticos, conviene distinguir estas categorías (la frontera puede variar según el proveedor): APIs <strong>públicas</strong>, <strong>privadas</strong>, <strong>de socios</strong> y <strong>compuestas</strong>.<a href="#fn12" class="footnote-ref" id="fnref12" role="doc-noteref"><sup>12</sup></a><br>
 Lo relevante en un curso aplicado es <strong>qué exige cada fuente</strong>:</p>
 <ul>
@@ -293,10 +293,10 @@ Lo relevante en un curso aplicado es <strong>qué exige cada fuente</strong>:</p
 </ul>
 </section>
 </section>
-<section id="ventajas-y-desventajas-de-usar-apis" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="ventajas-y-desventajas-de-usar-apis"><span class="header-section-number">2.4</span> Ventajas y desventajas de usar APIs</h2>
-<section id="ventajas" class="level3" data-number="2.4.1">
-<h3 data-number="2.4.1" class="anchored" data-anchor-id="ventajas"><span class="header-section-number">2.4.1</span> Ventajas</h3>
+<section id="ventajas-y-desventajas-de-usar-apis" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="ventajas-y-desventajas-de-usar-apis"><span class="header-section-number">1.4</span> Ventajas y desventajas de usar APIs</h2>
+<section id="ventajas" class="level3" data-number="1.4.1">
+<h3 data-number="1.4.1" class="anchored" data-anchor-id="ventajas"><span class="header-section-number">1.4.1</span> Ventajas</h3>
 <ul>
 <li><strong>Reproducibilidad</strong>: el mismo script reproduce la descarga (sin “clics”).<a href="#fn13" class="footnote-ref" id="fnref13" role="doc-noteref"><sup>13</sup></a></li>
 <li><strong>Actualización controlada</strong>: re-ejecutar y obtener datos recientes.</li>
@@ -304,8 +304,8 @@ Lo relevante en un curso aplicado es <strong>qué exige cada fuente</strong>:</p
 <li><strong>Trazabilidad</strong>: queda el endpoint y los parámetros usados (útil para documentación metodológica).<a href="#fn15" class="footnote-ref" id="fnref15" role="doc-noteref"><sup>15</sup></a></li>
 </ul>
 </section>
-<section id="desventajas-riesgos" class="level3" data-number="2.4.2">
-<h3 data-number="2.4.2" class="anchored" data-anchor-id="desventajas-riesgos"><span class="header-section-number">2.4.2</span> Desventajas / riesgos</h3>
+<section id="desventajas-riesgos" class="level3" data-number="1.4.2">
+<h3 data-number="1.4.2" class="anchored" data-anchor-id="desventajas-riesgos"><span class="header-section-number">1.4.2</span> Desventajas / riesgos</h3>
 <ul>
 <li><strong>Límites de uso</strong> (<em>rate limits</em>): algunas APIs restringen volumen o frecuencia.<a href="#fn16" class="footnote-ref" id="fnref16" role="doc-noteref"><sup>16</sup></a></li>
 <li><strong>Cambios</strong>: endpoints o parámetros pueden cambiar con el tiempo.<a href="#fn17" class="footnote-ref" id="fnref17" role="doc-noteref"><sup>17</sup></a></li>
@@ -314,51 +314,51 @@ Lo relevante en un curso aplicado es <strong>qué exige cada fuente</strong>:</p
 </ul>
 </section>
 </section>
-<section id="fuentes-confiables-que-consultaremos-y-qué-aporta-cada-una" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="fuentes-confiables-que-consultaremos-y-qué-aporta-cada-una"><span class="header-section-number">2.5</span> Fuentes confiables que consultaremos y qué aporta cada una</h2>
+<section id="fuentes-confiables-que-consultaremos-y-qué-aporta-cada-una" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="fuentes-confiables-que-consultaremos-y-qué-aporta-cada-una"><span class="header-section-number">1.5</span> Fuentes confiables que consultaremos y qué aporta cada una</h2>
 <p>A continuación se listan fuentes y <strong>paquetes</strong> o <strong>métodos</strong> de acceso que usaremos para ellas.</p>
-<section id="banco-mundial-world-development-indicators" class="level3" data-number="2.5.1">
-<h3 data-number="2.5.1" class="anchored" data-anchor-id="banco-mundial-world-development-indicators"><span class="header-section-number">2.5.1</span> 1) Banco Mundial (World Development Indicators)</h3>
+<section id="banco-mundial-world-development-indicators" class="level3" data-number="1.5.1">
+<h3 data-number="1.5.1" class="anchored" data-anchor-id="banco-mundial-world-development-indicators"><span class="header-section-number">1.5.1</span> 1) Banco Mundial (World Development Indicators)</h3>
 <ul>
 <li><strong>Qué aporta</strong>: indicadores socioeconómicos comparables (PIB, pobreza, educación, salud).</li>
 <li><strong>Cómo acceder</strong>: API del Banco Mundial (consulta directa) o paquetes como <code>{WDI}</code>.</li>
 <li><strong>Documentación</strong>: API (developer overview) y paquete <code>{WDI}</code>.<a href="#fn19" class="footnote-ref" id="fnref19" role="doc-noteref"><sup>19</sup></a><a href="#fn20" class="footnote-ref" id="fnref20" role="doc-noteref"><sup>20</sup></a></li>
 </ul>
 </section>
-<section id="naciones-unidas-world-population-prospects-2024-wpp-2024" class="level3" data-number="2.5.2">
-<h3 data-number="2.5.2" class="anchored" data-anchor-id="naciones-unidas-world-population-prospects-2024-wpp-2024"><span class="header-section-number">2.5.2</span> 2) Naciones Unidas — World Population Prospects 2024 (WPP 2024)</h3>
+<section id="naciones-unidas-world-population-prospects-2024-wpp-2024" class="level3" data-number="1.5.2">
+<h3 data-number="1.5.2" class="anchored" data-anchor-id="naciones-unidas-world-population-prospects-2024-wpp-2024"><span class="header-section-number">1.5.2</span> 2) Naciones Unidas — World Population Prospects 2024 (WPP 2024)</h3>
 <ul>
 <li><strong>Qué aporta</strong>: población, fecundidad, mortalidad, migración (estimaciones y proyecciones).</li>
 <li><strong>Cómo acceder</strong>: paquete <code>{wpp2024}</code> (instalación desde GitHub, según el proyecto) y/o archivos oficiales de WPP 2024.</li>
 <li><strong>Referencia</strong>: repositorio/paquete y sitio oficial de WPP 2024.<a href="#fn21" class="footnote-ref" id="fnref21" role="doc-noteref"><sup>21</sup></a><a href="#fn22" class="footnote-ref" id="fnref22" role="doc-noteref"><sup>22</sup></a></li>
 </ul>
 </section>
-<section id="inegi-méxico-api-de-indicadores" class="level3" data-number="2.5.3">
-<h3 data-number="2.5.3" class="anchored" data-anchor-id="inegi-méxico-api-de-indicadores"><span class="header-section-number">2.5.3</span> 3) INEGI (México) — API de Indicadores</h3>
+<section id="inegi-méxico-api-de-indicadores" class="level3" data-number="1.5.3">
+<h3 data-number="1.5.3" class="anchored" data-anchor-id="inegi-méxico-api-de-indicadores"><span class="header-section-number">1.5.3</span> 3) INEGI (México) — API de Indicadores</h3>
 <ul>
 <li><strong>Qué aporta</strong>: indicadores económicos y sociales de México.</li>
 <li><strong>Cómo acceder</strong>: API oficial de Indicadores o paquete <code>{inegiR}</code>.</li>
 <li><strong>Documentación</strong>: API INEGI y paquete <code>{inegiR}</code>.<a href="#fn23" class="footnote-ref" id="fnref23" role="doc-noteref"><sup>23</sup></a><a href="#fn24" class="footnote-ref" id="fnref24" role="doc-noteref"><sup>24</sup></a></li>
 </ul>
 </section>
-<section id="banco-de-méxico-sie-series-de-tiempo" class="level3" data-number="2.5.4">
-<h3 data-number="2.5.4" class="anchored" data-anchor-id="banco-de-méxico-sie-series-de-tiempo"><span class="header-section-number">2.5.4</span> 4) Banco de México — SIE (Series de tiempo)</h3>
+<section id="banco-de-méxico-sie-series-de-tiempo" class="level3" data-number="1.5.4">
+<h3 data-number="1.5.4" class="anchored" data-anchor-id="banco-de-méxico-sie-series-de-tiempo"><span class="header-section-number">1.5.4</span> 4) Banco de México — SIE (Series de tiempo)</h3>
 <ul>
 <li><strong>Qué aporta</strong>: series macroeconómicas (tipo de cambio, tasas, UDIS, etc.).</li>
 <li><strong>Requisito</strong>: <strong>token</strong> en el header <code>Bmx-Token</code>.<a href="#fn25" class="footnote-ref" id="fnref25" role="doc-noteref"><sup>25</sup></a></li>
 <li><strong>Documentación</strong>: guía oficial del SIE-API y ejemplos de endpoints.<a href="#fn26" class="footnote-ref" id="fnref26" role="doc-noteref"><sup>26</sup></a><a href="#fn27" class="footnote-ref" id="fnref27" role="doc-noteref"><sup>27</sup></a></li>
 </ul>
 </section>
-<section id="cepalstat-cepal" class="level3" data-number="2.5.5">
-<h3 data-number="2.5.5" class="anchored" data-anchor-id="cepalstat-cepal"><span class="header-section-number">2.5.5</span> 5) CEPALSTAT (CEPAL)</h3>
+<section id="cepalstat-cepal" class="level3" data-number="1.5.5">
+<h3 data-number="1.5.5" class="anchored" data-anchor-id="cepalstat-cepal"><span class="header-section-number">1.5.5</span> 5) CEPALSTAT (CEPAL)</h3>
 <ul>
 <li><strong>Qué aporta</strong>: indicadores regionales para América Latina y el Caribe (CEPAL).</li>
 <li><strong>Cómo acceder</strong>: portal y descargas (la modalidad exacta depende del conjunto de datos).</li>
 <li><strong>Referencia</strong>: portal CEPALSTAT.<a href="#fn28" class="footnote-ref" id="fnref28" role="doc-noteref"><sup>28</sup></a></li>
 </ul>
 </section>
-<section id="ocde-fmi-eurostat-y-un-comtrade" class="level3" data-number="2.5.6">
-<h3 data-number="2.5.6" class="anchored" data-anchor-id="ocde-fmi-eurostat-y-un-comtrade"><span class="header-section-number">2.5.6</span> 6) OCDE, FMI, Eurostat y UN Comtrade</h3>
+<section id="ocde-fmi-eurostat-y-un-comtrade" class="level3" data-number="1.5.6">
+<h3 data-number="1.5.6" class="anchored" data-anchor-id="ocde-fmi-eurostat-y-un-comtrade"><span class="header-section-number">1.5.6</span> 6) OCDE, FMI, Eurostat y UN Comtrade</h3>
 <p>Estas fuentes son especialmente útiles para ejemplos de <strong>datos económicos comparados</strong> y comercio internacional. La selección y el enfoque didáctico de esta sección se inspiran en Bonilla (2024).<a href="#fn29" class="footnote-ref" id="fnref29" role="doc-noteref"><sup>29</sup></a></p>
 <ul>
 <li><strong>OCDE</strong>: API de datos (SDMX / OECD Data API).<a href="#fn30" class="footnote-ref" id="fnref30" role="doc-noteref"><sup>30</sup></a></li>
@@ -367,16 +367,16 @@ Lo relevante en un curso aplicado es <strong>qué exige cada fuente</strong>:</p
 <li><strong>UN Comtrade</strong>: API de comercio; puede requerir registro/token y tiene límites por plan.<a href="#fn34" class="footnote-ref" id="fnref34" role="doc-noteref"><sup>34</sup></a><a href="#fn35" class="footnote-ref" id="fnref35" role="doc-noteref"><sup>35</sup></a></li>
 </ul>
 </section>
-<section id="datamx.io-y-portales-ckan" class="level3" data-number="2.5.7">
-<h3 data-number="2.5.7" class="anchored" data-anchor-id="datamx.io-y-portales-ckan"><span class="header-section-number">2.5.7</span> 7) Datamx.io y portales CKAN</h3>
+<section id="datamx.io-y-portales-ckan" class="level3" data-number="1.5.7">
+<h3 data-number="1.5.7" class="anchored" data-anchor-id="datamx.io-y-portales-ckan"><span class="header-section-number">1.5.7</span> 7) Datamx.io y portales CKAN</h3>
 <ul>
 <li><strong>Qué aporta</strong>: explorar <strong>catálogos</strong> de datasets y metadatos en portales de datos abiertos.</li>
 <li><strong>Clave</strong>: muchos portales usan CKAN y se consultan con el <strong>Action API</strong> (por ejemplo <code>package_search</code>).<a href="#fn36" class="footnote-ref" id="fnref36" role="doc-noteref"><sup>36</sup></a></li>
 <li><strong>Referencia</strong>: Datamx (portal) y documentación oficial de CKAN API.<a href="#fn37" class="footnote-ref" id="fnref37" role="doc-noteref"><sup>37</sup></a><a href="#fn38" class="footnote-ref" id="fnref38" role="doc-noteref"><sup>38</sup></a></li>
 </ul>
 </section>
-<section id="bibliografía-y-metadatos-crossref" class="level3" data-number="2.5.8">
-<h3 data-number="2.5.8" class="anchored" data-anchor-id="bibliografía-y-metadatos-crossref"><span class="header-section-number">2.5.8</span> 8) Bibliografía y metadatos — Crossref</h3>
+<section id="bibliografía-y-metadatos-crossref" class="level3" data-number="1.5.8">
+<h3 data-number="1.5.8" class="anchored" data-anchor-id="bibliografía-y-metadatos-crossref"><span class="header-section-number">1.5.8</span> 8) Bibliografía y metadatos — Crossref</h3>
 <ul>
 <li><strong>Qué aporta</strong>: DOIs, referencias, autores/as, años, revistas; útil para revisión de literatura y control bibliográfico.</li>
 <li><strong>Cómo acceder</strong>: API de Crossref vía paquete <code>{rcrossref}</code>.</li>
@@ -384,11 +384,11 @@ Lo relevante en un curso aplicado es <strong>qué exige cada fuente</strong>:</p
 </ul>
 </section>
 </section>
-<section id="ejemplos-prácticos-mínimos-r" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="ejemplos-prácticos-mínimos-r"><span class="header-section-number">2.6</span> Ejemplos prácticos mínimos (R)</h2>
+<section id="ejemplos-prácticos-mínimos-r" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="ejemplos-prácticos-mínimos-r"><span class="header-section-number">1.6</span> Ejemplos prácticos mínimos (R)</h2>
 <p>Estos ejemplos son deliberadamente cortos: muestran el patrón <strong>consultar → recibir JSON → convertir a tabla</strong>.</p>
-<section id="a-patrón-general-con-httr2-jsonlite-get-json" class="level3" data-number="2.6.1">
-<h3 data-number="2.6.1" class="anchored" data-anchor-id="a-patrón-general-con-httr2-jsonlite-get-json"><span class="header-section-number">2.6.1</span> A) Patrón general con <code>{httr2}</code> + <code>{jsonlite}</code> (GET + JSON)</h3>
+<section id="a-patrón-general-con-httr2-jsonlite-get-json" class="level3" data-number="1.6.1">
+<h3 data-number="1.6.1" class="anchored" data-anchor-id="a-patrón-general-con-httr2-jsonlite-get-json"><span class="header-section-number">1.6.1</span> A) Patrón general con <code>{httr2}</code> + <code>{jsonlite}</code> (GET + JSON)</h3>
 <p>La API del Banco Mundial permite pedir JSON agregando <code>format=json</code> en la URL.<a href="#fn40" class="footnote-ref" id="fnref40" role="doc-noteref"><sup>40</sup></a></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Instalar (solo la primera vez):</span></span>
@@ -440,8 +440,8 @@ Adjuntando el paquete: 'dplyr'</code></pre>
 </div>
 <p>Paquetes usados (documentación): <code>{httr2}</code>, <code>{jsonlite}</code>, <code>{dplyr}</code>.<a href="#fn41" class="footnote-ref" id="fnref41" role="doc-noteref"><sup>41</sup></a><a href="#fn42" class="footnote-ref" id="fnref42" role="doc-noteref"><sup>42</sup></a><a href="#fn43" class="footnote-ref" id="fnref43" role="doc-noteref"><sup>43</sup></a></p>
 </section>
-<section id="b-banco-de-méxico-sie-estructura-de-endpoint-con-token" class="level3" data-number="2.6.2">
-<h3 data-number="2.6.2" class="anchored" data-anchor-id="b-banco-de-méxico-sie-estructura-de-endpoint-con-token"><span class="header-section-number">2.6.2</span> B) Banco de México (SIE) — estructura de endpoint (con token)</h3>
+<section id="b-banco-de-méxico-sie-estructura-de-endpoint-con-token" class="level3" data-number="1.6.2">
+<h3 data-number="1.6.2" class="anchored" data-anchor-id="b-banco-de-méxico-sie-estructura-de-endpoint-con-token"><span class="header-section-number">1.6.2</span> B) Banco de México (SIE) — estructura de endpoint (con token)</h3>
 <p>En el SIE-API de Banxico, el token se envía en el header <code>Bmx-Token</code>.<a href="#fn44" class="footnote-ref" id="fnref44" role="doc-noteref"><sup>44</sup></a><br>
 Un patrón de consulta típico para una serie es:</p>
 <p><code>/series/{idSerie}/datos/{fechaIni}/{fechaFin}</code><a href="#fn45" class="footnote-ref" id="fnref45" role="doc-noteref"><sup>45</sup></a></p>
@@ -456,8 +456,8 @@ Un patrón de consulta típico para una serie es:</p>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># dat &lt;- jsonlite::fromJSON(httr2::resp_body_string(resp))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="c-inegi-vía-paquete-más-amigable-para-docencia" class="level3" data-number="2.6.3">
-<h3 data-number="2.6.3" class="anchored" data-anchor-id="c-inegi-vía-paquete-más-amigable-para-docencia"><span class="header-section-number">2.6.3</span> C) INEGI — vía paquete (más amigable para docencia)</h3>
+<section id="c-inegi-vía-paquete-más-amigable-para-docencia" class="level3" data-number="1.6.3">
+<h3 data-number="1.6.3" class="anchored" data-anchor-id="c-inegi-vía-paquete-más-amigable-para-docencia"><span class="header-section-number">1.6.3</span> C) INEGI — vía paquete (más amigable para docencia)</h3>
 <p>La API de Indicadores de INEGI requiere una llave (<em>token</em>).<a href="#fn46" class="footnote-ref" id="fnref46" role="doc-noteref"><sup>46</sup></a><br>
 El paquete <code>{inegiR}</code> facilita la consulta desde R.<a href="#fn47" class="footnote-ref" id="fnref47" role="doc-noteref"><sup>47</sup></a></p>
 <div class="cell">
@@ -469,8 +469,8 @@ El paquete <code>{inegiR}</code> facilita la consulta desde R.<a href="#fn47" cl
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># head(x)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="d-ckan-datamx-búsqueda-de-datasets-por-palabra-clave" class="level3" data-number="2.6.4">
-<h3 data-number="2.6.4" class="anchored" data-anchor-id="d-ckan-datamx-búsqueda-de-datasets-por-palabra-clave"><span class="header-section-number">2.6.4</span> D) CKAN / Datamx — búsqueda de datasets por palabra clave</h3>
+<section id="d-ckan-datamx-búsqueda-de-datasets-por-palabra-clave" class="level3" data-number="1.6.4">
+<h3 data-number="1.6.4" class="anchored" data-anchor-id="d-ckan-datamx-búsqueda-de-datasets-por-palabra-clave"><span class="header-section-number">1.6.4</span> D) CKAN / Datamx — búsqueda de datasets por palabra clave</h3>
 <p>En CKAN, <code>package_search</code> permite buscar datasets por texto en metadatos.<a href="#fn48" class="footnote-ref" id="fnref48" role="doc-noteref"><sup>48</sup></a></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(c("httr2", "jsonlite"))</span></span>
@@ -504,8 +504,8 @@ El paquete <code>{inegiR}</code> facilita la consulta desde R.<a href="#fn47" cl
 </div>
 </section>
 </section>
-<section id="lecturas-y-tareas-sugeridas-para-cerrar-el-día-1" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="lecturas-y-tareas-sugeridas-para-cerrar-el-día-1"><span class="header-section-number">2.7</span> Lecturas y tareas sugeridas para cerrar el día 1</h2>
+<section id="lecturas-y-tareas-sugeridas-para-cerrar-el-día-1" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="lecturas-y-tareas-sugeridas-para-cerrar-el-día-1"><span class="header-section-number">1.7</span> Lecturas y tareas sugeridas para cerrar el día 1</h2>
 <ol type="1">
 <li>Identificar una pregunta de investigación (social/demográfica) y proponer:
 <ul>
@@ -517,8 +517,8 @@ El paquete <code>{inegiR}</code> facilita la consulta desde R.<a href="#fn47" cl
 </ol>
 <hr>
 </section>
-<section id="referencias" class="level2" data-number="2.8">
-<h2 data-number="2.8" class="anchored" data-anchor-id="referencias"><span class="header-section-number">2.8</span> Referencias</h2>
+<section id="referencias" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="referencias"><span class="header-section-number">1.8</span> Referencias</h2>
 
 
 </section>

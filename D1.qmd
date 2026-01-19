@@ -1,0 +1,241 @@
+# "Día 1 — ¿Qué es una API? Tipos, ventajas y fuentes que usaremos"
+
+## Propósito del día 1
+
+En este primer día introduce el concepto de API, los tipos más comunes y por qué son útiles para trabajar con datos sociales. Además, deja instaladas las fuentes que consultaremos durante el curso y muestra ejemplos prácticos mínimos (reproducibles y adaptables).
+
+> Nota de autoría y uso: algunas secciones (especialmente el listado de APIs económicas y la lógica de ejemplos) se inspiran en el material didáctico publicado por Jeffry Bonilla (2024) en RPubs.[^d1-1] El encuadre de API REST/RESTful y terminología general se apoya, entre otros, en documentación de AWS.[^d1-2][^d1-3]
+
+[^d1-1]: Bonilla, Jeffry. “Uso de APIs en R para el Acceso a datos económicos: OCDE, FMI, Banco Mundial, UN Comtrade y Eurostat” (RPubs), 17-11-2024. citeturn5search1
+
+[^d1-2]: Amazon Web Services (AWS). “¿Qué es una API?” citeturn13search0
+
+[^d1-3]: Amazon Web Services (AWS). “¿Qué es una API RESTful?” citeturn13search5
+
+## ¿Qué es una API?
+
+Una **API** (*Application Programming Interface*) es un conjunto de reglas que permite que un software se comunique con otro: define qué se pide, cómo se pide y qué se recibe a cambio.[^d1-4]\
+En la práctica, cuando hablamos de **APIs de datos**, nos referimos a servicios que exponen información (por ejemplo series de tiempo, indicadores o catálogos) para consultarla de manera automatizada desde R u otro lenguaje.
+
+[^d1-4]: Amazon Web Services (AWS). “¿Qué es una API?” citeturn13search0
+
+Además de definiciones generales, en este curso usaremos dos guías de referencia: - Una guía orientada a **datos abiertos** y publicación/reutilización mediante APIs (Iniciativa Aporta / datos.gob.es).[^d1-5] - Una guía práctica sobre **Web APIs**, URLs, endpoints y métodos HTTP (Caballero, 2022).[^d1-6]
+
+[^d1-5]: Iniciativa Aporta (datos.gob.es), Ministerio para la Transformación Digital y de la Función Pública (España) / Entidad Pública Empresarial Red.es (2025). **Guía práctica para la publicación de Datos Abiertos usando APIs** (05/02/2025). PDF proporcionado por la usuaria: `guia_publicacion_apis.pdf`.
+
+[^d1-6]: Caballero, Alberto Ramírez (2022). **Guía para aprender a trabajar con APIS** (versión 1). PDF proporcionado por la usuaria: `guia-para-aprender-a-trabajar-con-apis-version-1.pdf`.
+
+### Partes típicas de una consulta
+
+En el mundo web, la consulta suele expresarse como una URL con:
+
+-   **Dominio** (dónde vive el servicio)
+-   **Ruta / endpoint** (qué recurso específico se solicita)
+-   **Parámetros** (filtros: periodo, país, indicador, etc.)
+-   **Encabezados** (por ejemplo, *tokens* o llaves)
+
+## Tipos de API que nos importan en el curso
+
+### Por estilo de diseño: REST/RESTful
+
+Gran parte de las fuentes públicas que usaremos se consultan vía **API RESTful**, un estilo común para intercambiar información de manera segura en la web.[^d1-7]\
+En REST, es frecuente usar métodos HTTP como `GET` (consultar), `POST` (enviar), etc., y recibir respuestas en **JSON** (o a veces XML/CSV).
+
+[^d1-7]: Amazon Web Services (AWS). “¿Qué es una API RESTful?” citeturn13search5
+
+### Por acceso: pública, privada, de socios, compuesta
+
+En cursos aplicados conviene distinguir, al menos, estas categorías (la frontera puede variar según el proveedor): APIs **públicas**, **privadas**, **de socios** y **compuestas**.[^d1-8]\
+Para nosotras, lo clave es **qué exige cada fuente**: ¿requiere registro? ¿token? ¿límites de descarga?
+
+[^d1-8]: Amazon Web Services (AWS). “¿Qué es una API?” citeturn13search0
+
+## Ventajas y desventajas de usar APIs
+
+### Ventajas
+
+-   **Reproducibilidad:** el mismo script reproduce la descarga sin “clics”.
+-   **Actualización controlada:** podemos re-ejecutar y obtener datos recientes sin rehacer pasos manuales.
+-   **Descargas selectivas:** pedir solo un indicador/periodo en lugar de bajar archivos enormes.
+-   **Trazabilidad:** queda registro del endpoint y de los parámetros usados.
+
+### Desventajas / riesgos
+
+-   **Límites de uso (rate limits):** algunas APIs restringen volumen o frecuencia.
+-   **Cambios de versión:** endpoints o parámetros pueden cambiar con el tiempo.
+-   **Dependencia de conectividad:** sin internet no hay consulta.
+-   **Autenticación y llaves:** hay que gestionar tokens (sin exponerlos en repositorios).
+
+## Fuentes confiables que consultaremos y qué aporta cada una
+
+A continuación se listan fuentes y **paquetes** o **métodos** que usaremos para acceder a ellas.
+
+### 1) Banco Mundial (World Development Indicators)
+
+-   **Uso típico:** indicadores socioeconómicos comparables (PIB, pobreza, educación, salud).
+-   **Paquetes:** `{WDI}` o alternativas como `{wbstats}`.
+-   **Referencia:** API del Banco Mundial (developer info) y documentación de paquete.[^d1-9][^d1-10]
+
+[^d1-9]: World Bank. “Developer information overview” (World Bank API). citeturn0search1
+
+[^d1-10]: CRAN. Paquete `{WDI}` (documentación). citeturn8search13
+
+### 2) Naciones Unidas — World Population Prospects 2024
+
+-   **Uso típico:** población, fecundidad, mortalidad, migración (proyecciones/estimaciones).
+-   **Paquetes:** `{wpp2024}` (según disponibilidad/instalación).
+-   **Referencia:** repositorio o documentación del paquete (WPP 2024).[^d1-11]
+
+[^d1-11]: Paquete `{wpp2024}` (documentación / repositorio). citeturn7search0
+
+### 3) INEGI (México) — Indicadores (y otras APIs)
+
+-   **Uso típico:** indicadores económicos y sociales nacionales; según API, también catálogos.
+-   **Paquetes:** `{inegiR}` (facilita consulta desde R).
+-   **Referencia:** página oficial de INEGI (API de indicadores) y documentación del paquete.[^d1-12][^d1-13]
+
+[^d1-12]: INEGI. “API de Indicadores” (servicio oficial). citeturn10search21
+
+[^d1-13]: CRAN / rdrr. Paquete `{inegiR}` (documentación). citeturn10search21turn10search24
+
+### 4) Banco de México — SIE (Series de tiempo)
+
+-   **Uso típico:** series macroeconómicas (tipo de cambio, tasas, UDIS, etc.).
+-   **Autenticación:** requiere **token** (en encabezado `Bmx-Token`).[^d1-14]
+-   **Referencia:** documentación oficial del SIE-API y ejemplos de endpoints.[^d1-15][^d1-16]
+
+[^d1-14]: Banco de México. “Token de consulta” (requisito para usar el API). citeturn11search0
+
+[^d1-15]: Banco de México. “SIE API” (documentación principal). citeturn11search1
+
+[^d1-16]: Banco de México. “Ejemplos” (estructura de URLs para consultar series). citeturn11search3
+
+### 5) CEPALSTAT (CEPAL)
+
+-   **Uso típico:** indicadores regionales para América Latina y el Caribe.
+-   **Acceso:** se consultan recursos y/o servicios de datos (según el producto).
+-   **Referencia:** documentación y portal CEPALSTAT (servicios).[^d1-17]
+
+[^d1-17]: CEPALSTAT (CEPAL). Portal / servicios de datos. citeturn3search3
+
+### 6) OCDE, FMI, Eurostat y UN Comtrade
+
+Estas fuentes son especialmente útiles para ejemplos de **datos económicos comparados** (y comercio internacional). El guion base de esta sección se inspira en Bonilla (2024).[^d1-18]
+
+[^d1-18]: Bonilla, Jeffry. “Uso de APIs en R para el Acceso a datos económicos: OCDE, FMI, Banco Mundial, UN Comtrade y Eurostat” (RPubs), 17-11-2024. citeturn5search1
+
+-   **OCDE:** API de datos (SDMX) y documentación.[^d1-19]
+-   **FMI:** API (DataMapper / SDMX) y ayuda oficial.[^d1-20]
+-   **Eurostat:** web services y soporte vía paquete `{eurostat}`.[^d1-21]
+-   **UN Comtrade:** API de comercio; puede requerir registro/token y tiene límites por plan.[^d1-22]
+
+[^d1-19]: OCDE. “OECD Data API / SDMX endpoints” (documentación/portal). citeturn9search3
+
+[^d1-20]: Fondo Monetario Internacional (IMF). Ayuda de API (DataMapper/SDMX). citeturn9search2
+
+[^d1-21]: Eurostat. “Web services / Open Data” (documentación) y tutorial del paquete `{eurostat}`. citeturn8search1turn1search6
+
+[^d1-22]: UN Comtrade. “API documentation”. citeturn8search4
+
+### 7) Datamx.io (CKAN) y portales CKAN
+
+-   **Uso típico:** explorar *catálogos* de datasets y metadatos en portales de datos abiertos.
+-   **Clave:** muchos portales usan CKAN y se consultan por el **Action API**.
+-   **Referencia:** Datamx.io indica que funciona sobre CKAN y enlaza a la documentación; además citamos la guía oficial de CKAN.[^d1-23][^d1-24]
+
+[^d1-23]: Datamx.io. “La plataforma cívica de datos abiertos de México” (sitio) y referencia a CKAN. citeturn12view0
+
+[^d1-24]: CKAN. “API guide” (Action API, package_search). citeturn11search2
+
+### 8) Bibliografía y metadatos — Crossref
+
+-   **Uso típico:** recuperar DOIs, referencias, autores/as, años, revistas; útil para revisión de literatura y control bibliográfico.
+-   **Paquete:** `{rcrossref}` (rOpenSci).
+-   **Referencia:** documentación del paquete.[^d1-25]
+
+[^d1-25]: rOpenSci / CRAN. Paquete `{rcrossref}` (documentación). citeturn2search3turn7search3
+
+## Ejemplos prácticos mínimos (R)
+
+Estos ejemplos son deliberadamente cortos: muestran el patrón **consultar → recibir JSON → convertir a tibble**.
+
+### A) Patrón general con `{httr2}` (GET + JSON)
+
+```{r}
+# install.packages(c("httr2", "jsonlite", "dplyr"))
+library(httr2)
+library(jsonlite)
+library(dplyr)
+
+url <- "https://api.worldbank.org/v2/country/MEX/indicator/SP.POP.TOTL?format=json"
+resp <- request(url) |> req_perform()
+
+# El contenido típico viene como texto JSON:
+txt  <- resp_body_string(resp)
+json <- fromJSON(txt)
+
+# Dependiendo de la API, la estructura puede ser lista anidada.
+# Aquí, la segunda posición suele tener los datos:
+pop <- json[[2]] |> as_tibble()
+
+pop |> select(date, value) |> head()
+```
+
+### B) Banco de México (SIE) — estructura de endpoint
+
+El endpoint para consultar datos de una serie tiene la forma general:
+
+`/series/{idSerie}/datos/{fechaIni}/{fechaFin}` (hasta 20 series por consulta).[^d1-26]
+
+[^d1-26]: Banco de México. “Ejemplos” (estructura de URLs para consultar series). citeturn11search3
+
+```{r}
+# Ejemplo conceptual: NO incluir tu token en un script público.
+# token <- Sys.getenv("BANXICO_TOKEN")
+
+# url <- "https://www.banxico.org.mx/SieAPIRest/service/v1/series/SF43718/datos/2024-01-01/2024-12-31"
+# resp <- httr2::request(url) |> httr2::req_headers(`Bmx-Token` = token) |> httr2::req_perform()
+# dat  <- jsonlite::fromJSON(httr2::resp_body_string(resp))
+```
+
+### C) INEGI — vía paquete (más estable para docencia)
+
+```{r}
+# install.packages("inegiR")
+library(inegiR)
+
+# La API de INEGI requiere una "key" (llave).
+# key <- Sys.getenv("INEGI_KEY")
+
+# Ejemplo genérico: consulta a un indicador (revisar el id específico en clase).
+# x <- Serie_INEGI("496150", token = key)  # ejemplo ilustrativo
+# head(x)
+```
+
+### D) CKAN / Datamx — búsqueda de datasets por palabra clave
+
+En CKAN, `package_search` permite buscar datasets por texto en metadatos.[^d1-27]
+
+[^d1-27]: CKAN. “API guide” (Action API, package_search). citeturn11search2
+
+```{r}
+# install.packages("httr2")
+library(httr2)
+
+# Ejemplo con el endpoint típico de CKAN (puede variar según el portal):
+# base <- "https://datamx.io/api/3/action/package_search?q=movilidad"
+# resp <- request(base) |> req_perform()
+# json <- jsonlite::fromJSON(resp_body_string(resp))
+# names(json$result)
+```
+
+## Lecturas y tareas sugeridas para cerrar el día 1
+
+1.  Identificar una pregunta de investigación (social/demográfica) y proponer:
+    -   1 fuente por API (o paquete)
+    -   1 indicador/tabla que te gustaría extraer
+2.  Preparar tus llaves/tokens (INEGI, Banxico) en variables de entorno (sin pegarlas en código).
+
+------------------------------------------------------------------------
+
+## Referencias (selección)

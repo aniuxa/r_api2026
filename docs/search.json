@@ -1,0 +1,254 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Curso: De las APIs a los gráficos: explorando datos sociales con R",
+    "section": "",
+    "text": "Curso: De las APIs a los gráficos: explorando datos sociales con R"
+  },
+  {
+    "objectID": "index.html#bienvenida",
+    "href": "index.html#bienvenida",
+    "title": "Curso: De las APIs a los gráficos: explorando datos sociales con R",
+    "section": "Bienvenida",
+    "text": "Bienvenida\nEste curso ofrece una ruta práctica para consultar fuentes de información en línea mediante APIs y paquetes especializados en R, procesarlas y construir visualizaciones claras y reproducibles orientadas al análisis social."
+  },
+  {
+    "objectID": "index.html#datos-generales",
+    "href": "index.html#datos-generales",
+    "title": "Curso: De las APIs a los gráficos: explorando datos sociales con R",
+    "section": "Datos generales",
+    "text": "Datos generales\n\nModalidad: en línea \nFechas: del 19 al 23 de enero de 2026\nHorario: 10:00 a 14:00 (lunes a viernes)\nDuración: 20 horas (5 sesiones de 4 horas)"
+  },
+  {
+    "objectID": "index.html#docente",
+    "href": "index.html#docente",
+    "title": "Curso: De las APIs a los gráficos: explorando datos sociales con R",
+    "section": "Docente",
+    "text": "Docente\nDra. Ana Ruth Escoto Castillo\nCETMECS, Facultad de Ciencias Políticas y Sociales, UNAM"
+  },
+  {
+    "objectID": "index.html#objetivo-general",
+    "href": "index.html#objetivo-general",
+    "title": "Curso: De las APIs a los gráficos: explorando datos sociales con R",
+    "section": "Objetivo general",
+    "text": "Objetivo general\nQue el estudiantado sea capaz de consultar fuentes de información en línea mediante APIs y paquetes especializados en R (como WDI, wpp2024, entre otros), procesarlas y generar visualizaciones claras y reproducibles que apoyen el análisis social."
+  },
+  {
+    "objectID": "index.html#estructura-del-curso-5-sesiones",
+    "href": "index.html#estructura-del-curso-5-sesiones",
+    "title": "Curso: De las APIs a los gráficos: explorando datos sociales con R",
+    "section": "Estructura del curso (5 sesiones)",
+    "text": "Estructura del curso (5 sesiones)\nA lo largo de la semana seguiremos el temario aprobado:\n\nIntroducción a las APIs y fuentes de datos sociales en línea (4 h)\n\nImportación y procesamiento de datos obtenidos en línea (4 h)\n\nExploración y análisis descriptivo de datos (4 h)\n\nVisualización de datos sociales (4 h)\n\nProyecto integrador (4 h)"
+  },
+  {
+    "objectID": "index.html#programa-día-por-día",
+    "href": "index.html#programa-día-por-día",
+    "title": "Curso: De las APIs a los gráficos: explorando datos sociales con R",
+    "section": "Programa día por día",
+    "text": "Programa día por día\n\nDía 1 · APIs y primeras conexiones\n\n¿Qué es una API? Endpoints, parámetros, tokens y respuestas en JSON.\nPrimeras consultas con paquetes y/o solicitudes HTTP.\nFuentes de ejemplo: INEGI, Banxico, Banco Mundial, CEPAL\n\n\n\nDía 2 · Importación y limpieza\n\nImportación de datos (CSV, XLSX y otros formatos).\nLimpieza y ordenamiento con tidyverse (nombres, tipos, fechas, valores perdidos).\n\n\n\nDía 3 · Análisis descriptivo\n\nTabulados básicos y medidas descriptivas.\nFactores de expansión cuando corresponda.\n\n\n\nDía 4 · Visualización\n\nGráficos univariados y bivariados con ggplot2.\nBuenas prácticas para comunicar resultados.\n\n\n\nDía 5 · Proyecto integrador\n\nIntegración: consulta de datos en línea + limpieza + visualización.\nEntrega breve del ejercicio aplicado."
+  },
+  {
+    "objectID": "index.html#requisitos-evaluación-y-acreditación",
+    "href": "index.html#requisitos-evaluación-y-acreditación",
+    "title": "Curso: De las APIs a los gráficos: explorando datos sociales con R",
+    "section": "Requisitos, evaluación y acreditación",
+    "text": "Requisitos, evaluación y acreditación\n\nRequisito: conocimientos básicos de estadística descriptiva e interés en el análisis de datos sociales.\nAcreditación: al menos 80% de asistencia.\nEvaluación: ejercicios prácticos por tema y proyecto integrador final."
+  },
+  {
+    "objectID": "index.html#instalación-recomendada-antes-del-día-1",
+    "href": "index.html#instalación-recomendada-antes-del-día-1",
+    "title": "Curso: De las APIs a los gráficos: explorando datos sociales con R",
+    "section": "Instalación recomendada (antes del Día 1)",
+    "text": "Instalación recomendada (antes del Día 1)\nTe recomendamos instalar R y RStudio con anticipación:\n\nGuía de instalación (macOS y Windows)\nPaquetes básicos"
+  },
+  {
+    "objectID": "index.html#bibliografía-base",
+    "href": "index.html#bibliografía-base",
+    "title": "Curso: De las APIs a los gráficos: explorando datos sociales con R",
+    "section": "Bibliografía base",
+    "text": "Bibliografía base\n\nWickham, H., & Grolemund, G. (2016). R for Data Science.\n\nHealy, K. (2018). Data Visualization: A Practical Introduction.\n\nEscoto Castillo, A. R. (2021). ¿Cómo empezar a estudiar el mercado de trabajo en México? UNAM."
+  },
+  {
+    "objectID": "install.html#requisitos-generales",
+    "href": "install.html#requisitos-generales",
+    "title": "Instalación de R y RStudio",
+    "section": "1. Requisitos generales",
+    "text": "1. Requisitos generales\n\nConexión a internet y permisos para instalar software.\nEspacio libre en disco (R + RStudio + herramientas de compilación pueden ocupar varios cientos de MB).\nRecomendación: reiniciar el equipo después de instalar R, y nuevamente después de instalar RStudio."
+  },
+  {
+    "objectID": "install.html#instalación-en-macos",
+    "href": "install.html#instalación-en-macos",
+    "title": "Instalación de R y RStudio",
+    "section": "2. Instalación en macOS",
+    "text": "2. Instalación en macOS\n\n2.1 Descargar e instalar R2.2 Instalar herramientas de compilación2.3 Instalar RStudio (Posit)\n\n\n\nEntra a CRAN para macOS y descarga la versión más reciente de R para Mac. citeturn1search2\n\nElige el instalador que corresponda a tu procesador:\n\nApple Silicon (ARM64): Macs con procesadores M1/M2/M3/M4.\nIntel (x86_64): Macs con procesador Intel.\n\n\n\nSi no estás segura/o del procesador: menú  → Acerca de esta Mac.\n\n\n\nEn el curso instalaremos paquetes que, en algunos casos, necesitan compilar código (C/C++ o Fortran). En macOS, lo mínimo recomendado es:\n\nXQuartz (X11). citeturn1search1\n\nXcode Command Line Tools (herramientas de desarrollo de Apple). citeturn1search9\n\nGNU Fortran (gfortran), recomendado por el equipo de R para macOS. citeturn1search0turn1search2\n\nEnlaces: - XQuartz: https://www.xquartz.org/ citeturn1search1\n- Xcode (recursos oficiales): https://developer.apple.com/xcode/resources/ citeturn1search9\n- gfortran (instalador universal recomendado): https://mac.r-project.org/tools/ citeturn1search0\n\n\n\nEntra al sitio de Posit y descarga RStudio Desktop para macOS. citeturn0search3\n\nInstala el archivo descargado siguiendo el asistente."
+  },
+  {
+    "objectID": "install.html#instalación-en-windows",
+    "href": "install.html#instalación-en-windows",
+    "title": "Instalación de R y RStudio",
+    "section": "3. Instalación en Windows",
+    "text": "3. Instalación en Windows\n\n3.1 Descargar e instalar R3.2 Instalar Rtools3.3 Instalar RStudio (Posit)\n\n\n\nEntra a CRAN para Windows (base) y descarga la versión más reciente de R para Windows. citeturn0search1\n\nEjecuta el instalador (.exe) y conserva las opciones por defecto (suelen funcionar bien para la mayoría de los equipos).\n\n\n\nRtools es un conjunto de herramientas para compilar paquetes que incluyen código (C/C++/Fortran). No siempre es necesario para instalar paquetes desde CRAN, pero ayuda a evitar problemas cuando un paquete no tiene binario disponible o requiere compilación. citeturn3view0\n\nEntra a la página de Rtools y descarga la versión recomendada para R 4.5.x. citeturn3view0\n\nInstala en la ruta sugerida por defecto (por ejemplo, C:\\rtools45).\n\n\nSi tu equipo es Windows ARM (poco común), revisa la sección de instaladores ARM indicada en la página oficial.\n\n\n\n\nEntra al sitio de Posit y descarga RStudio Desktop para Windows. citeturn0search3\n\nInstala el archivo descargado siguiendo el asistente."
+  },
+  {
+    "objectID": "install.html#verificación-rápida-recomendado",
+    "href": "install.html#verificación-rápida-recomendado",
+    "title": "Instalación de R y RStudio",
+    "section": "4. Verificación rápida (recomendado)",
+    "text": "4. Verificación rápida (recomendado)\nUna vez instalado todo, abre RStudio y ejecuta estas líneas en la consola:\nR.version.string\nRStudio.Version()$version\nSi aparece la versión de R y la versión de RStudio sin errores, la instalación básica está lista."
+  },
+  {
+    "objectID": "install.html#referencias",
+    "href": "install.html#referencias",
+    "title": "Instalación de R y RStudio",
+    "section": "5. Referencias",
+    "text": "5. Referencias\n\nCRAN. “R for macOS.” [https://cran.r-project.org/bin/macosx/]\nCRAN. “R for Windows (base).” [https://cran.r-project.org/bin/windows/base/]\nCRAN. “Rtools45 for Windows.” [https://cran.r-project.org/bin/windows/Rtools/rtools45/files/rtools45-6691-6492.exe]\nPosit. “RStudio Desktop.” https://www.rstudio.com/products/rstudio/download/\nXQuartz. Sitio oficial. [https://www.xquartz.org]\nR for macOS Developers. “Tools (gfortran).” [https://mac.r-project.org/tools/gfortran-14.2-universal.pkg]\nApple Developer Documentation. “Installing the command-line tools.” [https://mac.r-project.org/tools/]"
+  },
+  {
+    "objectID": "D1.html#propósito-del-día-1",
+    "href": "D1.html#propósito-del-día-1",
+    "title": "1  “Día 1 — ¿Qué es una API? Tipos, ventajas y fuentes que usaremos”",
+    "section": "1.1 Propósito del día 1",
+    "text": "1.1 Propósito del día 1\nEn este primer día introduce el concepto de API, los tipos más comunes y por qué son útiles para trabajar con datos sociales. Además, deja instaladas las fuentes que consultaremos durante el curso y muestra ejemplos prácticos mínimos (reproducibles y adaptables).\n\nNota de autoría y uso: algunas secciones (especialmente el listado de APIs económicas y la lógica de ejemplos) se inspiran en el material didáctico publicado por Jeffry Bonilla (2024) en RPubs.1 El encuadre de API REST/RESTful y terminología general se apoya, entre otros, en documentación de AWS.23"
+  },
+  {
+    "objectID": "D1.html#qué-es-una-api",
+    "href": "D1.html#qué-es-una-api",
+    "title": "1  “Día 1 — ¿Qué es una API? Tipos, ventajas y fuentes que usaremos”",
+    "section": "1.2 ¿Qué es una API?",
+    "text": "1.2 ¿Qué es una API?\nUna API (Application Programming Interface) es un conjunto de reglas que permite que un software se comunique con otro: define qué se pide, cómo se pide y qué se recibe a cambio.4\nEn la práctica, cuando hablamos de APIs de datos, nos referimos a servicios que exponen información (por ejemplo series de tiempo, indicadores o catálogos) para consultarla de manera automatizada desde R u otro lenguaje.\nAdemás de definiciones generales, en este curso usaremos dos guías de referencia: - Una guía orientada a datos abiertos y publicación/reutilización mediante APIs (Iniciativa Aporta / datos.gob.es).5 - Una guía práctica sobre Web APIs, URLs, endpoints y métodos HTTP (Caballero, 2022).6\n\n1.2.1 Partes típicas de una consulta\nEn el mundo web, la consulta suele expresarse como una URL con:\n\nDominio (dónde vive el servicio)\nRuta / endpoint (qué recurso específico se solicita)\nParámetros (filtros: periodo, país, indicador, etc.)\nEncabezados (por ejemplo, tokens o llaves)"
+  },
+  {
+    "objectID": "D1.html#tipos-de-api-que-nos-importan-en-el-curso",
+    "href": "D1.html#tipos-de-api-que-nos-importan-en-el-curso",
+    "title": "1  “Día 1 — ¿Qué es una API? Tipos, ventajas y fuentes que usaremos”",
+    "section": "1.3 Tipos de API que nos importan en el curso",
+    "text": "1.3 Tipos de API que nos importan en el curso\n\n1.3.1 Por estilo de diseño: REST/RESTful\nGran parte de las fuentes públicas que usaremos se consultan vía API RESTful, un estilo común para intercambiar información de manera segura en la web.7\nEn REST, es frecuente usar métodos HTTP como GET (consultar), POST (enviar), etc., y recibir respuestas en JSON (o a veces XML/CSV).\n\n\n1.3.2 Por acceso: pública, privada, de socios, compuesta\nEn cursos aplicados conviene distinguir, al menos, estas categorías (la frontera puede variar según el proveedor): APIs públicas, privadas, de socios y compuestas.8\nPara nosotras, lo clave es qué exige cada fuente: ¿requiere registro? ¿token? ¿límites de descarga?"
+  },
+  {
+    "objectID": "D1.html#ventajas-y-desventajas-de-usar-apis",
+    "href": "D1.html#ventajas-y-desventajas-de-usar-apis",
+    "title": "1  “Día 1 — ¿Qué es una API? Tipos, ventajas y fuentes que usaremos”",
+    "section": "1.4 Ventajas y desventajas de usar APIs",
+    "text": "1.4 Ventajas y desventajas de usar APIs\n\n1.4.1 Ventajas\n\nReproducibilidad: el mismo script reproduce la descarga sin “clics”.\nActualización controlada: podemos re-ejecutar y obtener datos recientes sin rehacer pasos manuales.\nDescargas selectivas: pedir solo un indicador/periodo en lugar de bajar archivos enormes.\nTrazabilidad: queda registro del endpoint y de los parámetros usados.\n\n\n\n1.4.2 Desventajas / riesgos\n\nLímites de uso (rate limits): algunas APIs restringen volumen o frecuencia.\nCambios de versión: endpoints o parámetros pueden cambiar con el tiempo.\nDependencia de conectividad: sin internet no hay consulta.\nAutenticación y llaves: hay que gestionar tokens (sin exponerlos en repositorios)."
+  },
+  {
+    "objectID": "D1.html#fuentes-confiables-que-consultaremos-y-qué-aporta-cada-una",
+    "href": "D1.html#fuentes-confiables-que-consultaremos-y-qué-aporta-cada-una",
+    "title": "1  “Día 1 — ¿Qué es una API? Tipos, ventajas y fuentes que usaremos”",
+    "section": "1.5 Fuentes confiables que consultaremos y qué aporta cada una",
+    "text": "1.5 Fuentes confiables que consultaremos y qué aporta cada una\nA continuación se listan fuentes y paquetes o métodos que usaremos para acceder a ellas.\n\n1.5.1 1) Banco Mundial (World Development Indicators)\n\nUso típico: indicadores socioeconómicos comparables (PIB, pobreza, educación, salud).\nPaquetes: {WDI} o alternativas como {wbstats}.\nReferencia: API del Banco Mundial (developer info) y documentación de paquete.910\n\n\n\n1.5.2 2) Naciones Unidas — World Population Prospects 2024\n\nUso típico: población, fecundidad, mortalidad, migración (proyecciones/estimaciones).\nPaquetes: {wpp2024} (según disponibilidad/instalación).\nReferencia: repositorio o documentación del paquete (WPP 2024).11\n\n\n\n1.5.3 3) INEGI (México) — Indicadores (y otras APIs)\n\nUso típico: indicadores económicos y sociales nacionales; según API, también catálogos.\nPaquetes: {inegiR} (facilita consulta desde R).\nReferencia: página oficial de INEGI (API de indicadores) y documentación del paquete.1213\n\n\n\n1.5.4 4) Banco de México — SIE (Series de tiempo)\n\nUso típico: series macroeconómicas (tipo de cambio, tasas, UDIS, etc.).\nAutenticación: requiere token (en encabezado Bmx-Token).14\nReferencia: documentación oficial del SIE-API y ejemplos de endpoints.1516\n\n\n\n1.5.5 5) CEPALSTAT (CEPAL)\n\nUso típico: indicadores regionales para América Latina y el Caribe.\nAcceso: se consultan recursos y/o servicios de datos (según el producto).\nReferencia: documentación y portal CEPALSTAT (servicios).17\n\n\n\n1.5.6 6) OCDE, FMI, Eurostat y UN Comtrade\nEstas fuentes son especialmente útiles para ejemplos de datos económicos comparados (y comercio internacional). El guion base de esta sección se inspira en Bonilla (2024).18\n\nOCDE: API de datos (SDMX) y documentación.19\nFMI: API (DataMapper / SDMX) y ayuda oficial.20\nEurostat: web services y soporte vía paquete {eurostat}.21\nUN Comtrade: API de comercio; puede requerir registro/token y tiene límites por plan.22\n\n\n\n1.5.7 7) Datamx.io (CKAN) y portales CKAN\n\nUso típico: explorar catálogos de datasets y metadatos en portales de datos abiertos.\nClave: muchos portales usan CKAN y se consultan por el Action API.\nReferencia: Datamx.io indica que funciona sobre CKAN y enlaza a la documentación; además citamos la guía oficial de CKAN.2324\n\n\n\n1.5.8 8) Bibliografía y metadatos — Crossref\n\nUso típico: recuperar DOIs, referencias, autores/as, años, revistas; útil para revisión de literatura y control bibliográfico.\nPaquete: {rcrossref} (rOpenSci).\nReferencia: documentación del paquete.25"
+  },
+  {
+    "objectID": "D1.html#ejemplos-prácticos-mínimos-r",
+    "href": "D1.html#ejemplos-prácticos-mínimos-r",
+    "title": "1  “Día 1 — ¿Qué es una API? Tipos, ventajas y fuentes que usaremos”",
+    "section": "1.6 Ejemplos prácticos mínimos (R)",
+    "text": "1.6 Ejemplos prácticos mínimos (R)\nEstos ejemplos son deliberadamente cortos: muestran el patrón consultar → recibir JSON → convertir a tibble.\n\n1.6.1 A) Patrón general con {httr2} (GET + JSON)\n\n# install.packages(c(\"httr2\", \"jsonlite\", \"dplyr\"))\nlibrary(httr2)\n\nWarning: package 'httr2' was built under R version 4.5.2\n\nlibrary(jsonlite)\nlibrary(dplyr)\n\n\nAdjuntando el paquete: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\nurl &lt;- \"https://api.worldbank.org/v2/country/MEX/indicator/SP.POP.TOTL?format=json\"\nresp &lt;- request(url) |&gt; req_perform()\n\n# El contenido típico viene como texto JSON:\ntxt  &lt;- resp_body_string(resp)\njson &lt;- fromJSON(txt)\n\n# Dependiendo de la API, la estructura puede ser lista anidada.\n# Aquí, la segunda posición suele tener los datos:\npop &lt;- json[[2]] |&gt; as_tibble()\n\npop |&gt; select(date, value) |&gt; head()\n\n# A tibble: 6 × 2\n  date      value\n  &lt;chr&gt;     &lt;int&gt;\n1 2024  130861007\n2 2023  129739759\n3 2022  128613117\n4 2021  127648148\n5 2020  126799054\n6 2019  125762982\n\n\n\n\n1.6.2 B) Banco de México (SIE) — estructura de endpoint\nEl endpoint para consultar datos de una serie tiene la forma general:\n/series/{idSerie}/datos/{fechaIni}/{fechaFin} (hasta 20 series por consulta).26\n\n# Ejemplo conceptual: NO incluir tu token en un script público.\n# token &lt;- Sys.getenv(\"BANXICO_TOKEN\")\n\n# url &lt;- \"https://www.banxico.org.mx/SieAPIRest/service/v1/series/SF43718/datos/2024-01-01/2024-12-31\"\n# resp &lt;- httr2::request(url) |&gt; httr2::req_headers(`Bmx-Token` = token) |&gt; httr2::req_perform()\n# dat  &lt;- jsonlite::fromJSON(httr2::resp_body_string(resp))\n\n\n\n1.6.3 C) INEGI — vía paquete (más estable para docencia)\n\n# install.packages(\"inegiR\")\nlibrary(inegiR)\n\n# La API de INEGI requiere una \"key\" (llave).\n# key &lt;- Sys.getenv(\"INEGI_KEY\")\n\n# Ejemplo genérico: consulta a un indicador (revisar el id específico en clase).\n# x &lt;- Serie_INEGI(\"496150\", token = key)  # ejemplo ilustrativo\n# head(x)\n\n\n\n1.6.4 D) CKAN / Datamx — búsqueda de datasets por palabra clave\nEn CKAN, package_search permite buscar datasets por texto en metadatos.27\n\n# install.packages(\"httr2\")\nlibrary(httr2)\n\n# Ejemplo con el endpoint típico de CKAN (puede variar según el portal):\n# base &lt;- \"https://datamx.io/api/3/action/package_search?q=movilidad\"\n# resp &lt;- request(base) |&gt; req_perform()\n# json &lt;- jsonlite::fromJSON(resp_body_string(resp))\n# names(json$result)"
+  },
+  {
+    "objectID": "D1.html#lecturas-y-tareas-sugeridas-para-cerrar-el-día-1",
+    "href": "D1.html#lecturas-y-tareas-sugeridas-para-cerrar-el-día-1",
+    "title": "1  “Día 1 — ¿Qué es una API? Tipos, ventajas y fuentes que usaremos”",
+    "section": "1.7 Lecturas y tareas sugeridas para cerrar el día 1",
+    "text": "1.7 Lecturas y tareas sugeridas para cerrar el día 1\n\nIdentificar una pregunta de investigación (social/demográfica) y proponer:\n\n1 fuente por API (o paquete)\n1 indicador/tabla que te gustaría extraer\n\nPreparar tus llaves/tokens (INEGI, Banxico) en variables de entorno (sin pegarlas en código)."
+  },
+  {
+    "objectID": "D1.html#referencias-selección",
+    "href": "D1.html#referencias-selección",
+    "title": "1  “Día 1 — ¿Qué es una API? Tipos, ventajas y fuentes que usaremos”",
+    "section": "1.8 Referencias (selección)",
+    "text": "1.8 Referencias (selección)"
+  },
+  {
+    "objectID": "D1.html#footnotes",
+    "href": "D1.html#footnotes",
+    "title": "1  “Día 1 — ¿Qué es una API? Tipos, ventajas y fuentes que usaremos”",
+    "section": "",
+    "text": "Bonilla, Jeffry. “Uso de APIs en R para el Acceso a datos económicos: OCDE, FMI, Banco Mundial, UN Comtrade y Eurostat” (RPubs), 17-11-2024. citeturn5search1↩︎\nAmazon Web Services (AWS). “¿Qué es una API?” citeturn13search0↩︎\nAmazon Web Services (AWS). “¿Qué es una API RESTful?” citeturn13search5↩︎\nAmazon Web Services (AWS). “¿Qué es una API?” citeturn13search0↩︎\nIniciativa Aporta (datos.gob.es), Ministerio para la Transformación Digital y de la Función Pública (España) / Entidad Pública Empresarial Red.es (2025). Guía práctica para la publicación de Datos Abiertos usando APIs (05/02/2025). PDF proporcionado por la usuaria: guia_publicacion_apis.pdf.↩︎\nCaballero, Alberto Ramírez (2022). Guía para aprender a trabajar con APIS (versión 1). PDF proporcionado por la usuaria: guia-para-aprender-a-trabajar-con-apis-version-1.pdf.↩︎\nAmazon Web Services (AWS). “¿Qué es una API RESTful?” citeturn13search5↩︎\nAmazon Web Services (AWS). “¿Qué es una API?” citeturn13search0↩︎\nWorld Bank. “Developer information overview” (World Bank API). citeturn0search1↩︎\nCRAN. Paquete {WDI} (documentación). citeturn8search13↩︎\nPaquete {wpp2024} (documentación / repositorio). citeturn7search0↩︎\nINEGI. “API de Indicadores” (servicio oficial). citeturn10search21↩︎\nCRAN / rdrr. Paquete {inegiR} (documentación). citeturn10search21turn10search24↩︎\nBanco de México. “Token de consulta” (requisito para usar el API). citeturn11search0↩︎\nBanco de México. “SIE API” (documentación principal). citeturn11search1↩︎\nBanco de México. “Ejemplos” (estructura de URLs para consultar series). citeturn11search3↩︎\nCEPALSTAT (CEPAL). Portal / servicios de datos. citeturn3search3↩︎\nBonilla, Jeffry. “Uso de APIs en R para el Acceso a datos económicos: OCDE, FMI, Banco Mundial, UN Comtrade y Eurostat” (RPubs), 17-11-2024. citeturn5search1↩︎\nOCDE. “OECD Data API / SDMX endpoints” (documentación/portal). citeturn9search3↩︎\nFondo Monetario Internacional (IMF). Ayuda de API (DataMapper/SDMX). citeturn9search2↩︎\nEurostat. “Web services / Open Data” (documentación) y tutorial del paquete {eurostat}. citeturn8search1turn1search6↩︎\nUN Comtrade. “API documentation”. citeturn8search4↩︎\nDatamx.io. “La plataforma cívica de datos abiertos de México” (sitio) y referencia a CKAN. citeturn12view0↩︎\nCKAN. “API guide” (Action API, package_search). citeturn11search2↩︎\nrOpenSci / CRAN. Paquete {rcrossref} (documentación). citeturn2search3turn7search3↩︎\nBanco de México. “Ejemplos” (estructura de URLs para consultar series). citeturn11search3↩︎\nCKAN. “API guide” (Action API, package_search). citeturn11search2↩︎"
+  },
+  {
+    "objectID": "P1.html#preparación",
+    "href": "P1.html#preparación",
+    "title": "Búsquedas académicas con {rcrossref}",
+    "section": "1. Preparación",
+    "text": "1. Preparación\n\n1.1 Instalar y cargar paquetes\n\nif (!requireNamespace(\"pacman\", quietly = TRUE)) install.packages(\"pacman\")\n\npacman::p_load(\n  rcrossref,\n  dplyr,\n  tidyr,\n  stringr,\n  purrr,\n  lubridate,\n  ggplot2\n)\n\n\n\n1.2 Buenas prácticas: User-Agent\nCrossref recomienda identificar el uso con un correo (sirve para contacto si hay problemas y puede mejorar estabilidad).\n\n# Reemplaza por tu correo institucional\noptions(crr_email = \"ana.escoto@politicas.unam.mx\")"
+  },
+  {
+    "objectID": "P1.html#qué-se-puede-buscar-con-crossref",
+    "href": "P1.html#qué-se-puede-buscar-con-crossref",
+    "title": "Búsquedas académicas con {rcrossref}",
+    "section": "2. ¿Qué se puede buscar con Crossref?",
+    "text": "2. ¿Qué se puede buscar con Crossref?\n\nObras (works): artículos, capítulos, libros, reportes con DOI (y a veces sin DOI).\nRevistas (journals): metadatos de revistas.\nMiembros (members): editoriales u organizaciones registradas.\n\nEn ciencias sociales, lo más útil suele ser buscar works y filtrar por: - año (from-pub-date, until-pub-date) - tipo (type: journal-article, book-chapter, book, posted-content) - idioma (limitado; no siempre está presente) - editorial, revista, o DOI/ISSN (si se conoce)"
+  },
+  {
+    "objectID": "P1.html#búsqueda-básica-por-tema-query",
+    "href": "P1.html#búsqueda-básica-por-tema-query",
+    "title": "Búsquedas académicas con {rcrossref}",
+    "section": "3. Búsqueda básica por tema (query)",
+    "text": "3. Búsqueda básica por tema (query)\nLa función más usada es cr_works().\n\nres &lt;- cr_works(query = \"economía del cuidado\", limit = 5)\n\n\nres$data %&gt;% \n  names()\n\n [1] \"created\"                \"deposited\"              \"doi\"                   \n [4] \"indexed\"                \"issued\"                 \"member\"                \n [7] \"prefix\"                 \"publisher\"              \"score\"                 \n[10] \"source\"                 \"reference.count\"        \"references.count\"      \n[13] \"is.referenced.by.count\" \"title\"                  \"type\"                  \n[16] \"url\"                    \"author\"                 \"published.online\"      \n[19] \"language\"               \"license\"                \"subtitle\"              \n[22] \"abstract\"               \"container.title\"        \"issn\"                  \n[25] \"issue\"                  \"page\"                   \"volume\"                \n[28] \"short.container.title\"  \"link\"                   \"reference\"             \n[31] \"update.policy\"          \"assertion\"             \n\n\n\n`%||%` &lt;- function(x, y) if (is.null(x)) y else x\n\nres$data %&gt;% \n  transmute(\n    titulo = title,\n    anio = issued %||% published.online,\n    doi = doi,\n    revista = container.title\n  )\n\n# A tibble: 5 × 4\n  titulo                                                     anio  doi   revista\n  &lt;chr&gt;                                                      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  \n1 Conciliación, corresponsabilidad y economía del cuidado    2021… 10.6… &lt;NA&gt;   \n2 Personas trabajadoras migrantes en la economía del cuidado 2025  10.5… &lt;NA&gt;   \n3 Start.CareCoop                                             2025  10.5… &lt;NA&gt;   \n4 La idea de la “economía del cuidado” como creadora de val… 2023… 10.2… Tiempo…\n5 Economía del cuidado: comparación de las encuestas de uso… 2022… 10.2… Socied…\n\n\n\nNota: algunos campos pueden venir vacíos. Por eso conviene limpiar y estandarizar.\n\n\n3.1 Limpiar resultados (utilidad práctica)\n\nlimpiar_works &lt;- function(df) {\n  df %&gt;%\n    transmute(\n      title = map_chr(title, ~ .x[1] %||% NA_character_),\n      journal = map_chr(`container.title`, ~ .x[1] %||% NA_character_),\n      doi = doi,\n      url = url,\n      date = issued %||% published.online,\n      type = type,\n      publisher = publisher\n    ) %&gt;% \n    mutate(year= year(as_date(date)))\n}\n\ndf &lt;- limpiar_works(res$data)\ndf\n\n# A tibble: 5 × 8\n  title                          journal doi   url   date  type  publisher  year\n  &lt;chr&gt;                          &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;     &lt;dbl&gt;\n1 Conciliación, corresponsabili… &lt;NA&gt;    10.6… http… 2021… post… The Conv…  2021\n2 Personas trabajadoras migrant… &lt;NA&gt;    10.5… http… 2025  book  OIT          NA\n3 Start.CareCoop                 &lt;NA&gt;    10.5… http… 2025  post… Internat…    NA\n4 La idea de la “economía del c… Tiempo… 10.2… http… 2023… jour… Universi…  2023\n5 Economía del cuidado: compara… Socied… 10.2… http… 2022… jour… Universi…  2022"
+  },
+  {
+    "objectID": "P1.html#ejemplos-de-búsquedas-con-temas-sociales",
+    "href": "P1.html#ejemplos-de-búsquedas-con-temas-sociales",
+    "title": "Búsquedas académicas con {rcrossref}",
+    "section": "4. Ejemplos de búsquedas con temas sociales",
+    "text": "4. Ejemplos de búsquedas con temas sociales\nA continuación hay ejemplos típicos. Puedes cambiar palabras clave y años.\n\n4.1 Segmentación del mercado de trabajo\n\nseg &lt;- cr_works(\n  query = \"labor market segmentation\",\n  filter = c(from_pub_date = \"2010-01-01\"),\n  limit = 10\n)\n\nlimpiar_works(seg$data) %&gt;% \n  select(year, title, journal, doi) %&gt;%\n  arrange(desc(year))\n\n# A tibble: 10 × 4\n    year title                                                     journal doi  \n   &lt;dbl&gt; &lt;chr&gt;                                                     &lt;chr&gt;   &lt;chr&gt;\n 1  2018 Public–Private Wage Disparities, Employment, and Labor M… Oxford… 10.1…\n 2  2016 Labor Market Segmentation and its Implications            &lt;NA&gt;    10.4…\n 3  2013 Urban Labor Market Segmentation in West Africa            Urban … 10.1…\n 4  2011 Labor Market Segmentation in Urumqi, Xinjiang: Exposing … Growth… 10.1…\n 5    NA Labor Market Segmentation in Urumqi, Xinjiang: Exposing … SSRN E… 10.2…\n 6    NA Labor Market Segmentation by Public-Private Sector and I… Econom… 10.1…\n 7    NA The Evolution of China’s Labor Market from Segmentation … China’… 10.1…\n 8    NA An Empirical Study on the Evolution of China’s Urban Lab… China’… 10.1…\n 9    NA The Evolution of the Labor Market: A Review of Theoretic… China’… 10.1…\n10    NA Labor Market Policy in the Republic of Korea: Challenges… From P… 10.1…\n\n\n\n\n4.2 Preferencias/Intenciones de fecundidad en México\n\nfec &lt;- cr_works(\n  query = \"(fertility preferences OR fertility intentions) Mexico\",\n  filter = c(from_pub_date = \"2014-01-01\"),\n  limit = 10\n)\n\nlimpiar_works(fec$data) %&gt;% \n  select(year, title, journal, doi) %&gt;%\n  arrange(desc(year))\n\n# A tibble: 10 × 4\n    year title                                                     journal doi  \n   &lt;dbl&gt; &lt;chr&gt;                                                     &lt;chr&gt;   &lt;chr&gt;\n 1  2024 \"Pregnancy and Fertility Intentions\"                      Oxford… 10.1…\n 2  2023 \"The relationship between education and fertility prefer… &lt;NA&gt;    10.3…\n 3  2021 \"Review for \\\"Health status and fertility intentions amo… &lt;NA&gt;    10.1…\n 4  2017 \"Fertility-related knowledge in clusters of German women… &lt;NA&gt;    10.2…\n 5    NA \"Relationship Between Assimilation and Fertility Intenti… The Fe… 10.1…\n 6    NA \"Fertility Intentions and Preferences: E®ects of Structu… Instit… 10.1…\n 7    NA \"Climate-Related Fertility Concerns: Heat and Fertility … &lt;NA&gt;    10.2…\n 8    NA \"Late Fertility Intentions and Fertility in Austria\"      Instit… 10.1…\n 9    NA \"Fertility dependence or fertility autonomy? The impact … Acta P… 10.3…\n10    NA \"Fertility transition and fertility preferences in Turke… Family… 10.4…\n\n\n\n\n4.3 Trabajo no remunerado / uso del tiempo\n\nut &lt;- cr_works(\n  query = \"(unpaid work) OR (time use)\",\n  filter = c(from_pub_date = \"2015-01-01\", type = \"journal-article\"),\n  limit = 10\n)\n\nlimpiar_works(ut$data) %&gt;% \n  select(year, title, journal, doi) %&gt;%\n  arrange(desc(year))\n\n# A tibble: 10 × 4\n    year title                                                     journal doi  \n   &lt;dbl&gt; &lt;chr&gt;                                                     &lt;chr&gt;   &lt;chr&gt;\n 1  2025 Student Athlete: Full Time Unpaid Labor                   Societ… 10.2…\n 2  2025 Gender balance between Routine and Non-Routine Unpaid Do… Journa… 10.3…\n 3  2024 Exploring Time Use Patterns and Influences on Unpaid Wor… Econom… 10.5…\n 4  2024 Teaching time use in economics classes: introducing stud… Advanc… 10.4…\n 5  2023 Gendered Patterns of Unpaid Care Work Distribution in In… Artha … 10.2…\n 6  2022 Indian Women’s Unpaid and Unrecognised Work: Results fro… Social… 10.1…\n 7  2017 A study on unpaid work time of Korean married men: Time … The Ce… 10.1…\n 8  2016 Women’s labor in South Africa – Time spent doing simulta… electr… 10.1…\n 9    NA Gendered Patterns f Time Use in Rajasthan: Analyzing the… Europe… 10.5…\n10    NA The Effect of Paid work time, Unpaid work time and Perce… Korean… 10.1…"
+  },
+  {
+    "objectID": "P1.html#búsqueda-por-autoría-author",
+    "href": "P1.html#búsqueda-por-autoría-author",
+    "title": "Búsquedas académicas con {rcrossref}",
+    "section": "5. Búsqueda por autoría (author)",
+    "text": "5. Búsqueda por autoría (author)\nPuedes buscar por apellido y nombre. Los resultados dependen de cómo esté registrada la autoría.\n\naut &lt;- cr_works(query = NULL, query_author = \"Nancy Folbre\", limit = 10)\nlimpiar_works(aut$data) %&gt;% \n  select(year, title, journal, doi) %&gt;%\n  arrange(desc(year))\n\nWarning: There was 1 warning in `mutate()`.\nℹ In argument: `year = year(as_date(date))`.\nCaused by warning:\n!  8 failed to parse.\n\n\n# A tibble: 10 × 4\n    year title                                                     journal doi  \n   &lt;dbl&gt; &lt;chr&gt;                                                     &lt;chr&gt;   &lt;chr&gt;\n 1  2018 Soziale Innovation                                        Handbu… 10.1…\n 2  2012 Disturbing Noise Identification and Sound Quality Resear… Lectur… 10.1…\n 3    NA Loot Crates                                               Encycl… 10.1…\n 4    NA Sensor data analysis, reduction, and fusion for assessin… Sensor… 10.1…\n 5    NA The Fiscal Treatment of Family Size: A Further Look       Popula… 10.1…\n 6    NA Teaching Comparative Education in Cuba and the United St… Encycl… 10.1…\n 7    NA Mutagenic Effect of Chemicals on Certain Biochemical Par… Medici… 10.1…\n 8    NA Brain Organoids and the Law                               Collab… 10.1…\n 9    NA Quantum Microscopy of Biological Systems                  Spring… 10.1…\n10    NA Horizontal Transfers and the New Model of TE-Driven Geno… Evolut… 10.1…\n\n\n\nSugerencia: si hay homónimos, agrega un término temático con query además de query_author."
+  },
+  {
+    "objectID": "P1.html#filtrar-por-revista-container-title-o-issn",
+    "href": "P1.html#filtrar-por-revista-container-title-o-issn",
+    "title": "Búsquedas académicas con {rcrossref}",
+    "section": "6. Filtrar por revista (container-title) o ISSN",
+    "text": "6. Filtrar por revista (container-title) o ISSN\nSi te interesa una revista específica:\n\nrev &lt;- cr_works(\n  query = \"care economy\",\n  filter = c(container_title = \"Feminist Economics\", from_pub_date = \"2010-01-01\"),\n  limit = 10\n)\n\nlimpiar_works(rev$data) %&gt;%\n  select(year, title, journal, doi) %&gt;%\n  arrange(desc(year))\n\n# A tibble: 10 × 4\n    year title                                                     journal doi  \n   &lt;dbl&gt; &lt;chr&gt;                                                     &lt;chr&gt;   &lt;chr&gt;\n 1  2025 Toward a Caring Economy? The Role of Care in the Europea… Femini… 10.1…\n 2  2024 Dispossession after War: A Feminist Political Economy Pe… Femini… 10.1…\n 3  2021 A Care-Led Recovery From Covid-19: Investing in High-Qua… Femini… 10.1…\n 4  2020 Who's the Boss? The Political Economy of Unpaid Care Wor… Femini… 10.1…\n 5  2020 Political Economy of Cross-Border Marriage: Economic Dev… Femini… 10.1…\n 6  2018 The Care Economy in Post-Reform China: Feminist Research… Femini… 10.1…\n 7  2018 The Glass Ceiling Puzzle, Legal Institutions, and the Sh… Femini… 10.1…\n 8  2017 The Monetized Economy Versus Care and the Environment: D… Femini… 10.1…\n 9  2015 Men, Women, Money, and Morality: The Development of Chin… Femini… 10.1…\n10  2015 Gender Norms and the Economy: Insights from Social Resea… Femini… 10.1…\n\n\nSi conoces el ISSN:\n\nrev2 &lt;- cr_works(filter = c(issn = \"1354-5701\", from_pub_date = \"2018-01-01\"), limit = 10)\nlimpiar_works(rev2$data) %&gt;% \n  select(year, title, journal, doi) %&gt;%\n  arrange(desc(year))\n\nWarning: There was 1 warning in `mutate()`.\nℹ In argument: `year = year(as_date(date))`.\nCaused by warning:\n!  1 failed to parse.\n\n\n# A tibble: 10 × 4\n    year title                                                     journal doi  \n   &lt;dbl&gt; &lt;chr&gt;                                                     &lt;chr&gt;   &lt;chr&gt;\n 1  2025 Structural Infertilities: Childbearing and Reproductive … Femini… 10.1…\n 2  2023 The Political Economy of Patriarchy in the Global South   Femini… 10.1…\n 3  2023 Determinants of Wealth Outcomes in Female-Headed Househo… Femini… 10.1…\n 4  2022 The Evolution of Gender Wealth Inequality in the United … Femini… 10.1…\n 5  2021 Human Mobility, COVID-19, and Policy Responses: The righ… Femini… 10.1…\n 6  2021 Parental Education and Increased Child Survival in Madag… Femini… 10.1…\n 7  2019 Employment Status and Contraceptive Choices of Women Wit… Femini… 10.1…\n 8  2019 Why Can’t I keep my Surname? The Fairness and Welfare of… Femini… 10.1…\n 9  2018 “Our Lands are Our Lives”: Gendered Experiences of Resis… Femini… 10.1…\n10    NA Economic Citizenship: Neoliberal Paradoxes of Empowerment Femini… 10.1…"
+  },
+  {
+    "objectID": "P1.html#recuperar-un-registro-por-doi",
+    "href": "P1.html#recuperar-un-registro-por-doi",
+    "title": "Búsquedas académicas con {rcrossref}",
+    "section": "7. Recuperar un registro por DOI",
+    "text": "7. Recuperar un registro por DOI\nCuando ya tienes el DOI, esto es lo más directo.\n\none &lt;- cr_works(dois = \"10.1038/nphys1170\")  # ejemplo (cambia por uno real de tu tema)\none$data %&gt;% limpiar_works()\n\n# A tibble: 1 × 8\n  title                journal        doi      url   date  type  publisher  year\n  &lt;chr&gt;                &lt;chr&gt;          &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;     &lt;dbl&gt;\n1 Measured measurement Nature Physics 10.1038… http… 2009… jour… Springer…  2020"
+  },
+  {
+    "objectID": "P1.html#descargar-más-resultados-cursor-y-evitar-sesgos-de-los-primeros-20",
+    "href": "P1.html#descargar-más-resultados-cursor-y-evitar-sesgos-de-los-primeros-20",
+    "title": "Búsquedas académicas con {rcrossref}",
+    "section": "8. Descargar más resultados (cursor) y evitar sesgos de los primeros 20",
+    "text": "8. Descargar más resultados (cursor) y evitar sesgos de los primeros 20\nPara búsquedas grandes, usa cursor = \"*\". Esto permite paginar de forma robusta.\n\n# Ejemplo: traer 50 registros en bloques\ntema &lt;- \"gender wage gap\"\ncursor &lt;- \"*\"\nacum &lt;- list()\n\nfor (i in 1:5) {\n  out &lt;- cr_works(query = tema, cursor = cursor, cursor_max = 100, limit = 10)\n  acum[[i]] &lt;- out$data\n  cursor &lt;- out$meta$`next-cursor`\n}\n\nbig &lt;- bind_rows(acum) %&gt;% limpiar_works()\n\nWarning: There was 1 warning in `mutate()`.\nℹ In argument: `year = year(as_date(date))`.\nCaused by warning:\n!  44 failed to parse.\n\nbig %&gt;% count(year, sort = TRUE)\n\n# A tibble: 15 × 2\n    year     n\n   &lt;dbl&gt; &lt;int&gt;\n 1    NA    81\n 2  2023    26\n 3  2020     7\n 4  2018     5\n 5  2016     4\n 6  2025     4\n 7  2021     3\n 8  2017     2\n 9  2024     2\n10  2000     1\n11  2005     1\n12  2012     1\n13  2013     1\n14  2014     1\n15  2015     1"
+  },
+  {
+    "objectID": "P1.html#visualización-rápida-producción-por-año",
+    "href": "P1.html#visualización-rápida-producción-por-año",
+    "title": "Búsquedas académicas con {rcrossref}",
+    "section": "9. Visualización rápida: producción por año",
+    "text": "9. Visualización rápida: producción por año\n\nbig %&gt;%\n  filter(!is.na(year)) %&gt;%\n  count(year) %&gt;%\n  ggplot(aes(x = year, y = n)) +\n  geom_col() +\n  labs(\n    title = \"Resultados en Crossref por año (ejemplo)\",\n    x = NULL,\n    y = \"Número de registros\"\n  )"
+  },
+  {
+    "objectID": "P1.html#exportar-una-bibliografía-mínima",
+    "href": "P1.html#exportar-una-bibliografía-mínima",
+    "title": "Búsquedas académicas con {rcrossref}",
+    "section": "10. Exportar una bibliografía mínima",
+    "text": "10. Exportar una bibliografía mínima\nCrossref no es un gestor bibliográfico completo, pero puedes exportar una tabla para revisión.\n\nsalida &lt;- big %&gt;%\n  select(year, title, journal, doi, url) %&gt;%\n  arrange(desc(year))\n\nreadr::write_csv(salida, \"crossref_resultados.csv\")"
+  },
+  {
+    "objectID": "P1.html#consejos-para-búsquedas-en-ciencias-sociales",
+    "href": "P1.html#consejos-para-búsquedas-en-ciencias-sociales",
+    "title": "Búsquedas académicas con {rcrossref}",
+    "section": "11. Consejos para búsquedas en ciencias sociales",
+    "text": "11. Consejos para búsquedas en ciencias sociales\n\nEmpieza con una consulta amplia y después afina con:\n\ncomillas para frases (\"time use\")\noperadores (OR, AND) en el texto del query\nfiltros por año y tipo\n\nRevisa el DOI y el journal para evaluar pertinencia.\nComplementa Crossref con bases especializadas cuando sea necesario (Scopus, WoS, SSRN, RePEc, etc.), según acceso institucional."
+  },
+  {
+    "objectID": "P1.html#referencia-del-paquete",
+    "href": "P1.html#referencia-del-paquete",
+    "title": "Búsquedas académicas con {rcrossref}",
+    "section": "12. Referencia del paquete",
+    "text": "12. Referencia del paquete\n\n{rcrossref}: https://docs.ropensci.org/rcrossref/ (documentación del paquete)\nCrossref API: https://api.crossref.org/ (documentación general)"
+  }
+]

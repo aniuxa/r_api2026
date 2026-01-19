@@ -1,0 +1,26 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Curso: De las APIs a los gráficos: explorando datos sociales con R"
+  author: "Ana Escoto"
+  date: "1/19/2026"
+  chapters:
+    - index.qmd
+    - install.qmd
+    - D1.qmd
+    - part: "Práctica"
+      chapters:
+      - P1.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+

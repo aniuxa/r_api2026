@@ -70,10 +70,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -123,6 +125,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Curso: De las APIs a los gráficos: explorando datos sociales con R</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/aniuxa/r_api2026/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -135,7 +141,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Curso: De las APIs a los gráficos: explorando datos sociales con R</span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">{.unnumbered}</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -147,7 +153,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./D1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">“Día 1 — ¿Qué es una API? Tipos, ventajas y fuentes que usaremos”</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Día 1 — ¿Qué es una API? Tipos, ventajas y fuentes que usaremos</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -202,7 +208,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#consejos-para-búsquedas-en-ciencias-sociales" id="toc-consejos-para-búsquedas-en-ciencias-sociales" class="nav-link" data-scroll-target="#consejos-para-búsquedas-en-ciencias-sociales">11. Consejos para búsquedas en ciencias sociales</a></li>
   <li><a href="#referencia-del-paquete" id="toc-referencia-del-paquete" class="nav-link" data-scroll-target="#referencia-del-paquete">12. Referencia del paquete</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/aniuxa/r_api2026/edit/main/P1.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/aniuxa/r_api2026/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -282,9 +288,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 [16] "url"                    "author"                 "published.online"      
 [19] "language"               "license"                "subtitle"              
 [22] "abstract"               "container.title"        "issn"                  
-[25] "issue"                  "page"                   "volume"                
-[28] "short.container.title"  "link"                   "reference"             
-[31] "update.policy"          "assertion"             </code></pre>
+[25] "page"                   "update.policy"          "short.container.title" 
+[28] "assertion"              "link"                   "issue"                 
+[31] "volume"                 "reference"             </code></pre>
 </div>
 </div>
 <div class="cell">
@@ -304,8 +310,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 1 Conciliación, corresponsabilidad y economía del cuidado    2021… 10.6… &lt;NA&gt;   
 2 Personas trabajadoras migrantes en la economía del cuidado 2025  10.5… &lt;NA&gt;   
 3 Start.CareCoop                                             2025  10.5… &lt;NA&gt;   
-4 La idea de la “economía del cuidado” como creadora de val… 2023… 10.2… Tiempo…
-5 Economía del cuidado: comparación de las encuestas de uso… 2022… 10.2… Socied…</code></pre>
+4 Economía del cuidado: comparación de las encuestas de uso… 2022… 10.2… Socied…
+5 La idea de la “economía del cuidado” como creadora de val… 2023… 10.2… Tiempo…</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -337,8 +343,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 1 Conciliación, corresponsabili… &lt;NA&gt;    10.6… http… 2021… post… The Conv…  2021
 2 Personas trabajadoras migrant… &lt;NA&gt;    10.5… http… 2025  book  OIT          NA
 3 Start.CareCoop                 &lt;NA&gt;    10.5… http… 2025  post… Internat…    NA
-4 La idea de la “economía del c… Tiempo… 10.2… http… 2023… jour… Universi…  2023
-5 Economía del cuidado: compara… Socied… 10.2… http… 2022… jour… Universi…  2022</code></pre>
+4 Economía del cuidado: compara… Socied… 10.2… http… 2022… jour… Universi…  2022
+5 La idea de la “economía del c… Tiempo… 10.2… http… 2023… jour… Universi…  2023</code></pre>
 </div>
 </div>
 </section>
@@ -567,15 +573,15 @@ Caused by warning:
 <pre><code># A tibble: 15 × 2
     year     n
    &lt;dbl&gt; &lt;int&gt;
- 1    NA    81
+ 1    NA    80
  2  2023    26
  3  2020     7
  4  2018     5
  5  2016     4
  6  2025     4
  7  2021     3
- 8  2017     2
- 9  2024     2
+ 8  2024     3
+ 9  2017     2
 10  2000     1
 11  2005     1
 12  2012     1
@@ -658,6 +664,121 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -874,7 +995,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./D1.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">“Día 1 — ¿Qué es una API? Tipos, ventajas y fuentes que usaremos”</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Día 1 — ¿Qué es una API? Tipos, ventajas y fuentes que usaremos</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

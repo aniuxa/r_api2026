@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.361">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Curso: De las APIs a los gráficos: explorando datos sociales con R - 2&nbsp; Día 2 - Paquetes de consulta</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./P3.html" rel="next">
+<link href="./P1.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P1.html">Práctica</a></li><li class="breadcrumb-item"><a href="./P2.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Día 2 - Paquetes de consulta</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Curso: De las APIs a los gráficos: explorando datos sociales con R</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/aniuxa/r_api2026/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Contenido</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./install.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instalación de R y RStudio</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Teoría</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./D1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Día 1 — ¿Qué es una API? Tipos, ventajas y fuentes que usaremos</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Práctica</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./P1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Búsquedas académicas con {rcrossref}</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./P2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Día 2 - Paquetes de consulta</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./P3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">INEGI y Banxico</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./videos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Videos y extras</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#paquetes" id="toc-paquetes" class="nav-link active" data-scroll-target="#paquetes"><span class="header-section-number">3</span> Paquetes</a>
+  <ul class="collapse">
+  <li><a href="#una-herramienta-útil-countrycode" id="toc-una-herramienta-útil-countrycode" class="nav-link" data-scroll-target="#una-herramienta-útil-countrycode"><span class="header-section-number">3.1</span> Una herramienta útil <code>{countrycode}</code></a></li>
+  <li><a href="#preparando-nuestro-análisis" id="toc-preparando-nuestro-análisis" class="nav-link" data-scroll-target="#preparando-nuestro-análisis"><span class="header-section-number">3.2</span> Preparando nuestro análisis</a></li>
+  <li><a href="#wdi" id="toc-wdi" class="nav-link" data-scroll-target="#wdi"><span class="header-section-number">3.3</span> <code>{WDI}</code></a></li>
+  <li><a href="#geodata" id="toc-geodata" class="nav-link" data-scroll-target="#geodata"><span class="header-section-number">3.4</span> <code>{geodata}</code></a></li>
+  <li><a href="#ifmapi" id="toc-ifmapi" class="nav-link" data-scroll-target="#ifmapi"><span class="header-section-number">3.5</span> <code>{ifmapi}</code></a></li>
+  <li><a href="#repaso-de-revisión-de-dataframes" id="toc-repaso-de-revisión-de-dataframes" class="nav-link" data-scroll-target="#repaso-de-revisión-de-dataframes"><span class="header-section-number">3.6</span> Repaso de revisión de dataframes</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/aniuxa/r_api2026/edit/main/P2.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/aniuxa/r_api2026/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Día 2 - Paquetes de consulta</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="paquetes" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Paquetes</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"pacman"</span>)) <span class="fu">install.packages</span>(<span class="st">"pacman"</span>)<span class="co">#instala pacman si se requiere</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Cargando paquete requerido: pacman</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, readxl,</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>               writexl, </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>               magrittr,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>               WDI, </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>               imfapi,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>               geodata, </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>               countrycode, </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>               skimr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="una-herramienta-útil-countrycode" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="una-herramienta-útil-countrycode"><span class="header-section-number">3.1</span> Una herramienta útil <code>{countrycode}</code></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>?codelist</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="preparando-nuestro-análisis" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="preparando-nuestro-análisis"><span class="header-section-number">3.2</span> Preparando nuestro análisis</h2>
+<p>¿Sabes que es un directorio de trabajo? ¿Un proyecto?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "/Users/anaescoto/Library/CloudStorage/GoogleDrive-ana.escoto.1@gmail.com/Mi unidad/2026/curso_api_main/r_api2026"</code></pre>
+</div>
+</div>
+</section>
+<section id="wdi" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="wdi"><span class="header-section-number">3.3</span> <code>{WDI}</code></h2>
+<p>Lo ideal es primero reconocer la fuente de información y sus tableros [https://datos.bancomundial.org/indicador]</p>
+<p>Para buscar un indicador</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">WDIsearch</span>(<span class="st">'gender'</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 indicator
+166            2.3_GIR.GPI
+169            2.6_PCR.GPI
+2130  BI.EMP.PWRK.PB.FE.ZS
+2132  BI.EMP.PWRK.PB.MA.ZS
+2161  BI.EMP.TOTL.PB.FE.ZS
+2163  BI.EMP.TOTL.PB.MA.ZS
+2341     BI.WAG.PREM.PB.FE
+2347     BI.WAG.PREM.PB.FM
+2348  BI.WAG.PREM.PB.FM.CA
+2349  BI.WAG.PREM.PB.FM.ED
+2350  BI.WAG.PREM.PB.FM.HE
+2351  BI.WAG.PREM.PB.FM.PA
+2352  BI.WAG.PREM.PB.FM.PS
+2353  BI.WAG.PREM.PB.FM.SS
+2357     BI.WAG.PREM.PB.MA
+2375  BI.WAG.PREM.PV.FM.ED
+2376  BI.WAG.PREM.PV.FM.HE
+2377  BI.WAG.PREM.PV.FM.MW
+2378  BI.WAG.PREM.PV.FM.TS
+2381     BI.WAG.PRVS.ED.FM
+2384     BI.WAG.PRVS.HE.FM
+2385     BI.WAG.PRVS.MW.FM
+2389     BI.WAG.PRVS.TS.FM
+2390     BI.WAG.PUBS.CA.FM
+2391     BI.WAG.PUBS.ED.FM
+2394     BI.WAG.PUBS.HE.FM
+2395     BI.WAG.PUBS.PA.FM
+2397     BI.WAG.PUBS.PS.FM
+2399     BI.WAG.PUBS.SS.FM
+2869           CC.ESG.AGFE
+2870           CC.ESG.AGMA
+2871           CC.ESG.CMFE
+2872           CC.ESG.CMMA
+2873           CC.ESG.CNFE
+2874           CC.ESG.CNMA
+2875           CC.ESG.EUFE
+2876           CC.ESG.EUMA
+2877           CC.ESG.FBFE
+2878           CC.ESG.FBMA
+2879           CC.ESG.INFE
+2880           CC.ESG.INMA
+2881           CC.ESG.MAFE
+2882           CC.ESG.MAMA
+2883           CC.ESG.MIFE
+2884           CC.ESG.MIMA
+2885           CC.ESG.OSFE
+2886           CC.ESG.OSMA
+2887           CC.ESG.PAFE
+2888           CC.ESG.PAMA
+2889           CC.ESG.PSFE
+2890           CC.ESG.PSMA
+2891           CC.ESG.SEFE
+2892           CC.ESG.SEMA
+2893           CC.ESG.TCFE
+2894           CC.ESG.TCMA
+2967           CC.ISG.FFFE
+2968           CC.ISG.FFMA
+2969           CC.ISG.NAFE
+2970           CC.ISG.NAMA
+2971           CC.ISG.NBFE
+2972           CC.ISG.NBMA
+7279  FB.FCP.BREG.PR.DI.SC
+9387               GRPFM-1
+9388             GRPFM-1.1
+9389             GRPFM-1.2
+9390               GRPFM-2
+9391             GRPFM-2.1
+9392               GRPFM-3
+9393             GRPFM-3.1
+9394               GRPFM-4
+9395             GRPFM-4.1
+9399               GRPFM-6
+9400             GRPFM-6.1
+9401               GRPFM-7
+9402             GRPFM-7.1
+9403               GRPFM-8
+9404             GRPFM-8.1
+9405               GRPFM-9
+9406             GRPFM-9.1
+9407             GRPFM-9.2
+10956       IQ.CPA.GNDR.XQ
+11809          JI.WAG.GNDR
+11810       JI.WAG.GNDR.HE
+11811       JI.WAG.GNDR.LE
+11812       JI.WAG.GNDR.OL
+11813       JI.WAG.GNDR.RU
+11814       JI.WAG.GNDR.UR
+11815       JI.WAG.GNDR.YG
+17932     PRJ.MYS.15UP.GPI
+17948     PRJ.MYS.25UP.GPI
+18565 SE.ADT.1524.LT.FM.ZS
+20350    SE.ENR.PRIM.FM.ZS
+20352    SE.ENR.PRSC.FM.ZS
+20353    SE.ENR.SECO.FM.ZS
+20355    SE.ENR.TERT.FM.ZS
+20666       SG.LAW.CRDD.GR
+20679       SG.LAW.NODC.HR
+20695          SG.NOD.CONS
+22346        SPI.D3.5.GEND
+                                                                                                                                                               name
+166                                                                                                           Gender parity index for gross intake ratio in grade 1
+169                                                                                                                Gender parity index for primary completion rate 
+2130                                                                                      Public sector employment, as a share of paid employment by gender: Female
+2132                                                                                        Public sector employment, as a share of paid employment by gender: Male
+2161                                                                                     Public sector employment, as a share of total employment by gender: Female
+2163                                                                                       Public sector employment, as a share of total employment by gender: Male
+2341                                                                              Public sector wage premium, by gender: Female (compared to all private employees)
+2347                                                                             P-Value: Public sector wage premium, by gender (compared to all private employees)
+2348                                   P-Value: Gender wage premium in the public sector, by industry: Core Public Administration (compared to male paid employees)
+2349                                                    P-Value: Gender wage premium in the public sector, by industry: Education (compared to male paid employees)
+2350                                                       P-Value: Gender wage premium in the public sector, by industry: Health (compared to male paid employees)
+2351                                        P-Value: Gender wage premium in the public sector, by industry: Public Administration (compared to male paid employees)
+2352                                                P-Value: Gender wage premium in the public sector, by industry: Public Safety (compared to male paid employees)
+2353                                              P-Value: Gender wage premium in the public sector, by industry: Social Security (compared to male paid employees)
+2357                                                                                Public sector wage premium, by gender: Male (compared to all private employees)
+2375                                                   P-Value: Gender wage premium in the private sector, by industry: Education (compared to male paid employees)
+2376                                                      P-Value: Gender wage premium in the private sector, by industry: Health (compared to male paid employees)
+2377                                           P-Value: Gender wage premium in the private sector, by occupation: Medical workers (compared to male paid employees)
+2378                                                  P-Value: Gender wage premium in the private sector, by occupation: Teachers (compared to male paid employees)
+2381                                                            Gender wage premium in the private sector, by industry: Education (compared to male paid employees)
+2384                                                               Gender wage premium in the private sector, by industry: Health (compared to male paid employees)
+2385                                                    Gender wage premium in the private sector, by occupation: Medical workers (compared to male paid employees)
+2389                                                           Gender wage premium in the private sector, by occupation: Teachers (compared to male paid employees)
+2390                                            Gender wage premium in the public sector, by industry: Core Public Administration (compared to male paid employees)
+2391                                                             Gender wage premium in the public sector, by industry: Education (compared to male paid employees)
+2394                                                                Gender wage premium in the public sector, by industry: Health (compared to male paid employees)
+2395                                                 Gender wage premium in the public sector, by industry: Public Administration (compared to male paid employees)
+2397                                                         Gender wage premium in the public sector, by industry: Public Safety (compared to male paid employees)
+2399                                                       Gender wage premium in the public sector, by industry: Social Security (compared to male paid employees)
+2869                                                                                            Employment by sector and gender (% of total) - Agriculture - Female
+2870                                                                                              Employment by sector and gender (% of total) - Agriculture - Male
+2871                                                                                               Employment by sector and gender (% of total) - Commerce - Female
+2872                                                                                                 Employment by sector and gender (% of total) - Commerce - Male
+2873                                                                                           Employment by sector and gender (% of total) - Construction - Female
+2874                                                                                             Employment by sector and gender (% of total) - Construction - Male
+2875                                                                              Employment by sector and gender (% of total) - Electricity and utilities - Female
+2876                                                                                Employment by sector and gender (% of total) - Electricity and utilities - Male
+2877                                                                        Employment by sector and gender (% of total) - Financial and Business Services - Female
+2878                                                                          Employment by sector and gender (% of total) - Financial and Business Services - Male
+2879                                                                                               Employment by sector and gender (% of total) - Industry - Female
+2880                                                                                                 Employment by sector and gender (% of total) - Industry - Male
+2881                                                                                          Employment by sector and gender (% of total) - Manufacturing - Female
+2882                                                                                            Employment by sector and gender (% of total) - Manufacturing - Male
+2883                                                                                                 Employment by sector and gender (% of total) - Mining - Female
+2884                                                                                                   Employment by sector and gender (% of total) - Mining - Male
+2885                                                                                         Employment by sector and gender (% of total) - Other services - Female
+2886                                                                                           Employment by sector and gender (% of total) - Other services - Male
+2887                                                                                  Employment by sector and gender (% of total) - Public Administration - Female
+2888                                                                                    Employment by sector and gender (% of total) - Public Administration - Male
+2889                                                                               Employment by sector and gender (% of total) - Public sector employment - Female
+2890                                                                                 Employment by sector and gender (% of total) - Public sector employment - Male
+2891                                                                                               Employment by sector and gender (% of total) - Services - Female
+2892                                                                                                 Employment by sector and gender (% of total) - Services - Male
+2893                                                                              Employment by sector and gender (% of total) - Transport &amp; Communication - Female
+2894                                                                                Employment by sector and gender (% of total) - Transport &amp; Communication - Male
+2967                                                             Informal employment by sector and gender (% of total) - Agriculture, forestry and fishing - Female
+2968                                                               Informal employment by sector and gender (% of total) - Agriculture, forestry and fishing - Male
+2969                                                                               Informal employment by sector and gender (% of total) - Non-agriculture - Female
+2970                                                                                 Informal employment by sector and gender (% of total) - Non-agriculture - Male
+2971                                                                                  Informal employment by sector and gender (% of total) - No breakdown - Female
+2972                                                                                    Informal employment by sector and gender (% of total) - No breakdown - Male
+7279  589_Do laws and regulations prohibit or restrict discriminating consumers based on gender, ethnicity, faith, political affiliation, or appearance?  _#VHGA_03
+9387                                                                                                              Gender impact analysis of budget policy proposals
+9388                                                                                                     (i) Gender impact analysis of expenditure policy proposals
+9389                                                                                                             Gender impact analysis of revenue policy proposals
+9390                                                                                                                 Gender responsive public investment management
+9391                                                                                                             (i) Gender responsive public investment management
+9392                                                                                                                              Gender responsive budget circular
+9393                                                                                                                          (i) Gender responsive budget circular
+9394                                                                                                                Gender responsive budget proposal documentation
+9395                                                                                                            (i) Gender responsive budget proposal documentation
+9399                                                                                                                Tracking budget expenditure for gender equality
+9400                                                                                                            (i) Tracking budget expenditure for gender equality
+9401                                                                                                                                    Gender responsive reporting
+9402                                                                                                                                (i) Gender responsive reporting
+9403                                                                                                               Evaluation of gender impacts of service delivery
+9404                                                                                                           (i) Evaluation of gender impacts of service delivery
+9405                                                                                                           Legislative scrutiny of gender impacts of the budget
+9406                                                                                                          (i) Gender responsive legislative scrutiny of budgets
+9407                                                                                                   (ii) Gender responsive legislative scrutiny of audit reports
+10956                                                                                                                 CPIA gender equality rating (1=low to 6=high)
+11809                                                                                                             Female to male gender wage gap, aged 15-64, total
+11810                                                                                           Female to male gender wage gap, aged 15-64, above primary education
+11811                                                                                       Female to male gender wage gap, aged 15-64, primary education and below
+11812                                                                                                                    Female to male gender wage gap, aged 25-64
+11813                                                                                                             Female to male gender wage gap, aged 15-64, rural
+11814                                                                                                             Female to male gender wage gap, aged 15-64, urban
+11815                                                                                                                    Female to male gender wage gap, aged 15-24
+17932                                                                                         Wittgenstein Projection: Mean Years of Schooling. Age 15+. Gender Gap
+17948                                                                                         Wittgenstein Projection: Mean Years of Schooling. Age 25+. Gender Gap
+18565                                                                                                  Literacy rate, youth (ages 15-24), gender parity index (GPI)
+20350                                                                                                 School enrollment, primary (gross), gender parity index (GPI)
+20352                                                                                   School enrollment, primary and secondary (gross), gender parity index (GPI)
+20353                                                                                               School enrollment, secondary (gross), gender parity index (GPI)
+20355                                                                                                School enrollment, tertiary (gross), gender parity index (GPI)
+20666                                                                            The law prohibits discrimination in access to credit based on gender (1=yes; 0=no)
+20679                                                                                  The law prohibits discrimination in employment based on gender (1=yes; 0=no)
+20695                                                                                    Nondiscrimination clause mentions gender in the constitution (1=yes; 0=no)
+22346                                                                                                               GOAL 5: Gender Equality (5 year moving average)</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">WDI</span>(<span class="at">indicator=</span><span class="st">'SG.VAW.REFU.ZS'</span>,</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">country=</span><span class="st">"all"</span>, </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">start=</span><span class="dv">2020</span>, </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">end=</span><span class="dv">2026</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           country iso2c iso3c year SG.VAW.REFU.ZS
+399   Burkina Faso    BF   BFA 2021           23.5
+413       Cambodia    KH   KHM 2022            8.5
+484  Cote d'Ivoire    CI   CIV 2021           12.1
+599          Gabon    GA   GAB 2021            4.9
+605    Gambia, The    GM   GMB 2020           36.3
+618          Ghana    GH   GHA 2022            7.1
+694          India    IN   IND 2021            8.4
+753          Kenya    KE   KEN 2022           12.7
+810        Liberia    LR   LBR 2020            9.9
+839     Madagascar    MG   MDG 2021           10.1
+874     Mauritania    MR   MRT 2021           20.2
+917     Mozambique    MZ   MOZ 2023           12.1
+938          Nepal    NP   NPL 2022            1.6
+1023   Philippines    PH   PHL 2022            1.1
+1060        Rwanda    RW   RWA 2020           30.5
+1203      Tanzania    TZ   TZA 2022           23.7</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>wdi_1 <span class="ot">&lt;-</span><span class="fu">WDI</span>(<span class="at">indicator=</span><span class="st">'SG.VAW.REFU.ZS'</span>,</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">country=</span><span class="st">"all"</span>, </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">start=</span><span class="dv">2020</span>, </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">end=</span><span class="dv">2026</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="geodata" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="geodata"><span class="header-section-number">3.4</span> <code>{geodata}</code></h2>
+<p>Podemos revisar un poco más del paquete en su repositorio: [https://github.com/rspatial/geodata]</p>
+<p>The <code>{WorldClim}</code> database.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>tmax_data <span class="ot">&lt;-</span> <span class="fu">worldclim_global</span>(<span class="at">var =</span> <span class="st">"tmax"</span>, </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">res =</span> <span class="dv">10</span>,</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">path=</span> <span class="fu">getwd</span>()) <span class="co"># aquí donde quiero guardar la información</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>tmax_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>class       : SpatRaster 
+size        : 1080, 2160, 12  (nrow, ncol, nlyr)
+resolution  : 0.1666667, 0.1666667  (x, y)
+extent      : -180, 180, -90, 90  (xmin, xmax, ymin, ymax)
+coord. ref. : lon/lat WGS 84 
+sources     : wc2.1_10m_tmax_01.tif  
+              wc2.1_10m_tmax_02.tif  
+              wc2.1_10m_tmax_03.tif  
+              ... and 9 more sources
+names       : wc2.1~ax_01, wc2.1~ax_02, wc2.1~ax_03, wc2.1~ax_04, wc2.1~ax_05, wc2.1~ax_06, ... 
+min values  :     -42.419,   -39.58325,   -53.40000,   -59.54875,    -59.8395,    -60.3600, ... 
+max values  :      42.157,    40.26450,    41.48825,    43.17525,     44.8155,     46.6155, ... </code></pre>
+</div>
+</div>
+<p>También se puede descargar la “Gridded Population of the World” (Una base para densidad poblacional de CIESIN)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>pop <span class="ot">&lt;-</span> geodata<span class="sc">::</span><span class="fu">population</span>(<span class="dv">2020</span>, <span class="at">res=</span><span class="dv">10</span>, <span class="at">path=</span><span class="fu">getwd</span>())</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>pop</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>class       : SpatRaster 
+size        : 1080, 2160, 1  (nrow, ncol, nlyr)
+resolution  : 0.1666667, 0.1666667  (x, y)
+extent      : -180, 180, -90, 90  (xmin, xmax, ymin, ymax)
+coord. ref. : lon/lat WGS 84 
+source      : gpw_v4_population_density_rev11_2020_10m.tif 
+name        : population_density 
+min value   :               0.00 
+max value   :           64552.77 </code></pre>
+</div>
+</div>
+<p>Nos bajo un tiff con la información</p>
+</section>
+<section id="ifmapi" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="ifmapi"><span class="header-section-number">3.5</span> <code>{ifmapi}</code></h2>
+<p>Revisemos la documentación del paquete</p>
+<p>[https://teal-insights.github.io/r-imfapi/]</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">imf_get_dataflows</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="at">n=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 6
+   id                     name           description version agency last_updated
+   &lt;chr&gt;                  &lt;chr&gt;          &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;       
+ 1 COFER_2025_OCT_VINTAGE Currency Comp… Currency C… 1.0.0   IMF.S… 2026-01-07T…
+ 2 BOP_AGG                Balance of Pa… The World … 9.0.1   IMF.S… 2025-03-30T…
+ 3 APDREO                 Asia and Paci… APD Region… 6.0.0   IMF.A… 2025-03-27T…
+ 4 MFS_FMP                Monetary and … The Moneta… 3.0.0   IMF.S… 2025-11-27T…
+ 5 AFRREO                 Sub-Saharan A… Sub-Sahara… 6.0.1   IMF.A… 2025-03-27T…
+ 6 PIP                    Portfolio Inv… The Portfo… 4.0.0   IMF.S… 2025-03-28T…
+ 7 HPD                    Historical Pu… The Histor… 1.0.0   IMF.F… 2025-03-28T…
+ 8 MFS_ODC                Monetary and … The Moneta… 10.0.0  IMF.S… 2025-11-26T…
+ 9 ECFIE                  Earnings-Call… The Earnin… 2.0.3   IMF.R… 2025-12-22T…
+10 ED                     Export Divers… Covers 200… 1.0.0   IMF.R… 2025-03-29T…</code></pre>
+</div>
+</div>
+<p>Con esto podemos un <em>dataflow</em> a partir de su identificador, nombre y descripción. En este ejemplo, utilizaremos el <em>dataflow</em> “WEO” del *World Economic Outlook”</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">imf_get_datastructure</span>(<span class="st">"WEO"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  dimension_id type      position
+  &lt;chr&gt;        &lt;chr&gt;        &lt;int&gt;
+1 COUNTRY      Dimension        0
+2 INDICATOR    Dimension        1
+3 FREQUENCY    Dimension        2</code></pre>
+</div>
+</div>
+<p>Con esto vemos lo que hay disponible y podemos pedir los datos</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>weo <span class="ot">&lt;-</span> <span class="fu">imf_get</span>(<span class="at">dataflow_id =</span> <span class="st">"WEO"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">imf_get_codelists</span>(</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="st">"INDICATOR"</span>),</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">dataflow_id =</span> <span class="st">"WEO"</span>  </span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 145 × 7
+   dimension_id code      name           description codelist_id codelist_agency
+   &lt;chr&gt;        &lt;chr&gt;     &lt;chr&gt;          &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;          
+ 1 INDICATOR    LUR       Unemployment … The percen… CL_WEO_IND… IMF.RES        
+ 2 INDICATOR    PCOALSA   Coal, South A… Coal, Sout… CL_WEO_IND… IMF.RES        
+ 3 INDICATOR    DSP       External debt… Total exte… CL_WEO_IND… IMF.RES        
+ 4 INDICATOR    DSI       External debt… Total exte… CL_WEO_IND… IMF.RES        
+ 5 INDICATOR    DSP_NGDPD External debt… Total exte… CL_WEO_IND… IMF.RES        
+ 6 INDICATOR    BX        Exports of go… The export… CL_WEO_IND… IMF.RES        
+ 7 INDICATOR    BM        Imports of go… Total curr… CL_WEO_IND… IMF.RES        
+ 8 INDICATOR    DS        External debt… Total exte… CL_WEO_IND… IMF.RES        
+ 9 INDICATOR    TTPCH     Terms of trad… The percen… CL_WEO_IND… IMF.RES        
+10 INDICATOR    DSI_NGDPD External debt… Total exte… CL_WEO_IND… IMF.RES        
+# ℹ 135 more rows
+# ℹ 1 more variable: codelist_version &lt;chr&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="repaso-de-revisión-de-dataframes" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="repaso-de-revisión-de-dataframes"><span class="header-section-number">3.6</span> Repaso de revisión de dataframes</h2>
+<p>Aquí haremos un poquito de revisión</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>skimr<span class="sc">::</span><span class="fu">skim</span>(weo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Name</td>
+<td style="text-align: left;">weo</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Number of rows</td>
+<td style="text-align: left;">354240</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Number of columns</td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">_______________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Column type frequency:</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">character</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">numeric</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">________________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Group variables</td>
+<td style="text-align: left;">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 13%">
+<col style="width: 19%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 8%">
+<col style="width: 12%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">min</th>
+<th style="text-align: right;">max</th>
+<th style="text-align: right;">empty</th>
+<th style="text-align: right;">n_unique</th>
+<th style="text-align: right;">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">COUNTRY</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">210</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">INDICATOR</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">145</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FREQUENCY</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TIME_PERIOD</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 8%">
+<col style="width: 12%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 12%">
+<col style="width: 4%">
+<col style="width: 5%">
+<col style="width: 6%">
+<col style="width: 11%">
+<col style="width: 5%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">p0</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">p50</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p100</th>
+<th style="text-align: left;">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">OBS_VALUE</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5.917302e+13</td>
+<td style="text-align: right;">5.075024e+15</td>
+<td style="text-align: right;">-4.217526e+16</td>
+<td style="text-align: right;">2.99</td>
+<td style="text-align: right;">43.86</td>
+<td style="text-align: right;">7442250</td>
+<td style="text-align: right;">1.254695e+18</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./P1.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Búsquedas académicas con {rcrossref}</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./P3.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">INEGI y Banxico</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

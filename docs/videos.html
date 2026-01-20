@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Curso: De las APIs a los gráficos: explorando datos sociales con R - Instalación de R y RStudio</title>
+<title>Curso: De las APIs a los gráficos: explorando datos sociales con R - Videos y extras</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -64,8 +30,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./D1.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./P3.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -110,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./install.html">Instalación de R y RStudio</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./videos.html">Videos y extras</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -147,7 +112,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./install.html" class="sidebar-item-text sidebar-link active">
+  <a href="./install.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Instalación de R y RStudio</span></a>
   </div>
 </li>
@@ -199,7 +164,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./videos.html" class="sidebar-item-text sidebar-link">
+  <a href="./videos.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Videos y extras</span></a>
   </div>
 </li>
@@ -213,20 +178,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#requisitos-generales" id="toc-requisitos-generales" class="nav-link active" data-scroll-target="#requisitos-generales">1. Requisitos generales</a></li>
-  <li><a href="#instalación-en-macos" id="toc-instalación-en-macos" class="nav-link" data-scroll-target="#instalación-en-macos">2. Instalación en macOS</a></li>
-  <li><a href="#instalación-en-windows" id="toc-instalación-en-windows" class="nav-link" data-scroll-target="#instalación-en-windows">3. Instalación en Windows</a></li>
-  <li><a href="#verificación-rápida-recomendado" id="toc-verificación-rápida-recomendado" class="nav-link" data-scroll-target="#verificación-rápida-recomendado">4. Verificación rápida (recomendado)</a></li>
-  <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias">5. Referencias</a></li>
+  <li><a href="#sesión-19-de-enero-2026" id="toc-sesión-19-de-enero-2026" class="nav-link active" data-scroll-target="#sesión-19-de-enero-2026">Sesión 19 de enero 2026</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/aniuxa/r_api2026/edit/main/install.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/aniuxa/r_api2026/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/aniuxa/r_api2026/edit/main/videos.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/aniuxa/r_api2026/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Instalación de R y RStudio</h1>
+<h1 class="title">Videos y extras</h1>
 </div>
 
 
@@ -241,111 +202,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>Esta página resume la instalación recomendada de <strong>R</strong> y <strong>RStudio</strong> (Posit) para <strong>macOS</strong> y <strong>Windows</strong>, usando las <strong>versiones más recientes disponibles en CRAN</strong> al momento de redactar esta guía.</p>
-<blockquote class="blockquote">
-<p>Nota: RStudio <strong>no incluye</strong> R. Primero se instala <strong>R</strong> y después <strong>RStudio</strong>. citeturn0search3</p>
-</blockquote>
-<section id="requisitos-generales" class="level2">
-<h2 class="anchored" data-anchor-id="requisitos-generales">1. Requisitos generales</h2>
-<ul>
-<li>Conexión a internet y permisos para instalar software.</li>
-<li>Espacio libre en disco (R + RStudio + herramientas de compilación pueden ocupar varios cientos de MB).</li>
-<li>Recomendación: reiniciar el equipo después de instalar R, y nuevamente después de instalar RStudio.</li>
-</ul>
-</section>
-<section id="instalación-en-macos" class="level2">
-<h2 class="anchored" data-anchor-id="instalación-en-macos">2. Instalación en macOS</h2>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">2.1 Descargar e instalar R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">2.2 Instalar herramientas de compilación</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">2.3 Instalar RStudio (Posit)</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<ol type="1">
-<li>Entra a CRAN para macOS y descarga la versión más reciente de R para Mac. citeturn1search2<br>
-</li>
-<li>Elige el instalador que corresponda a tu procesador:
-<ul>
-<li><strong>Apple Silicon (ARM64)</strong>: Macs con procesadores M1/M2/M3/M4.</li>
-<li><strong>Intel (x86_64)</strong>: Macs con procesador Intel.</li>
-</ul></li>
-</ol>
-<blockquote class="blockquote">
-<p>Si no estás segura/o del procesador: menú  → <strong>Acerca de esta Mac</strong>.</p>
-</blockquote>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p>En el curso instalaremos paquetes que, en algunos casos, necesitan compilar código (C/C++ o Fortran). En macOS, lo mínimo recomendado es:</p>
-<ol type="1">
-<li><strong>XQuartz</strong> (X11). citeturn1search1<br>
-</li>
-<li><strong>Xcode Command Line Tools</strong> (herramientas de desarrollo de Apple). citeturn1search9<br>
-</li>
-<li><strong>GNU Fortran</strong> (gfortran), recomendado por el equipo de R para macOS. citeturn1search0turn1search2</li>
-</ol>
-<p>Enlaces: - XQuartz: <code>https://www.xquartz.org/</code> citeturn1search1<br>
-- Xcode (recursos oficiales): <code>https://developer.apple.com/xcode/resources/</code> citeturn1search9<br>
-- gfortran (instalador universal recomendado): <code>https://mac.r-project.org/tools/</code> citeturn1search0</p>
-</div>
-<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
-<ol type="1">
-<li>Entra al sitio de Posit y descarga <strong>RStudio Desktop</strong> para macOS. citeturn0search3<br>
-</li>
-<li>Instala el archivo descargado siguiendo el asistente.</li>
-</ol>
-</div>
-</div>
-</div>
-</section>
-<section id="instalación-en-windows" class="level2">
-<h2 class="anchored" data-anchor-id="instalación-en-windows">3. Instalación en Windows</h2>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">3.1 Descargar e instalar R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">3.2 Instalar Rtools</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">3.3 Instalar RStudio (Posit)</a></li></ul>
-<div class="tab-content">
-<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<ol type="1">
-<li>Entra a CRAN para Windows (base) y descarga la versión más reciente de R para Windows. citeturn0search1<br>
-</li>
-<li>Ejecuta el instalador (<code>.exe</code>) y conserva las opciones por defecto (suelen funcionar bien para la mayoría de los equipos).</li>
-</ol>
-</div>
-<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<p>Rtools es un conjunto de herramientas para compilar paquetes que incluyen código (C/C++/Fortran). <strong>No siempre es necesario</strong> para instalar paquetes desde CRAN, pero ayuda a evitar problemas cuando un paquete no tiene binario disponible o requiere compilación. citeturn3view0</p>
-<ol type="1">
-<li>Entra a la página de Rtools y descarga la versión recomendada para R 4.5.x. citeturn3view0<br>
-</li>
-<li>Instala en la ruta sugerida por defecto (por ejemplo, <code>C:\rtools45</code>).</li>
-</ol>
-<blockquote class="blockquote">
-<p>Si tu equipo es Windows ARM (poco común), revisa la sección de instaladores ARM indicada en la página oficial.</p>
-</blockquote>
-</div>
-<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
-<ol type="1">
-<li>Entra al sitio de Posit y descarga <strong>RStudio Desktop</strong> para Windows. citeturn0search3<br>
-</li>
-<li>Instala el archivo descargado siguiendo el asistente.</li>
-</ol>
-</div>
-</div>
-</div>
-</section>
-<section id="verificación-rápida-recomendado" class="level2">
-<h2 class="anchored" data-anchor-id="verificación-rápida-recomendado">4. Verificación rápida (recomendado)</h2>
-<p>Una vez instalado todo, abre <strong>RStudio</strong> y ejecuta estas líneas en la consola:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>R.version.string</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">RStudio.Version</span>()<span class="sc">$</span>version</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Si aparece la versión de R y la versión de RStudio sin errores, la instalación básica está lista.</p>
-</section>
-<section id="referencias" class="level2">
-<h2 class="anchored" data-anchor-id="referencias">5. Referencias</h2>
-<ul>
-<li>CRAN. “R for macOS.” [https://cran.r-project.org/bin/macosx/]</li>
-<li>CRAN. “R for Windows (base).” [https://cran.r-project.org/bin/windows/base/]</li>
-<li>CRAN. “Rtools45 for Windows.” [https://cran.r-project.org/bin/windows/Rtools/rtools45/files/rtools45-6691-6492.exe]</li>
-<li>Posit. “RStudio Desktop.” https://www.rstudio.com/products/rstudio/download/</li>
-<li>XQuartz. Sitio oficial. [https://www.xquartz.org]</li>
-<li>R for macOS Developers. “Tools (gfortran).” [https://mac.r-project.org/tools/gfortran-14.2-universal.pkg]</li>
-<li>Apple Developer Documentation. “Installing the command-line tools.” [https://mac.r-project.org/tools/]</li>
-</ul>
+<section id="sesión-19-de-enero-2026" class="level2">
+<h2 class="anchored" data-anchor-id="sesión-19-de-enero-2026">Sesión 19 de enero 2026</h2>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/MbcvOXkduJI" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p><a href="P1_clase.R">Código</a></p>
 
 
 </section>
@@ -701,14 +561,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Contenido</span>
+      <a href="./P3.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">INEGI y Banxico</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./D1.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Día 1 — ¿Qué es una API? Tipos, ventajas y fuentes que usaremos</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

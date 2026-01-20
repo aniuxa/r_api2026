@@ -1,0 +1,241 @@
+# INEGI y Banxico
+
+Este material introduce **cómo consultar datos en línea** desde R usando dos fuentes clave para México:
+
+-   **INEGI** (API de Indicadores: *Banco de Indicadores* / BIE y BISE)
+-   **Banco de México (Banxico)** (SIE-API: series de tiempo)
+
+El objetivo es que puedas **(1) conectarte**, **(2) traer una serie**, **(3) dejarla lista para análisis** y **(4) graficarla**.
+
+## 4.1 Intro
+
+En ciencias sociales, una API sirve para **automatizar** el acceso a indicadores y series sin “bajar archivos a mano” cada vez. En este módulo aprenderás a:
+
+1)  Guardar tus **tokens** de forma segura\
+2)  Descargar una serie del **INEGI** con `{inegiR}`\
+3)  Descargar una serie del **Banxico** con `{siebanxicor}`\
+4)  Hacer una gráfica rápida (estática e interactiva)
+
+**Fuentes oficiales:** - INEGI, API de Indicadores (v2.0).\
+- Banxico, SIE-API (incluye token y ejemplos).
+
+## 4.2 Tokens (seguridad básica)
+
+Un **token** es una “llave” que identifica tus solicitudes. Es personal (va ligado a tu correo o a tu cuenta) y puede bloquearse si se usa de forma indebida o si se exceden límites.
+
+### Recomendación (mejor práctica)
+
+En vez de escribir el token en el script, guárdalo como **variable de entorno** y léelo desde R.
+
+#### Opción A (simple): objeto en el script (solo para práctica local)
+
+```{r}
+token_inegi <- "AQUI_VA_TU_TOKEN_INEGI"
+token_bmx   <- "AQUI_VA_TU_TOKEN_BANXICO"
+```
+
+#### Opción B (recomendada): `.Renviron` (persistente y más seguro)
+
+1.  En RStudio: *Tools \> Global Options \> Code \> Editing* y activa “Use native pipe operator” si lo deseas.
+2.  Abre tu archivo `.Renviron`:
+
+```{r echo=FALSE}
+usethis::edit_r_environ()
+```
+
+3.  Agrega (una por línea) y guarda:
+
+```         
+INEGI_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxx
+BANXICO_TOKEN=yyyyyyyyyyyyyyyyyyyyyy
+```
+
+4.  Reinicia R y lee los tokens:
+
+```{r}
+token_inegi <- Sys.getenv("INEGI_TOKEN")
+token_bmx   <- Sys.getenv("BANXICO_TOKEN")
+
+nchar(token_inegi); nchar(token_bmx)
+```
+
+> Importante: **no subas tokens** a GitHub ni los compartas por correo.
+
+## 4.3 Paquetes
+
+Usaremos `tidyverse` para limpiar/graficar y dos paquetes especializados:
+
+-   `{inegiR}` para la **API de Indicadores** del INEGI\
+-   `{siebanxicor}` para el **SIE-API** de Banxico
+
+Además, `httr` y `jsonlite` son útiles cuando quieres hacer consultas “a mano” (sin paquete) y entender qué está pasando.
+
+```{r}
+if (!requireNamespace("pacman", quietly = TRUE)) install.packages("pacman")
+
+pacman::p_load(
+  tidyverse,
+  inegiR,
+  siebanxicor,
+  httr, jsonlite,
+  lubridate,
+  plotly
+)
+```
+
+## 4.4 INEGI con `{inegiR}` (serie rápida)
+
+### 4.4.1 ¿Qué indicadores funcionan aquí?
+
+`inegiR` está pensado para la **API de Indicadores** del INEGI, que permite consultar **datos y metadatos** de indicadores nacionales, estatales y municipales. Puedes explorar la documentación oficial y el “constructor de consultas” aquí:
+
+-   INEGI API de Indicadores: <https://www.inegi.org.mx/servicios/api_indicadores.html>
+
+### 4.4.2 Descarga de una serie (ejemplo mínimo)
+
+En esta práctica usaremos un ejemplo típico: una serie de precios (por ejemplo, el IPC). Lo importante aquí es la *mecánica*; después cambiarás el ID por el de tu interés.
+
+```{r}
+ipc <- inegiR::inegi_series(
+  serie = 628194,  # ejemplo de ID
+  token = token_inegi
+)
+
+glimpse(ipc)
+head(ipc, 5)
+```
+
+### 4.4.3 Limpieza mínima para graficar
+
+```{r}
+ipc2 <- ipc %>%
+  mutate(
+    date = as.Date(date),
+    values = as.numeric(values)
+  ) %>%
+  arrange(date)
+
+ipc2 %>% tail(5)
+```
+
+### 4.4.4 Gráfica rápida (ggplot2)
+
+```{r}
+g_ipc <- ggplot(ipc2, aes(x = date, y = values)) +
+  geom_line() +
+  labs(
+    title = "INEGI · Serie (ejemplo)",
+    x = NULL, y = "Valor"
+  )
+
+g_ipc
+```
+
+## 4.5 INEGI “a mano” (para entender endpoints)
+
+A veces conviene entender la estructura general: **dominio + endpoint + parámetros + token**. La API de INEGI ofrece formatos distintos (JSON-Stat, etc.). En el curso usaremos **paquetes** la mayor parte del tiempo, pero esta sección sirve para “ver detrás del telón”.
+
+> Sugerencia didáctica: abre el *constructor de consultas* del INEGI, arma una consulta, copia la URL y prueba en R con `httr::GET()`.
+
+```{r}
+# Ejemplo ilustrativo: sustituye con una URL real del constructor
+url_ejemplo <- "https://api.inegi.org.mx/..."  
+
+# resp <- httr::GET(url_ejemplo)
+# httr::status_code(resp)
+# txt <- httr::content(resp, as = "text", encoding = "UTF-8")
+# jsonlite::fromJSON(txt) |> names()
+```
+
+## 4.6 Un plus: gráfico interactivo con `{plotly}`
+
+```{r}
+plotly::ggplotly(g_ipc)
+```
+
+## 4.7 Banxico con `{siebanxicor}`
+
+### 4.7.1 Token de Banxico y límites
+
+Para usar el SIE-API, Banxico exige un **token** que se envía en cada solicitud (por header o parámetro). Documentación oficial:
+
+-   Token Banxico: <https://www.banxico.org.mx/SieAPIRest/service/v1/token>\
+-   Ejemplos oficiales (incluye R): <https://www.banxico.org.mx/SieAPIRest/service/v1/doc/ejemplos>\
+-   Portal general SIE-API: <https://www.banxico.org.mx/SieAPIRest/>
+
+Nota importante de compatibilidad: Banxico ha indicado requisitos de seguridad (por ejemplo TLS 1.3) en su portal del API. Revisa tu sistema si encuentras errores de conexión.
+
+### 4.7.2 Configurar token en el paquete
+
+```{r}
+# Guardar token en la sesión (recomendado; no lo imprimas en pantalla)
+siebanxicor::set_token(token_bmx)
+```
+
+### 4.7.3 Buscar y descargar una serie
+
+El flujo típico es:
+
+1)  Identificar el **código de serie** (por catálogo o por el buscador del SIE)\
+2)  Descargar la serie con el paquete
+
+En el sitio del SIE puedes buscar por nombre/tema y copiar el ID de la serie.\
+Aquí va un ejemplo (sustituye `SF43718` por una serie que elijas):
+
+```{r}
+serie_id <- "SF43718"  # EJEMPLO: cambia por una serie real de tu interés
+
+bmx <- siebanxicor::get_series(serie_id)
+
+glimpse(bmx)
+head(bmx, 5)
+```
+
+### 4.7.4 Preparar para graficar
+
+```{r}
+bmx2 <- bmx %>%
+  mutate(
+    date = as.Date(date),
+    value = as.numeric(value)
+  ) %>%
+  arrange(date)
+
+ggplot(bmx2, aes(x = date, y = value)) +
+  geom_line() +
+  labs(
+    title = paste("Banxico ·", serie_id),
+    x = NULL, y = "Valor"
+  )
+```
+
+## 4.8 Series de tiempo (introducción muy breve)
+
+Una serie de tiempo es una variable observada en distintos momentos (mensual, trimestral, diaria). Para análisis social, lo primero es:
+
+-   identificar **frecuencia** y **unidad**
+-   revisar **faltantes** y **cambios metodológicos**
+-   decidir si trabajaremos con **niveles** o **tasas de cambio**
+
+Ejemplo: crear una tasa de crecimiento anual aproximada (cuando la serie es mensual):
+
+```{r}
+ipc_ts <- ipc2 %>%
+  arrange(date) %>%
+  mutate(yoy = (values / lag(values, 12) - 1) * 100)
+
+ipc_ts %>%
+  filter(!is.na(yoy)) %>%
+  ggplot(aes(x = date, y = yoy)) +
+  geom_line() +
+  labs(title = "INEGI · Variación anual (aprox.)", x = NULL, y = "%")
+```
+
+## Bibliografía y documentación
+
+-   INEGI. *API de Indicadores (v2.0).* <https://www.inegi.org.mx/servicios/api_indicadores.html>\
+-   Banxico. *SIE-API (portal).* <https://www.banxico.org.mx/SieAPIRest/>\
+-   Banxico. *Token de consulta.* <https://www.banxico.org.mx/SieAPIRest/service/v1/token>\
+-   Banxico. *Ejemplos del API.* <https://www.banxico.org.mx/SieAPIRest/service/v1/doc/ejemplos>\
+-   CRAN. *inegiR: Integrate INEGI’s API with R.* <https://cran.r-project.org/package=inegiR>\
+-   CRAN. *siebanxicor: Query Data Series from Bank of Mexico.* <https://cran.r-project.org/package=siebanxicor>

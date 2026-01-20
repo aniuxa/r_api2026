@@ -1,4 +1,4 @@
-# Día 1 — ¿Qué es una API? Tipos, ventajas y fuentes que usaremos
+# Día 1: ¿Qué es una API? Tipos, ventajas y fuentes que usaremos {.unnumbered}
 
 ## Propósito del día 1
 
@@ -111,7 +111,7 @@ Estas fuentes son especialmente útiles para ejemplos de **datos económicos com
 
 - **Qué aporta**: explorar **catálogos** de datasets y metadatos en portales de datos abiertos.
 - **Clave**: muchos portales usan CKAN y se consultan con el **Action API** (por ejemplo `package_search`).[^ckan_api]
-- **Referencia**: Datamx (portal) y documentación oficial de CKAN API.[^datamx][^ckan_api]
+- **Referencia**: Datamx.io (portal) y documentación oficial de CKAN API.[^datamx][^ckan_api]
 
 ### 8) Bibliografía y metadatos — Crossref
 

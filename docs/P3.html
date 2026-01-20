@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Curso: De las APIs a los gráficos: explorando datos sociales con R - 3&nbsp; INEGI y Banxico</title>
+<title>Curso: De las APIs a los gráficos: explorando datos sociales con R - Práctica 3: INEGI y Banxico</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -110,7 +110,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P1.html">Práctica</a></li><li class="breadcrumb-item"><a href="./P3.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">INEGI y Banxico</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P1.html">Práctica</a></li><li class="breadcrumb-item"><a href="./P3.html">Práctica 3: INEGI y Banxico</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -163,7 +163,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./D1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Día 1 — ¿Qué es una API? Tipos, ventajas y fuentes que usaremos</span></span></a>
+ <span class="menu-text">Día 1: ¿Qué es una API? Tipos, ventajas y fuentes que usaremos</span></a>
   </div>
 </li>
       </ul>
@@ -180,19 +180,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./P1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Búsquedas académicas con {rcrossref}</span></a>
+ <span class="menu-text">Práctica 1: Búsquedas académicas con {rcrossref}</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./P2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Día 2 - Paquetes de consulta</span></span></a>
+ <span class="menu-text">Práctica 2: Paquetes de consulta</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./P3.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">INEGI y Banxico</span></span></a>
+ <span class="menu-text">Práctica 3: INEGI y Banxico</span></a>
   </div>
 </li>
       </ul>
@@ -213,27 +213,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#intro" id="toc-intro" class="nav-link active" data-scroll-target="#intro"><span class="header-section-number">3.1</span> Intro</a></li>
-  <li><a href="#tokens-seguridad-básica" id="toc-tokens-seguridad-básica" class="nav-link" data-scroll-target="#tokens-seguridad-básica"><span class="header-section-number">3.2</span> Tokens (seguridad básica)</a>
+  <li><a href="#intro" id="toc-intro" class="nav-link active" data-scroll-target="#intro">Intro</a></li>
+  <li><a href="#tokens-seguridad-básica" id="toc-tokens-seguridad-básica" class="nav-link" data-scroll-target="#tokens-seguridad-básica">Tokens (seguridad básica)</a>
   <ul class="collapse">
-  <li><a href="#recomendación-mejor-práctica" id="toc-recomendación-mejor-práctica" class="nav-link" data-scroll-target="#recomendación-mejor-práctica"><span class="header-section-number">3.2.1</span> Recomendación (mejor práctica)</a></li>
+  <li><a href="#recomendación-mejor-práctica" id="toc-recomendación-mejor-práctica" class="nav-link" data-scroll-target="#recomendación-mejor-práctica">Recomendación (mejor práctica)</a></li>
   </ul></li>
-  <li><a href="#paquetes" id="toc-paquetes" class="nav-link" data-scroll-target="#paquetes"><span class="header-section-number">3.3</span> Paquetes</a></li>
-  <li><a href="#inegi-con-inegir-serie-rápida" id="toc-inegi-con-inegir-serie-rápida" class="nav-link" data-scroll-target="#inegi-con-inegir-serie-rápida"><span class="header-section-number">3.4</span> INEGI con <code>{inegiR}</code> (serie rápida)</a>
+  <li><a href="#paquetes" id="toc-paquetes" class="nav-link" data-scroll-target="#paquetes">Paquetes</a></li>
+  <li><a href="#inegi-con-inegir-serie-rápida" id="toc-inegi-con-inegir-serie-rápida" class="nav-link" data-scroll-target="#inegi-con-inegir-serie-rápida">INEGI con <code>{inegiR}</code> (serie rápida)</a>
   <ul class="collapse">
-  <li><a href="#qué-indicadores-funcionan-aquí" id="toc-qué-indicadores-funcionan-aquí" class="nav-link" data-scroll-target="#qué-indicadores-funcionan-aquí"><span class="header-section-number">3.4.1</span> ¿Qué indicadores funcionan aquí?</a></li>
-  <li><a href="#descarga-de-una-serie-ejemplo-mínimo" id="toc-descarga-de-una-serie-ejemplo-mínimo" class="nav-link" data-scroll-target="#descarga-de-una-serie-ejemplo-mínimo"><span class="header-section-number">3.4.2</span> Descarga de una serie (ejemplo mínimo)</a></li>
-  <li><a href="#limpieza-mínima-para-graficar" id="toc-limpieza-mínima-para-graficar" class="nav-link" data-scroll-target="#limpieza-mínima-para-graficar"><span class="header-section-number">3.4.3</span> Limpieza mínima para graficar</a></li>
+  <li><a href="#qué-indicadores-funcionan-aquí" id="toc-qué-indicadores-funcionan-aquí" class="nav-link" data-scroll-target="#qué-indicadores-funcionan-aquí">¿Qué indicadores funcionan aquí?</a></li>
+  <li><a href="#descarga-de-una-serie-ejemplo-mínimo" id="toc-descarga-de-una-serie-ejemplo-mínimo" class="nav-link" data-scroll-target="#descarga-de-una-serie-ejemplo-mínimo">Descarga de una serie (ejemplo mínimo)</a></li>
+  <li><a href="#limpieza-mínima-para-graficar" id="toc-limpieza-mínima-para-graficar" class="nav-link" data-scroll-target="#limpieza-mínima-para-graficar">Limpieza mínima para graficar</a></li>
   </ul></li>
-  <li><a href="#inegi-a-mano-para-entender-endpoints" id="toc-inegi-a-mano-para-entender-endpoints" class="nav-link" data-scroll-target="#inegi-a-mano-para-entender-endpoints"><span class="header-section-number">3.5</span> INEGI “a mano” (para entender endpoints)</a></li>
-  <li><a href="#banxico-con-siebanxicor" id="toc-banxico-con-siebanxicor" class="nav-link" data-scroll-target="#banxico-con-siebanxicor"><span class="header-section-number">3.6</span> Banxico con <code>{siebanxicor}</code></a>
+  <li><a href="#inegi-a-mano-para-entender-endpoints" id="toc-inegi-a-mano-para-entender-endpoints" class="nav-link" data-scroll-target="#inegi-a-mano-para-entender-endpoints">INEGI “a mano” (para entender endpoints)</a></li>
+  <li><a href="#banxico-con-siebanxicor" id="toc-banxico-con-siebanxicor" class="nav-link" data-scroll-target="#banxico-con-siebanxicor">Banxico con <code>{siebanxicor}</code></a>
   <ul class="collapse">
-  <li><a href="#token-de-banxico-y-límites" id="toc-token-de-banxico-y-límites" class="nav-link" data-scroll-target="#token-de-banxico-y-límites"><span class="header-section-number">3.6.1</span> Token de Banxico y límites</a></li>
-  <li><a href="#configurar-token-en-el-paquete" id="toc-configurar-token-en-el-paquete" class="nav-link" data-scroll-target="#configurar-token-en-el-paquete"><span class="header-section-number">3.6.2</span> Configurar token en el paquete</a></li>
-  <li><a href="#buscar-y-descargar-una-serie" id="toc-buscar-y-descargar-una-serie" class="nav-link" data-scroll-target="#buscar-y-descargar-una-serie"><span class="header-section-number">3.6.3</span> Buscar y descargar una serie</a></li>
-  <li><a href="#preparar-para-graficar" id="toc-preparar-para-graficar" class="nav-link" data-scroll-target="#preparar-para-graficar"><span class="header-section-number">3.6.4</span> Preparar para graficar</a></li>
+  <li><a href="#token-de-banxico-y-límites" id="toc-token-de-banxico-y-límites" class="nav-link" data-scroll-target="#token-de-banxico-y-límites">Token de Banxico y límites</a></li>
+  <li><a href="#configurar-token-en-el-paquete" id="toc-configurar-token-en-el-paquete" class="nav-link" data-scroll-target="#configurar-token-en-el-paquete">Configurar token en el paquete</a></li>
+  <li><a href="#buscar-y-descargar-una-serie" id="toc-buscar-y-descargar-una-serie" class="nav-link" data-scroll-target="#buscar-y-descargar-una-serie">Buscar y descargar una serie</a></li>
+  <li><a href="#preparar-para-graficar" id="toc-preparar-para-graficar" class="nav-link" data-scroll-target="#preparar-para-graficar">Preparar para graficar</a></li>
   </ul></li>
-  <li><a href="#bibliografía-y-documentación" id="toc-bibliografía-y-documentación" class="nav-link" data-scroll-target="#bibliografía-y-documentación"><span class="header-section-number">3.7</span> Bibliografía y documentación</a></li>
+  <li><a href="#bibliografía-y-documentación" id="toc-bibliografía-y-documentación" class="nav-link" data-scroll-target="#bibliografía-y-documentación">Bibliografía y documentación</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/aniuxa/r_api2026/edit/main/P3.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/aniuxa/r_api2026/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -242,7 +242,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">INEGI y Banxico</span></h1>
+<h1 class="title">Práctica 3: INEGI y Banxico</h1>
 </div>
 
 
@@ -263,8 +263,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Banco de México (Banxico)</strong> (SIE-API: series de tiempo)</li>
 </ul>
 <p>El objetivo es que puedas <strong>(1) conectarte</strong>, <strong>(2) traer una serie</strong>, <strong>(3) dejarla lista para análisis</strong> y <strong>(4) graficarla</strong>.</p>
-<section id="intro" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="intro"><span class="header-section-number">3.1</span> Intro</h2>
+<section id="intro" class="level2">
+<h2 class="anchored" data-anchor-id="intro">Intro</h2>
 <p>En ciencias sociales, una API sirve para <strong>automatizar</strong> el acceso a indicadores y series sin “bajar archivos a mano” cada vez. En este módulo aprenderás a:</p>
 <ol type="1">
 <li>Guardar tus <strong>tokens</strong> de forma segura<br>
@@ -278,21 +278,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Fuentes oficiales:</strong> - INEGI, API de Indicadores (v2.0).<br>
 - Banxico, SIE-API (incluye token y ejemplos).</p>
 </section>
-<section id="tokens-seguridad-básica" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="tokens-seguridad-básica"><span class="header-section-number">3.2</span> Tokens (seguridad básica)</h2>
+<section id="tokens-seguridad-básica" class="level2">
+<h2 class="anchored" data-anchor-id="tokens-seguridad-básica">Tokens (seguridad básica)</h2>
 <p>Un <strong>token</strong> es una “llave” que identifica tus solicitudes. Es personal (va ligado a tu correo o a tu cuenta) y puede bloquearse si se usa de forma indebida o si se exceden límites.</p>
-<section id="recomendación-mejor-práctica" class="level3" data-number="3.2.1">
-<h3 data-number="3.2.1" class="anchored" data-anchor-id="recomendación-mejor-práctica"><span class="header-section-number">3.2.1</span> Recomendación (mejor práctica)</h3>
+<section id="recomendación-mejor-práctica" class="level3">
+<h3 class="anchored" data-anchor-id="recomendación-mejor-práctica">Recomendación (mejor práctica)</h3>
 <p>En vez de escribir el token en el script, guárdalo como <strong>variable de entorno</strong> y léelo desde R.</p>
-<section id="opción-a-simple-objeto-en-el-script-solo-para-práctica-local" class="level4" data-number="3.2.1.1">
-<h4 data-number="3.2.1.1" class="anchored" data-anchor-id="opción-a-simple-objeto-en-el-script-solo-para-práctica-local"><span class="header-section-number">3.2.1.1</span> Opción A (simple): objeto en el script (solo para práctica local)</h4>
+<section id="opción-a-simple-objeto-en-el-script-solo-para-práctica-local" class="level4">
+<h4 class="anchored" data-anchor-id="opción-a-simple-objeto-en-el-script-solo-para-práctica-local">Opción A (simple): objeto en el script (solo para práctica local)</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>token_inegi <span class="ot">&lt;-</span> <span class="st">"AQUI_VA_TU_TOKEN_INEGI"</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>token_bmx   <span class="ot">&lt;-</span> <span class="st">"AQUI_VA_TU_TOKEN_BANXICO"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="opción-b-recomendada-.renviron-persistente-y-más-seguro" class="level4" data-number="3.2.1.2">
-<h4 data-number="3.2.1.2" class="anchored" data-anchor-id="opción-b-recomendada-.renviron-persistente-y-más-seguro"><span class="header-section-number">3.2.1.2</span> Opción B (recomendada): <code>.Renviron</code> (persistente y más seguro)</h4>
+<section id="opción-b-recomendada-.renviron-persistente-y-más-seguro" class="level4">
+<h4 class="anchored" data-anchor-id="opción-b-recomendada-.renviron-persistente-y-más-seguro">Opción B (recomendada): <code>.Renviron</code> (persistente y más seguro)</h4>
 <p>Abre tu archivo <code>.Renviron</code>:</p>
 <div class="cell">
 <div class="cell-output cell-output-stderr">
@@ -328,8 +328,8 @@ BANXICO_TOKEN=yyyyyyyyyyyyyyyyyyyyyy</code></pre>
 </section>
 </section>
 </section>
-<section id="paquetes" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="paquetes"><span class="header-section-number">3.3</span> Paquetes</h2>
+<section id="paquetes" class="level2">
+<h2 class="anchored" data-anchor-id="paquetes">Paquetes</h2>
 <p>Usaremos <code>tidyverse</code> para limpiar/graficar y dos paquetes especializados:</p>
 <ul>
 <li><code>{inegiR}</code> para la <strong>API de Indicadores</strong> del INEGI<br>
@@ -348,17 +348,17 @@ BANXICO_TOKEN=yyyyyyyyyyyyyyyyyyyyyy</code></pre>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="inegi-con-inegir-serie-rápida" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="inegi-con-inegir-serie-rápida"><span class="header-section-number">3.4</span> INEGI con <code>{inegiR}</code> (serie rápida)</h2>
-<section id="qué-indicadores-funcionan-aquí" class="level3" data-number="3.4.1">
-<h3 data-number="3.4.1" class="anchored" data-anchor-id="qué-indicadores-funcionan-aquí"><span class="header-section-number">3.4.1</span> ¿Qué indicadores funcionan aquí?</h3>
+<section id="inegi-con-inegir-serie-rápida" class="level2">
+<h2 class="anchored" data-anchor-id="inegi-con-inegir-serie-rápida">INEGI con <code>{inegiR}</code> (serie rápida)</h2>
+<section id="qué-indicadores-funcionan-aquí" class="level3">
+<h3 class="anchored" data-anchor-id="qué-indicadores-funcionan-aquí">¿Qué indicadores funcionan aquí?</h3>
 <p><code>inegiR</code> está pensado para la <strong>API de Indicadores</strong> del INEGI, que permite consultar <strong>datos y metadatos</strong> de indicadores nacionales, estatales y municipales. Puedes explorar la documentación oficial y el “constructor de consultas” aquí:</p>
 <ul>
 <li>INEGI API de Indicadores: <a href="https://www.inegi.org.mx/servicios/api_indicadores.html" class="uri">https://www.inegi.org.mx/servicios/api_indicadores.html</a></li>
 </ul>
 </section>
-<section id="descarga-de-una-serie-ejemplo-mínimo" class="level3" data-number="3.4.2">
-<h3 data-number="3.4.2" class="anchored" data-anchor-id="descarga-de-una-serie-ejemplo-mínimo"><span class="header-section-number">3.4.2</span> Descarga de una serie (ejemplo mínimo)</h3>
+<section id="descarga-de-una-serie-ejemplo-mínimo" class="level3">
+<h3 class="anchored" data-anchor-id="descarga-de-una-serie-ejemplo-mínimo">Descarga de una serie (ejemplo mínimo)</h3>
 <p>En esta práctica usaremos un ejemplo típico: una serie de precios (por ejemplo, el IPC). Lo importante aquí es la <em>mecánica</em>; después cambiarás el ID por el de tu interés.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>ipc <span class="ot">&lt;-</span> inegiR<span class="sc">::</span><span class="fu">inegi_series</span>(</span>
@@ -387,8 +387,8 @@ $ notes         &lt;chr&gt; "", "", "", "", "", "", "", "", "", "", "", "", "", 
 </div>
 </div>
 </section>
-<section id="limpieza-mínima-para-graficar" class="level3" data-number="3.4.3">
-<h3 data-number="3.4.3" class="anchored" data-anchor-id="limpieza-mínima-para-graficar"><span class="header-section-number">3.4.3</span> Limpieza mínima para graficar</h3>
+<section id="limpieza-mínima-para-graficar" class="level3">
+<h3 class="anchored" data-anchor-id="limpieza-mínima-para-graficar">Limpieza mínima para graficar</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>ipc2 <span class="ot">&lt;-</span> ipc <span class="sc">%&gt;%</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
@@ -409,8 +409,8 @@ $ notes         &lt;chr&gt; "", "", "", "", "", "", "", "", "", "", "", "", "", 
 </div>
 </section>
 </section>
-<section id="inegi-a-mano-para-entender-endpoints" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="inegi-a-mano-para-entender-endpoints"><span class="header-section-number">3.5</span> INEGI “a mano” (para entender endpoints)</h2>
+<section id="inegi-a-mano-para-entender-endpoints" class="level2">
+<h2 class="anchored" data-anchor-id="inegi-a-mano-para-entender-endpoints">INEGI “a mano” (para entender endpoints)</h2>
 <p>A veces conviene entender la estructura general: <strong>dominio + endpoint + parámetros + token</strong>. La API de INEGI ofrece formatos distintos (JSON-Stat, etc.). En el curso usaremos <strong>paquetes</strong> la mayor parte del tiempo, pero esta sección sirve para “ver detrás del telón”.</p>
 <blockquote class="blockquote">
 <p>Sugerencia didáctica: abre el <em>constructor de consultas</em> del INEGI, arma una consulta, copia la URL y prueba en R con <code>httr::GET()</code>.</p>
@@ -431,10 +431,10 @@ $ notes         &lt;chr&gt; "", "", "", "", "", "", "", "", "", "", "", "", "", 
 </div>
 </div>
 </section>
-<section id="banxico-con-siebanxicor" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="banxico-con-siebanxicor"><span class="header-section-number">3.6</span> Banxico con <code>{siebanxicor}</code></h2>
-<section id="token-de-banxico-y-límites" class="level3" data-number="3.6.1">
-<h3 data-number="3.6.1" class="anchored" data-anchor-id="token-de-banxico-y-límites"><span class="header-section-number">3.6.1</span> Token de Banxico y límites</h3>
+<section id="banxico-con-siebanxicor" class="level2">
+<h2 class="anchored" data-anchor-id="banxico-con-siebanxicor">Banxico con <code>{siebanxicor}</code></h2>
+<section id="token-de-banxico-y-límites" class="level3">
+<h3 class="anchored" data-anchor-id="token-de-banxico-y-límites">Token de Banxico y límites</h3>
 <p>Para usar el SIE-API, Banxico exige un <strong>token</strong> que se envía en cada solicitud (por header o parámetro). Documentación oficial:</p>
 <ul>
 <li>Token Banxico: <a href="https://www.banxico.org.mx/SieAPIRest/service/v1/token" class="uri">https://www.banxico.org.mx/SieAPIRest/service/v1/token</a><br>
@@ -445,15 +445,15 @@ $ notes         &lt;chr&gt; "", "", "", "", "", "", "", "", "", "", "", "", "", 
 </ul>
 <p>Nota importante de compatibilidad: Banxico ha indicado requisitos de seguridad (por ejemplo TLS 1.3) en su portal del API. Revisa tu sistema si encuentras errores de conexión.</p>
 </section>
-<section id="configurar-token-en-el-paquete" class="level3" data-number="3.6.2">
-<h3 data-number="3.6.2" class="anchored" data-anchor-id="configurar-token-en-el-paquete"><span class="header-section-number">3.6.2</span> Configurar token en el paquete</h3>
+<section id="configurar-token-en-el-paquete" class="level3">
+<h3 class="anchored" data-anchor-id="configurar-token-en-el-paquete">Configurar token en el paquete</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Guardar token en la sesión (recomendado; no lo imprimas en pantalla)</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>siebanxicor<span class="sc">::</span><span class="fu">setToken</span>(token_bmx)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="buscar-y-descargar-una-serie" class="level3" data-number="3.6.3">
-<h3 data-number="3.6.3" class="anchored" data-anchor-id="buscar-y-descargar-una-serie"><span class="header-section-number">3.6.3</span> Buscar y descargar una serie</h3>
+<section id="buscar-y-descargar-una-serie" class="level3">
+<h3 class="anchored" data-anchor-id="buscar-y-descargar-una-serie">Buscar y descargar una serie</h3>
 <p>El flujo típico es:</p>
 <ol type="1">
 <li>Identificar el <strong>código de serie</strong> (por catálogo o por el buscador del SIE)<br>
@@ -485,8 +485,8 @@ $ SF43718.value &lt;dbl&gt; 3.0735, 3.0712, 3.0718, 3.0684, 3.0673, 3.0661, 3.06
 </div>
 </div>
 </section>
-<section id="preparar-para-graficar" class="level3" data-number="3.6.4">
-<h3 data-number="3.6.4" class="anchored" data-anchor-id="preparar-para-graficar"><span class="header-section-number">3.6.4</span> Preparar para graficar</h3>
+<section id="preparar-para-graficar" class="level3">
+<h3 class="anchored" data-anchor-id="preparar-para-graficar">Preparar para graficar</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>bmx2 <span class="ot">&lt;-</span> bmx <span class="sc">%&gt;%</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
@@ -507,8 +507,8 @@ $ SF43718.value &lt;dbl&gt; 3.0735, 3.0712, 3.0718, 3.0684, 3.0673, 3.0661, 3.06
 </div>
 </section>
 </section>
-<section id="bibliografía-y-documentación" class="level2" data-number="3.7">
-<h2 data-number="3.7" class="anchored" data-anchor-id="bibliografía-y-documentación"><span class="header-section-number">3.7</span> Bibliografía y documentación</h2>
+<section id="bibliografía-y-documentación" class="level2">
+<h2 class="anchored" data-anchor-id="bibliografía-y-documentación">Bibliografía y documentación</h2>
 <ul>
 <li>INEGI. <em>API de Indicadores (v2.0).</em> <a href="https://www.inegi.org.mx/servicios/api_indicadores.html" class="uri">https://www.inegi.org.mx/servicios/api_indicadores.html</a><br>
 </li>
@@ -878,7 +878,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./P2.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Día 2 - Paquetes de consulta</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Práctica 2: Paquetes de consulta</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

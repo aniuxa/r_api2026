@@ -6,19 +6,30 @@ book:
   title: "Curso: De las APIs a los gráficos: explorando datos sociales con R"
   author: "Ana Escoto"
   date: "1/19/2026"
+  site-url: https://aniuxa.github.io/r_api2026/
+  repo-url: https://github.com/aniuxa/r_api2026/
+  repo-branch: main
+  repo-actions: [edit, issue]  
   chapters:
     - index.qmd
     - install.qmd
-    - D1.qmd
+    - part: "Teoría"
+      chapters:
+      - D1.qmd
     - part: "Práctica"
       chapters:
       - P1.qmd
+      - P2.qmd
+      - P3.qmd
+    - videos.qmd
 
 bibliography: references.bib
 
 format:
   html:
-    theme: cosmo
+    theme:
+      light: cosmo
+      dark: darkly
   pdf:
     documentclass: scrreprt
 

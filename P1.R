@@ -1,9 +1,11 @@
-# Extracted R code from P1.qmd
-# Generated automatically
+#############################################################################-
+# Curso intersemestral
+# Autora : Ana Escoto
+# Fecha: 2026-01-19
+###############################################################################-
 
-# ---- Chunk 1: {{r}} ----
+# Paquetes ----
 if (!requireNamespace("pacman", quietly = TRUE)) install.packages("pacman")
-
 pacman::p_load(
   rcrossref,
   dplyr,
@@ -14,18 +16,16 @@ pacman::p_load(
   ggplot2
 )
 
-# ---- Chunk 2: {{r}} ----
+
+# Empezando  ----
 # Reemplaza por tu correo institucional
 options(crr_email = "ana.escoto@politicas.unam.mx")
 
-# ---- Chunk 3: {{r}} ----
 res <- cr_works(query = "economía del cuidado", limit = 5)
 
-# ---- Chunk 4: {{r}} ----
 res$data %>% 
   names()
 
-# ---- Chunk 5: {{r warning=FALSE}} ----
 `%||%` <- function(x, y) if (is.null(x)) y else x
 
 res$data %>% 
@@ -36,7 +36,7 @@ res$data %>%
     revista = container.title
   )
 
-# ---- Chunk 6: {{r warning=FALSE}} ----
+## función para limpiar
 limpiar_works <- function(df) {
   df %>%
     transmute(
@@ -48,13 +48,12 @@ limpiar_works <- function(df) {
       type = type,
       publisher = publisher
     ) %>% 
-    mutate(year= year(as_date(date)))
+    mutate(year= year(parse_date_time(year)))))
 }
 
 df <- limpiar_works(res$data)
 df
 
-# ---- Chunk 7: {{r warning=FALSE}} ----
 seg <- cr_works(
   query = "labor market segmentation",
   filter = c(from_pub_date = "2010-01-01"),
@@ -65,7 +64,6 @@ limpiar_works(seg$data) %>%
   select(year, title, journal, doi) %>%
   arrange(desc(year))
 
-# ---- Chunk 8: {{r warning=FALSE}} ----
 fec <- cr_works(
   query = "(fertility preferences OR fertility intentions) Mexico",
   filter = c(from_pub_date = "2014-01-01"),
@@ -76,7 +74,6 @@ limpiar_works(fec$data) %>%
   select(year, title, journal, doi) %>%
   arrange(desc(year))
 
-# ---- Chunk 9: {{r warning=FALSE}} ----
 ut <- cr_works(
   query = "(unpaid work) OR (time use)",
   filter = c(from_pub_date = "2015-01-01", type = "journal-article"),
@@ -87,13 +84,11 @@ limpiar_works(ut$data) %>%
   select(year, title, journal, doi) %>%
   arrange(desc(year))
 
-# ---- Chunk 10: {{r}} ----
 aut <- cr_works(query = NULL, query_author = "Nancy Folbre", limit = 10)
 limpiar_works(aut$data) %>% 
   select(year, title, journal, doi) %>%
   arrange(desc(year))
 
-# ---- Chunk 11: {{r}} ----
 rev <- cr_works(
   query = "care economy",
   filter = c(container_title = "Feminist Economics", from_pub_date = "2010-01-01"),
@@ -104,18 +99,15 @@ limpiar_works(rev$data) %>%
   select(year, title, journal, doi) %>%
   arrange(desc(year))
 
-# ---- Chunk 12: {{r}} ----
 rev2 <- cr_works(filter = c(issn = "1354-5701", from_pub_date = "2018-01-01"), limit = 10)
 limpiar_works(rev2$data) %>% 
   select(year, title, journal, doi) %>%
   arrange(desc(year))
 
-# ---- Chunk 13: {{r}} ----
 one <- cr_works(dois = "10.1038/nphys1170")  # ejemplo (cambia por uno real de tu tema)
 one$data %>% limpiar_works()
 
-# ---- Chunk 14: {{r}} ----
-# Ejemplo: traer 50 registros en bloques
+# Ejemplo: traer 50 registros en bloques ----
 tema <- "gender wage gap"
 cursor <- "*"
 acum <- list()
@@ -129,7 +121,6 @@ for (i in 1:5) {
 big <- bind_rows(acum) %>% limpiar_works()
 big %>% count(year, sort = TRUE)
 
-# ---- Chunk 15: {{r}} ----
 big %>%
   filter(!is.na(year)) %>%
   count(year) %>%
@@ -141,7 +132,6 @@ big %>%
     y = "Número de registros"
   )
 
-# ---- Chunk 16: {{r}} ----
 salida <- big %>%
   select(year, title, journal, doi, url) %>%
   arrange(desc(year))

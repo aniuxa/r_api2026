@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Curso: De las APIs a los gráficos: explorando datos sociales con R - 2&nbsp; Día 2 - Paquetes de consulta</title>
+<title>Curso: De las APIs a los gráficos: explorando datos sociales con R - Práctica 2: Paquetes de consulta</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -110,7 +110,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P1.html">Práctica</a></li><li class="breadcrumb-item"><a href="./P2.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Día 2 - Paquetes de consulta</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P1.html">Práctica</a></li><li class="breadcrumb-item"><a href="./P2.html">Práctica 2: Paquetes de consulta</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -163,7 +163,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./D1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Día 1 — ¿Qué es una API? Tipos, ventajas y fuentes que usaremos</span></span></a>
+ <span class="menu-text">Día 1: ¿Qué es una API? Tipos, ventajas y fuentes que usaremos</span></a>
   </div>
 </li>
       </ul>
@@ -180,19 +180,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./P1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Búsquedas académicas con {rcrossref}</span></a>
+ <span class="menu-text">Práctica 1: Búsquedas académicas con {rcrossref}</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./P2.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Día 2 - Paquetes de consulta</span></span></a>
+ <span class="menu-text">Práctica 2: Paquetes de consulta</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./P3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">INEGI y Banxico</span></span></a>
+ <span class="menu-text">Práctica 3: INEGI y Banxico</span></a>
   </div>
 </li>
       </ul>
@@ -213,15 +213,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#paquetes" id="toc-paquetes" class="nav-link active" data-scroll-target="#paquetes"><span class="header-section-number">3</span> Paquetes</a>
-  <ul class="collapse">
-  <li><a href="#una-herramienta-útil-countrycode" id="toc-una-herramienta-útil-countrycode" class="nav-link" data-scroll-target="#una-herramienta-útil-countrycode"><span class="header-section-number">3.1</span> Una herramienta útil <code>{countrycode}</code></a></li>
-  <li><a href="#preparando-nuestro-análisis" id="toc-preparando-nuestro-análisis" class="nav-link" data-scroll-target="#preparando-nuestro-análisis"><span class="header-section-number">3.2</span> Preparando nuestro análisis</a></li>
-  <li><a href="#wdi" id="toc-wdi" class="nav-link" data-scroll-target="#wdi"><span class="header-section-number">3.3</span> <code>{WDI}</code></a></li>
-  <li><a href="#geodata" id="toc-geodata" class="nav-link" data-scroll-target="#geodata"><span class="header-section-number">3.4</span> <code>{geodata}</code></a></li>
-  <li><a href="#ifmapi" id="toc-ifmapi" class="nav-link" data-scroll-target="#ifmapi"><span class="header-section-number">3.5</span> <code>{ifmapi}</code></a></li>
-  <li><a href="#repaso-de-revisión-de-dataframes" id="toc-repaso-de-revisión-de-dataframes" class="nav-link" data-scroll-target="#repaso-de-revisión-de-dataframes"><span class="header-section-number">3.6</span> Repaso de revisión de dataframes</a></li>
-  </ul></li>
+  <li><a href="#paquetes" id="toc-paquetes" class="nav-link active" data-scroll-target="#paquetes">Paquetes</a></li>
+  <li><a href="#una-herramienta-útil-countrycode" id="toc-una-herramienta-útil-countrycode" class="nav-link" data-scroll-target="#una-herramienta-útil-countrycode">Una herramienta útil <code>{countrycode}</code></a></li>
+  <li><a href="#preparando-nuestro-análisis" id="toc-preparando-nuestro-análisis" class="nav-link" data-scroll-target="#preparando-nuestro-análisis">Preparando nuestro análisis</a></li>
+  <li><a href="#wdi" id="toc-wdi" class="nav-link" data-scroll-target="#wdi"><code>{WDI}</code></a></li>
+  <li><a href="#geodata" id="toc-geodata" class="nav-link" data-scroll-target="#geodata"><code>{geodata}</code></a></li>
+  <li><a href="#ifmapi" id="toc-ifmapi" class="nav-link" data-scroll-target="#ifmapi"><code>{ifmapi}</code></a></li>
+  <li><a href="#repaso-de-revisión-de-dataframes" id="toc-repaso-de-revisión-de-dataframes" class="nav-link" data-scroll-target="#repaso-de-revisión-de-dataframes">Repaso de revisión de dataframes</a></li>
+  <li><a href="#bibliografía-y-documentación-paquetes" id="toc-bibliografía-y-documentación-paquetes" class="nav-link" data-scroll-target="#bibliografía-y-documentación-paquetes">Bibliografía y documentación (paquetes)</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/aniuxa/r_api2026/edit/main/P2.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/aniuxa/r_api2026/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -230,7 +229,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Día 2 - Paquetes de consulta</span></h1>
+<h1 class="title">Práctica 2: Paquetes de consulta</h1>
 </div>
 
 
@@ -245,44 +244,91 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="paquetes" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Paquetes</h1>
+<section id="paquetes" class="level2">
+<h2 class="anchored" data-anchor-id="paquetes">Paquetes</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"pacman"</span>)) <span class="fu">install.packages</span>(<span class="st">"pacman"</span>)<span class="co">#instala pacman si se requiere</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Cargando paquete requerido: pacman</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, readxl,</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>               writexl, </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>               magrittr,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>               WDI, </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>               imfapi,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>               geodata, </span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>               countrycode, </span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>               skimr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse,</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>               readxl,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>               writexl, </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>               here,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>               magrittr,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>               WDI, </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>               imfapi,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>               geodata, </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>               countrycode,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>               janitor,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>               skimr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="una-herramienta-útil-countrycode" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="una-herramienta-útil-countrycode"><span class="header-section-number">3.1</span> Una herramienta útil <code>{countrycode}</code></h2>
+</section>
+<section id="una-herramienta-útil-countrycode" class="level2">
+<h2 class="anchored" data-anchor-id="una-herramienta-útil-countrycode">Una herramienta útil <code>{countrycode}</code></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>?codelist</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="preparando-nuestro-análisis" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="preparando-nuestro-análisis"><span class="header-section-number">3.2</span> Preparando nuestro análisis</h2>
-<p>¿Sabes que es un directorio de trabajo? ¿Un proyecto?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(countrycode<span class="sc">::</span>codelist)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 624
+  ar5      cctld continent country.name.de country.name.de.regex country.name.en
+  &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;           &lt;chr&gt;                 &lt;chr&gt;          
+1 ASIA     .af   Asia      Afghanistan     afghan                Afghanistan    
+2 EIT      .al   Europe    Albanien        albanien              Albania        
+3 MAF      .dz   Africa    Algerien        algerien              Algeria        
+4 ASIA     .as   Oceania   Amerikanisch-S… ^(?=.*amerik).*samoa  American Samoa 
+5 OECD1990 .ad   Europe    Andorra         andorra               Andorra        
+6 MAF      .ao   Africa    Angola          angola                Angola         
+# ℹ 618 more variables: country.name.en.regex &lt;chr&gt;, country.name.fr &lt;chr&gt;,
+#   country.name.fr.regex &lt;chr&gt;, country.name.it &lt;chr&gt;,
+#   country.name.it.regex &lt;chr&gt;, cow.name &lt;chr&gt;, cowc &lt;chr&gt;, cown &lt;dbl&gt;,
+#   currency &lt;chr&gt;, dhs &lt;chr&gt;, ecb &lt;chr&gt;, eu28 &lt;chr&gt;, eurocontrol_pru &lt;chr&gt;,
+#   eurocontrol_statfor &lt;chr&gt;, eurostat &lt;chr&gt;, fao &lt;dbl&gt;, fips &lt;chr&gt;,
+#   gaul &lt;dbl&gt;, genc2c &lt;chr&gt;, genc3c &lt;chr&gt;, genc3n &lt;chr&gt;, gwc &lt;chr&gt;, gwn &lt;dbl&gt;,
+#   icao.region &lt;chr&gt;, imf &lt;dbl&gt;, ioc &lt;chr&gt;, iso.name.en &lt;chr&gt;, …</code></pre>
+</div>
+</div>
+<p>Ejemplo breve: convertir nombres a ISO3.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">pais =</span> <span class="fu">c</span>(<span class="st">"Mexico"</span>, <span class="st">"Guatemala"</span>, <span class="st">"Uruguay"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">iso3 =</span> <span class="fu">countrycode</span>(pais, <span class="at">origin =</span> <span class="st">"country.name"</span>, <span class="at">destination =</span> <span class="st">"iso3c"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  pais      iso3 
+  &lt;chr&gt;     &lt;chr&gt;
+1 Mexico    MEX  
+2 Guatemala GTM  
+3 Uruguay   URY  </code></pre>
+</div>
+</div>
+</section>
+<section id="preparando-nuestro-análisis" class="level2">
+<h2 class="anchored" data-anchor-id="preparando-nuestro-análisis">Preparando nuestro análisis</h2>
+<p>El <strong>directorio de trabajo</strong> es la carpeta desde la que R lee/guarda archivos por defecto.<br>
+Para proyectos reproducibles, conviene usar rutas relativas con <code>{here}</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "/Users/anaescoto/Library/CloudStorage/GoogleDrive-ana.escoto.1@gmail.com/Mi unidad/2026/curso_api_main/r_api2026"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>here<span class="sc">::</span><span class="fu">here</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "/Users/anaescoto/Library/CloudStorage/GoogleDrive-ana.escoto.1@gmail.com/Mi unidad/2026/curso_api_main/r_api2026"</code></pre>
 </div>
 </div>
+<p>Creamos una carpeta de trabajo para descargas.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>), <span class="at">showWarnings =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="wdi" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="wdi"><span class="header-section-number">3.3</span> <code>{WDI}</code></h2>
+<section id="wdi" class="level2">
+<h2 class="anchored" data-anchor-id="wdi"><code>{WDI}</code></h2>
 <p>Lo ideal es primero reconocer la fuente de información y sus tableros [https://datos.bancomundial.org/indicador]</p>
 <p>Para buscar un indicador</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">WDIsearch</span>(<span class="st">'gender'</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">WDIsearch</span>(<span class="st">'gender'</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                 indicator
 166            2.3_GIR.GPI
@@ -487,11 +533,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">WDI</span>(<span class="at">indicator=</span><span class="st">'SG.VAW.REFU.ZS'</span>,</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">country=</span><span class="st">"all"</span>, </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">start=</span><span class="dv">2020</span>, </span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">end=</span><span class="dv">2026</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">WDI</span>(<span class="at">indicator=</span><span class="st">'SG.VAW.REFU.ZS'</span>,</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">country=</span><span class="st">"all"</span>, </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">start=</span><span class="dv">2020</span>, </span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">end=</span><span class="dv">2026</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>           country iso2c iso3c year SG.VAW.REFU.ZS
 399   Burkina Faso    BF   BFA 2021           23.5
@@ -513,23 +559,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>wdi_1 <span class="ot">&lt;-</span><span class="fu">WDI</span>(<span class="at">indicator=</span><span class="st">'SG.VAW.REFU.ZS'</span>,</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">country=</span><span class="st">"all"</span>, </span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">start=</span><span class="dv">2020</span>, </span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">end=</span><span class="dv">2026</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>wdi_1 <span class="ot">&lt;-</span><span class="fu">WDI</span>(<span class="at">indicator=</span><span class="st">'SG.VAW.REFU.ZS'</span>,</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">country=</span><span class="st">"all"</span>, </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">start=</span><span class="dv">2020</span>, </span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">end=</span><span class="dv">2026</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="geodata" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="geodata"><span class="header-section-number">3.4</span> <code>{geodata}</code></h2>
+<section id="geodata" class="level2">
+<h2 class="anchored" data-anchor-id="geodata"><code>{geodata}</code></h2>
+<blockquote class="blockquote">
+<p>Nota: estas descargas pueden ser pesadas y tardar. Aquí buscamos aprender el patrón de uso.</p>
+</blockquote>
 <p>Podemos revisar un poco más del paquete en su repositorio: [https://github.com/rspatial/geodata]</p>
 <p>The <code>{WorldClim}</code> database.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>tmax_data <span class="ot">&lt;-</span> <span class="fu">worldclim_global</span>(<span class="at">var =</span> <span class="st">"tmax"</span>, </span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">res =</span> <span class="dv">10</span>,</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">path=</span> <span class="fu">getwd</span>()) <span class="co"># aquí donde quiero guardar la información</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>tmax_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>tmax_data <span class="ot">&lt;-</span> <span class="fu">worldclim_global</span>(<span class="at">var =</span> <span class="st">"tmax"</span>, </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">res =</span> <span class="dv">10</span>,</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">path=</span> <span class="fu">getwd</span>()) <span class="co"># aquí donde quiero guardar la información</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>tmax_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>class       : SpatRaster 
 size        : 1080, 2160, 12  (nrow, ncol, nlyr)
@@ -547,8 +596,8 @@ max values  :      42.157,    40.26450,    41.48825,    43.17525,     44.8155,  
 </div>
 <p>También se puede descargar la “Gridded Population of the World” (Una base para densidad poblacional de CIESIN)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>pop <span class="ot">&lt;-</span> geodata<span class="sc">::</span><span class="fu">population</span>(<span class="dv">2020</span>, <span class="at">res=</span><span class="dv">10</span>, <span class="at">path=</span><span class="fu">getwd</span>())</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>pop</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>pop <span class="ot">&lt;-</span> geodata<span class="sc">::</span><span class="fu">population</span>(<span class="dv">2020</span>, <span class="at">res=</span><span class="dv">10</span>, <span class="at">path=</span><span class="fu">getwd</span>())</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>pop</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>class       : SpatRaster 
 size        : 1080, 2160, 1  (nrow, ncol, nlyr)
@@ -563,13 +612,13 @@ max value   :           64552.77 </code></pre>
 </div>
 <p>Nos bajo un tiff con la información</p>
 </section>
-<section id="ifmapi" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="ifmapi"><span class="header-section-number">3.5</span> <code>{ifmapi}</code></h2>
+<section id="ifmapi" class="level2">
+<h2 class="anchored" data-anchor-id="ifmapi"><code>{ifmapi}</code></h2>
 <p>Revisemos la documentación del paquete</p>
 <p>[https://teal-insights.github.io/r-imfapi/]</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">imf_get_dataflows</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="at">n=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">imf_get_dataflows</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="at">n=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 6
    id                     name           description version agency last_updated
@@ -588,7 +637,7 @@ max value   :           64552.77 </code></pre>
 </div>
 <p>Con esto podemos un <em>dataflow</em> a partir de su identificador, nombre y descripción. En este ejemplo, utilizaremos el <em>dataflow</em> “WEO” del *World Economic Outlook”</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">imf_get_datastructure</span>(<span class="st">"WEO"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">imf_get_datastructure</span>(<span class="st">"WEO"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 3
   dimension_id type      position
@@ -600,13 +649,13 @@ max value   :           64552.77 </code></pre>
 </div>
 <p>Con esto vemos lo que hay disponible y podemos pedir los datos</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>weo <span class="ot">&lt;-</span> <span class="fu">imf_get</span>(<span class="at">dataflow_id =</span> <span class="st">"WEO"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>weo <span class="ot">&lt;-</span> <span class="fu">imf_get</span>(<span class="at">dataflow_id =</span> <span class="st">"WEO"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">imf_get_codelists</span>(</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="st">"INDICATOR"</span>),</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">dataflow_id =</span> <span class="st">"WEO"</span>  </span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">imf_get_codelists</span>(</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="st">"INDICATOR"</span>),</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">dataflow_id =</span> <span class="st">"WEO"</span>  </span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 145 × 7
    dimension_id code      name           description codelist_id codelist_agency
@@ -626,11 +675,11 @@ max value   :           64552.77 </code></pre>
 </div>
 </div>
 </section>
-<section id="repaso-de-revisión-de-dataframes" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="repaso-de-revisión-de-dataframes"><span class="header-section-number">3.6</span> Repaso de revisión de dataframes</h2>
+<section id="repaso-de-revisión-de-dataframes" class="level2">
+<h2 class="anchored" data-anchor-id="repaso-de-revisión-de-dataframes">Repaso de revisión de dataframes</h2>
 <p>Aquí haremos un poquito de revisión</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>skimr<span class="sc">::</span><span class="fu">skim</span>(weo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>skimr<span class="sc">::</span><span class="fu">skim</span>(weo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <caption>Data summary</caption>
@@ -788,9 +837,23 @@ max value   :           64552.77 </code></pre>
 </table>
 </div>
 </div>
-
-
 </section>
+<section id="bibliografía-y-documentación-paquetes" class="level2">
+<h2 class="anchored" data-anchor-id="bibliografía-y-documentación-paquetes">Bibliografía y documentación (paquetes)</h2>
+<ul>
+<li>CRAN. <em>pacman: Package Management Tool.</em> https://cran.r-project.org/package=pacman</li>
+<li>CRAN. <em>tidyverse: Easily Install and Load the ‘Tidyverse’.</em> https://cran.r-project.org/package=tidyverse</li>
+<li>CRAN. <em>WDI: World Development Indicators.</em> https://cran.r-project.org/package=WDI</li>
+<li>CRAN. <em>imfapi: IMF Data API Client.</em> https://cran.r-project.org/package=imfapi</li>
+<li>GitHub. <em>rspatial/geodata.</em> https://github.com/rspatial/geodata</li>
+<li>CRAN. <em>geodata: Download Geographic Data.</em> https://cran.r-project.org/package=geodata</li>
+<li>CRAN. <em>countrycode: Convert Country Names and Country Codes.</em> https://cran.r-project.org/package=countrycode</li>
+<li>CRAN. <em>skimr: Compact and Flexible Summaries of Data.</em> https://cran.r-project.org/package=skimr</li>
+<li>CRAN. <em>janitor: Simple Tools for Examining and Cleaning Dirty Data.</em> https://cran.r-project.org/package=janitor</li>
+<li>CRAN. <em>here: A Simpler Way to Find Your Files.</em> https://cran.r-project.org/package=here</li>
+</ul>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -1145,12 +1208,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./P1.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Búsquedas académicas con {rcrossref}</span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Práctica 1: Búsquedas académicas con {rcrossref}</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./P3.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">INEGI y Banxico</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text">Práctica 3: INEGI y Banxico</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Curso: De las APIs a los gráficos: explorando datos sociales con R - Búsquedas académicas con {rcrossref}</title>
+<title>Curso: De las APIs a los gráficos: explorando datos sociales con R - Práctica 1: Búsquedas académicas con {rcrossref}</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -110,7 +110,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P1.html">Práctica</a></li><li class="breadcrumb-item"><a href="./P1.html">Búsquedas académicas con {rcrossref}</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P1.html">Práctica</a></li><li class="breadcrumb-item"><a href="./P1.html">Práctica 1: Búsquedas académicas con {rcrossref}</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -163,7 +163,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./D1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Día 1 — ¿Qué es una API? Tipos, ventajas y fuentes que usaremos</span></span></a>
+ <span class="menu-text">Día 1: ¿Qué es una API? Tipos, ventajas y fuentes que usaremos</span></a>
   </div>
 </li>
       </ul>
@@ -180,19 +180,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./P1.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Búsquedas académicas con {rcrossref}</span></a>
+ <span class="menu-text">Práctica 1: Búsquedas académicas con {rcrossref}</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./P2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Día 2 - Paquetes de consulta</span></span></a>
+ <span class="menu-text">Práctica 2: Paquetes de consulta</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./P3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">INEGI y Banxico</span></span></a>
+ <span class="menu-text">Práctica 3: INEGI y Banxico</span></a>
   </div>
 </li>
       </ul>
@@ -213,30 +213,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preparación" id="toc-preparación" class="nav-link active" data-scroll-target="#preparación">1. Preparación</a>
+  <li><a href="#preparación" id="toc-preparación" class="nav-link active" data-scroll-target="#preparación">Preparación</a>
   <ul class="collapse">
-  <li><a href="#instalar-y-cargar-paquetes" id="toc-instalar-y-cargar-paquetes" class="nav-link" data-scroll-target="#instalar-y-cargar-paquetes">1.1 Instalar y cargar paquetes</a></li>
-  <li><a href="#buenas-prácticas-user-agent" id="toc-buenas-prácticas-user-agent" class="nav-link" data-scroll-target="#buenas-prácticas-user-agent">1.2 Buenas prácticas: User-Agent</a></li>
+  <li><a href="#instalar-y-cargar-paquetes" id="toc-instalar-y-cargar-paquetes" class="nav-link" data-scroll-target="#instalar-y-cargar-paquetes">Instalar y cargar paquetes</a></li>
+  <li><a href="#buenas-prácticas-user-agent" id="toc-buenas-prácticas-user-agent" class="nav-link" data-scroll-target="#buenas-prácticas-user-agent">Buenas prácticas: User-Agent</a></li>
   </ul></li>
-  <li><a href="#qué-se-puede-buscar-con-crossref" id="toc-qué-se-puede-buscar-con-crossref" class="nav-link" data-scroll-target="#qué-se-puede-buscar-con-crossref">2. ¿Qué se puede buscar con Crossref?</a></li>
-  <li><a href="#búsqueda-básica-por-tema-query" id="toc-búsqueda-básica-por-tema-query" class="nav-link" data-scroll-target="#búsqueda-básica-por-tema-query">3. Búsqueda básica por tema (query)</a>
+  <li><a href="#qué-se-puede-buscar-con-crossref" id="toc-qué-se-puede-buscar-con-crossref" class="nav-link" data-scroll-target="#qué-se-puede-buscar-con-crossref">¿Qué se puede buscar con Crossref?</a></li>
+  <li><a href="#búsqueda-básica-por-tema-query" id="toc-búsqueda-básica-por-tema-query" class="nav-link" data-scroll-target="#búsqueda-básica-por-tema-query">Búsqueda básica por tema (query)</a>
   <ul class="collapse">
-  <li><a href="#limpiar-resultados-utilidad-práctica" id="toc-limpiar-resultados-utilidad-práctica" class="nav-link" data-scroll-target="#limpiar-resultados-utilidad-práctica">3.1 Limpiar resultados (utilidad práctica)</a></li>
+  <li><a href="#limpiar-resultados-utilidad-práctica" id="toc-limpiar-resultados-utilidad-práctica" class="nav-link" data-scroll-target="#limpiar-resultados-utilidad-práctica">Limpiar resultados (utilidad práctica)</a></li>
   </ul></li>
-  <li><a href="#ejemplos-de-búsquedas-con-temas-sociales" id="toc-ejemplos-de-búsquedas-con-temas-sociales" class="nav-link" data-scroll-target="#ejemplos-de-búsquedas-con-temas-sociales">4. Ejemplos de búsquedas con temas sociales</a>
+  <li><a href="#ejemplos-de-búsquedas-con-temas-sociales" id="toc-ejemplos-de-búsquedas-con-temas-sociales" class="nav-link" data-scroll-target="#ejemplos-de-búsquedas-con-temas-sociales">Ejemplos de búsquedas con temas sociales</a>
   <ul class="collapse">
-  <li><a href="#segmentación-del-mercado-de-trabajo" id="toc-segmentación-del-mercado-de-trabajo" class="nav-link" data-scroll-target="#segmentación-del-mercado-de-trabajo">4.1 Segmentación del mercado de trabajo</a></li>
-  <li><a href="#preferenciasintenciones-de-fecundidad-en-méxico" id="toc-preferenciasintenciones-de-fecundidad-en-méxico" class="nav-link" data-scroll-target="#preferenciasintenciones-de-fecundidad-en-méxico">4.2 Preferencias/Intenciones de fecundidad en México</a></li>
-  <li><a href="#trabajo-no-remunerado-uso-del-tiempo" id="toc-trabajo-no-remunerado-uso-del-tiempo" class="nav-link" data-scroll-target="#trabajo-no-remunerado-uso-del-tiempo">4.3 Trabajo no remunerado / uso del tiempo</a></li>
+  <li><a href="#segmentación-del-mercado-de-trabajo" id="toc-segmentación-del-mercado-de-trabajo" class="nav-link" data-scroll-target="#segmentación-del-mercado-de-trabajo">Segmentación del mercado de trabajo</a></li>
+  <li><a href="#preferenciasintenciones-de-fecundidad-en-méxico" id="toc-preferenciasintenciones-de-fecundidad-en-méxico" class="nav-link" data-scroll-target="#preferenciasintenciones-de-fecundidad-en-méxico">Preferencias/Intenciones de fecundidad en México</a></li>
+  <li><a href="#trabajo-no-remunerado-uso-del-tiempo" id="toc-trabajo-no-remunerado-uso-del-tiempo" class="nav-link" data-scroll-target="#trabajo-no-remunerado-uso-del-tiempo">Trabajo no remunerado / uso del tiempo</a></li>
   </ul></li>
-  <li><a href="#búsqueda-por-autoría-author" id="toc-búsqueda-por-autoría-author" class="nav-link" data-scroll-target="#búsqueda-por-autoría-author">5. Búsqueda por autoría (author)</a></li>
-  <li><a href="#filtrar-por-revista-container-title-o-issn" id="toc-filtrar-por-revista-container-title-o-issn" class="nav-link" data-scroll-target="#filtrar-por-revista-container-title-o-issn">6. Filtrar por revista (container-title) o ISSN</a></li>
-  <li><a href="#recuperar-un-registro-por-doi" id="toc-recuperar-un-registro-por-doi" class="nav-link" data-scroll-target="#recuperar-un-registro-por-doi">7. Recuperar un registro por DOI</a></li>
-  <li><a href="#descargar-más-resultados-cursor-y-evitar-sesgos-de-los-primeros-20" id="toc-descargar-más-resultados-cursor-y-evitar-sesgos-de-los-primeros-20" class="nav-link" data-scroll-target="#descargar-más-resultados-cursor-y-evitar-sesgos-de-los-primeros-20">8. Descargar más resultados (cursor) y evitar sesgos de los primeros 20</a></li>
-  <li><a href="#visualización-rápida-producción-por-año" id="toc-visualización-rápida-producción-por-año" class="nav-link" data-scroll-target="#visualización-rápida-producción-por-año">9. Visualización rápida: producción por año</a></li>
-  <li><a href="#exportar-una-bibliografía-mínima" id="toc-exportar-una-bibliografía-mínima" class="nav-link" data-scroll-target="#exportar-una-bibliografía-mínima">10. Exportar una bibliografía mínima</a></li>
+  <li><a href="#búsqueda-por-autoría-author" id="toc-búsqueda-por-autoría-author" class="nav-link" data-scroll-target="#búsqueda-por-autoría-author">Búsqueda por autoría (author)</a></li>
+  <li><a href="#filtrar-por-revista-container-title-o-issn" id="toc-filtrar-por-revista-container-title-o-issn" class="nav-link" data-scroll-target="#filtrar-por-revista-container-title-o-issn">Filtrar por revista (container-title) o ISSN</a></li>
+  <li><a href="#recuperar-un-registro-por-doi" id="toc-recuperar-un-registro-por-doi" class="nav-link" data-scroll-target="#recuperar-un-registro-por-doi">Recuperar un registro por DOI</a></li>
+  <li><a href="#descargar-más-resultados-cursor-y-evitar-sesgos-de-los-primeros-20" id="toc-descargar-más-resultados-cursor-y-evitar-sesgos-de-los-primeros-20" class="nav-link" data-scroll-target="#descargar-más-resultados-cursor-y-evitar-sesgos-de-los-primeros-20">Descargar más resultados (cursor) y evitar sesgos de los primeros 20</a></li>
+  <li><a href="#visualización-rápida-producción-por-año" id="toc-visualización-rápida-producción-por-año" class="nav-link" data-scroll-target="#visualización-rápida-producción-por-año">Visualización rápida: producción por año</a></li>
+  <li><a href="#exportar-una-bibliografía-mínima" id="toc-exportar-una-bibliografía-mínima" class="nav-link" data-scroll-target="#exportar-una-bibliografía-mínima">Exportar una bibliografía mínima</a></li>
   <li><a href="#consejos-para-búsquedas-en-ciencias-sociales" id="toc-consejos-para-búsquedas-en-ciencias-sociales" class="nav-link" data-scroll-target="#consejos-para-búsquedas-en-ciencias-sociales">11. Consejos para búsquedas en ciencias sociales</a></li>
-  <li><a href="#referencia-del-paquete" id="toc-referencia-del-paquete" class="nav-link" data-scroll-target="#referencia-del-paquete">12. Referencia del paquete</a></li>
+  <li><a href="#referencia-del-paquete" id="toc-referencia-del-paquete" class="nav-link" data-scroll-target="#referencia-del-paquete">Referencia del paquete</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/aniuxa/r_api2026/edit/main/P1.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/aniuxa/r_api2026/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -245,7 +245,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Búsquedas académicas con {rcrossref}</h1>
+<h1 class="title">Práctica 1: Búsquedas académicas con {rcrossref}</h1>
 </div>
 
 
@@ -265,9 +265,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Alcance: Crossref ofrece <strong>metadatos</strong> (títulos, autoría, DOI, revista, año, etc.). No siempre provee el texto completo.</p>
 </blockquote>
 <section id="preparación" class="level2">
-<h2 class="anchored" data-anchor-id="preparación">1. Preparación</h2>
+<h2 class="anchored" data-anchor-id="preparación">Preparación</h2>
 <section id="instalar-y-cargar-paquetes" class="level3">
-<h3 class="anchored" data-anchor-id="instalar-y-cargar-paquetes">1.1 Instalar y cargar paquetes</h3>
+<h3 class="anchored" data-anchor-id="instalar-y-cargar-paquetes">Instalar y cargar paquetes</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">"pacman"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) <span class="fu">install.packages</span>(<span class="st">"pacman"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -283,7 +283,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="buenas-prácticas-user-agent" class="level3">
-<h3 class="anchored" data-anchor-id="buenas-prácticas-user-agent">1.2 Buenas prácticas: User-Agent</h3>
+<h3 class="anchored" data-anchor-id="buenas-prácticas-user-agent">Buenas prácticas: User-Agent</h3>
 <p>Crossref recomienda identificar el uso con un correo (sirve para contacto si hay problemas y puede mejorar estabilidad).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reemplaza por tu correo institucional</span></span>
@@ -292,7 +292,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </section>
 <section id="qué-se-puede-buscar-con-crossref" class="level2">
-<h2 class="anchored" data-anchor-id="qué-se-puede-buscar-con-crossref">2. ¿Qué se puede buscar con Crossref?</h2>
+<h2 class="anchored" data-anchor-id="qué-se-puede-buscar-con-crossref">¿Qué se puede buscar con Crossref?</h2>
 <ul>
 <li><strong>Obras (works):</strong> artículos, capítulos, libros, reportes con DOI (y a veces sin DOI).</li>
 <li><strong>Revistas (journals):</strong> metadatos de revistas.</li>
@@ -301,7 +301,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>En ciencias sociales, lo más útil suele ser buscar <strong>works</strong> y filtrar por: - año (<code>from-pub-date</code>, <code>until-pub-date</code>) - tipo (<code>type</code>: journal-article, book-chapter, book, posted-content) - idioma (limitado; no siempre está presente) - editorial, revista, o DOI/ISSN (si se conoce)</p>
 </section>
 <section id="búsqueda-básica-por-tema-query" class="level2">
-<h2 class="anchored" data-anchor-id="búsqueda-básica-por-tema-query">3. Búsqueda básica por tema (query)</h2>
+<h2 class="anchored" data-anchor-id="búsqueda-básica-por-tema-query">Búsqueda básica por tema (query)</h2>
 <p>La función más usada es <code>cr_works()</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">cr_works</span>(<span class="at">query =</span> <span class="st">"economía del cuidado"</span>, <span class="at">limit =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -317,9 +317,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 [13] "is.referenced.by.count" "title"                  "type"                  
 [16] "url"                    "author"                 "published.online"      
 [19] "language"               "license"                "subtitle"              
-[22] "abstract"               "container.title"        "published.print"       
-[25] "page"                   "issn"                   "update.policy"         
-[28] "short.container.title"  "assertion"              "link"                  </code></pre>
+[22] "abstract"               "container.title"        "issn"                  
+[25] "page"                   "update.policy"          "short.container.title" 
+[28] "assertion"              "link"                   "published.print"       </code></pre>
 </div>
 </div>
 <div class="cell">
@@ -339,15 +339,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 1 Conciliación, corresponsabilidad y economía del cuidado    2021… 10.6… &lt;NA&gt;   
 2 Personas trabajadoras migrantes en la economía del cuidado 2025  10.5… &lt;NA&gt;   
 3 Start.CareCoop                                             2025  10.5… &lt;NA&gt;   
-4 Aportes de la economía feminista para abordar la desigual… 2019… 10.2… Luchas…
-5 Economía del cuidado: comparación de las encuestas de uso… 2022… 10.2… Socied…</code></pre>
+4 Economía del cuidado: comparación de las encuestas de uso… 2022… 10.2… Socied…
+5 Aportes de la economía feminista para abordar la desigual… 2019… 10.2… Luchas…</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
 <p>Nota: algunos campos pueden venir vacíos. Por eso conviene limpiar y estandarizar.</p>
 </blockquote>
 <section id="limpiar-resultados-utilidad-práctica" class="level3">
-<h3 class="anchored" data-anchor-id="limpiar-resultados-utilidad-práctica">3.1 Limpiar resultados (utilidad práctica)</h3>
+<h3 class="anchored" data-anchor-id="limpiar-resultados-utilidad-práctica">Limpiar resultados (utilidad práctica)</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>limpiar_works <span class="ot">&lt;-</span> <span class="cf">function</span>(df) {</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">%&gt;%</span></span>
@@ -372,17 +372,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 1 Conciliación, corresponsabili… &lt;NA&gt;    10.6… http… 2021… post… The Conv…  2021
 2 Personas trabajadoras migrant… &lt;NA&gt;    10.5… http… 2025  book  OIT          NA
 3 Start.CareCoop                 &lt;NA&gt;    10.5… http… 2025  post… Internat…    NA
-4 Aportes de la economía femini… Luchas… 10.2… http… 2019… book… CLACSO     2019
-5 Economía del cuidado: compara… Socied… 10.2… http… 2022… jour… Universi…  2022</code></pre>
+4 Economía del cuidado: compara… Socied… 10.2… http… 2022… jour… Universi…  2022
+5 Aportes de la economía femini… Luchas… 10.2… http… 2019… book… CLACSO     2019</code></pre>
 </div>
 </div>
 </section>
 </section>
 <section id="ejemplos-de-búsquedas-con-temas-sociales" class="level2">
-<h2 class="anchored" data-anchor-id="ejemplos-de-búsquedas-con-temas-sociales">4. Ejemplos de búsquedas con temas sociales</h2>
+<h2 class="anchored" data-anchor-id="ejemplos-de-búsquedas-con-temas-sociales">Ejemplos de búsquedas con temas sociales</h2>
 <p>A continuación hay ejemplos típicos. Puedes cambiar palabras clave y años.</p>
 <section id="segmentación-del-mercado-de-trabajo" class="level3">
-<h3 class="anchored" data-anchor-id="segmentación-del-mercado-de-trabajo">4.1 Segmentación del mercado de trabajo</h3>
+<h3 class="anchored" data-anchor-id="segmentación-del-mercado-de-trabajo">Segmentación del mercado de trabajo</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>seg <span class="ot">&lt;-</span> <span class="fu">cr_works</span>(</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">query =</span> <span class="st">"labor market segmentation"</span>,</span>
@@ -411,7 +411,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="preferenciasintenciones-de-fecundidad-en-méxico" class="level3">
-<h3 class="anchored" data-anchor-id="preferenciasintenciones-de-fecundidad-en-méxico">4.2 Preferencias/Intenciones de fecundidad en México</h3>
+<h3 class="anchored" data-anchor-id="preferenciasintenciones-de-fecundidad-en-méxico">Preferencias/Intenciones de fecundidad en México</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>fec <span class="ot">&lt;-</span> <span class="fu">cr_works</span>(</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">query =</span> <span class="st">"(fertility preferences OR fertility intentions) Mexico"</span>,</span>
@@ -440,7 +440,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="trabajo-no-remunerado-uso-del-tiempo" class="level3">
-<h3 class="anchored" data-anchor-id="trabajo-no-remunerado-uso-del-tiempo">4.3 Trabajo no remunerado / uso del tiempo</h3>
+<h3 class="anchored" data-anchor-id="trabajo-no-remunerado-uso-del-tiempo">Trabajo no remunerado / uso del tiempo</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>ut <span class="ot">&lt;-</span> <span class="fu">cr_works</span>(</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">query =</span> <span class="st">"(unpaid work) OR (time use)"</span>,</span>
@@ -470,7 +470,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </section>
 <section id="búsqueda-por-autoría-author" class="level2">
-<h2 class="anchored" data-anchor-id="búsqueda-por-autoría-author">5. Búsqueda por autoría (author)</h2>
+<h2 class="anchored" data-anchor-id="búsqueda-por-autoría-author">Búsqueda por autoría (author)</h2>
 <p>Puedes buscar por apellido y nombre. Los resultados dependen de cómo esté registrada la autoría.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>aut <span class="ot">&lt;-</span> <span class="fu">cr_works</span>(<span class="at">query =</span> <span class="cn">NULL</span>, <span class="at">query_author =</span> <span class="st">"Nancy Folbre"</span>, <span class="at">limit =</span> <span class="dv">10</span>)</span>
@@ -504,7 +504,7 @@ Caused by warning:
 </blockquote>
 </section>
 <section id="filtrar-por-revista-container-title-o-issn" class="level2">
-<h2 class="anchored" data-anchor-id="filtrar-por-revista-container-title-o-issn">6. Filtrar por revista (container-title) o ISSN</h2>
+<h2 class="anchored" data-anchor-id="filtrar-por-revista-container-title-o-issn">Filtrar por revista (container-title) o ISSN</h2>
 <p>Si te interesa una revista específica:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>rev <span class="ot">&lt;-</span> <span class="fu">cr_works</span>(</span>
@@ -562,7 +562,7 @@ Caused by warning:
 </div>
 </section>
 <section id="recuperar-un-registro-por-doi" class="level2">
-<h2 class="anchored" data-anchor-id="recuperar-un-registro-por-doi">7. Recuperar un registro por DOI</h2>
+<h2 class="anchored" data-anchor-id="recuperar-un-registro-por-doi">Recuperar un registro por DOI</h2>
 <p>Cuando ya tienes el DOI, esto es lo más directo.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>one <span class="ot">&lt;-</span> <span class="fu">cr_works</span>(<span class="at">dois =</span> <span class="st">"10.1038/nphys1170"</span>)  <span class="co"># ejemplo (cambia por uno real de tu tema)</span></span>
@@ -576,7 +576,7 @@ Caused by warning:
 </div>
 </section>
 <section id="descargar-más-resultados-cursor-y-evitar-sesgos-de-los-primeros-20" class="level2">
-<h2 class="anchored" data-anchor-id="descargar-más-resultados-cursor-y-evitar-sesgos-de-los-primeros-20">8. Descargar más resultados (cursor) y evitar sesgos de los primeros 20</h2>
+<h2 class="anchored" data-anchor-id="descargar-más-resultados-cursor-y-evitar-sesgos-de-los-primeros-20">Descargar más resultados (cursor) y evitar sesgos de los primeros 20</h2>
 <p>Para búsquedas grandes, usa <code>cursor = "*"</code>. Esto permite paginar de forma robusta.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejemplo: traer 50 registros en bloques</span></span>
@@ -585,12 +585,17 @@ Caused by warning:
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>acum <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
 <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> <span class="fu">cr_works</span>(<span class="at">query =</span> tema, <span class="at">cursor =</span> cursor, <span class="at">cursor_max =</span> <span class="dv">100</span>, <span class="at">limit =</span> <span class="dv">10</span>)</span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>  acum[[i]] <span class="ot">&lt;-</span> out<span class="sc">$</span>data</span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>  cursor <span class="ot">&lt;-</span> out<span class="sc">$</span>meta<span class="sc">$</span><span class="st">`</span><span class="at">next-cursor</span><span class="st">`</span></span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>big <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(acum) <span class="sc">%&gt;%</span> <span class="fu">limpiar_works</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> <span class="fu">cr_works</span>(<span class="at">query =</span> tema,</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>                  <span class="at">cursor =</span> cursor,</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>                  <span class="at">cursor_max =</span> <span class="dv">100</span>, </span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>                  <span class="at">limit =</span> <span class="dv">10</span>)</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>  acum[[i]] <span class="ot">&lt;-</span> out<span class="sc">$</span>data</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>  cursor <span class="ot">&lt;-</span> out<span class="sc">$</span>meta<span class="sc">$</span><span class="st">`</span><span class="at">next-cursor</span><span class="st">`</span></span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>big <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(acum) <span class="sc">%&gt;%</span> <span class="fu">limpiar_works</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: There was 1 warning in `mutate()`.
 ℹ In argument: `year = year(as_date(date))`.
@@ -621,7 +626,7 @@ Caused by warning:
 </div>
 </section>
 <section id="visualización-rápida-producción-por-año" class="level2">
-<h2 class="anchored" data-anchor-id="visualización-rápida-producción-por-año">9. Visualización rápida: producción por año</h2>
+<h2 class="anchored" data-anchor-id="visualización-rápida-producción-por-año">Visualización rápida: producción por año</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>big <span class="sc">%&gt;%</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(year)) <span class="sc">%&gt;%</span></span>
@@ -639,7 +644,7 @@ Caused by warning:
 </div>
 </section>
 <section id="exportar-una-bibliografía-mínima" class="level2">
-<h2 class="anchored" data-anchor-id="exportar-una-bibliografía-mínima">10. Exportar una bibliografía mínima</h2>
+<h2 class="anchored" data-anchor-id="exportar-una-bibliografía-mínima">Exportar una bibliografía mínima</h2>
 <p>Crossref no es un gestor bibliográfico completo, pero puedes exportar una tabla para revisión.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>salida <span class="ot">&lt;-</span> big <span class="sc">%&gt;%</span></span>
@@ -663,7 +668,7 @@ Caused by warning:
 </ul>
 </section>
 <section id="referencia-del-paquete" class="level2">
-<h2 class="anchored" data-anchor-id="referencia-del-paquete">12. Referencia del paquete</h2>
+<h2 class="anchored" data-anchor-id="referencia-del-paquete">Referencia del paquete</h2>
 <ul>
 <li><code>{rcrossref}</code>: <a href="https://docs.ropensci.org/rcrossref/" class="uri">https://docs.ropensci.org/rcrossref/</a> (documentación del paquete)</li>
 <li>Crossref API: <a href="https://api.crossref.org/" class="uri">https://api.crossref.org/</a> (documentación general)</li>
@@ -1024,12 +1029,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./D1.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Día 1 — ¿Qué es una API? Tipos, ventajas y fuentes que usaremos</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Día 1: ¿Qué es una API? Tipos, ventajas y fuentes que usaremos</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./P2.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Día 2 - Paquetes de consulta</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text">Práctica 2: Paquetes de consulta</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

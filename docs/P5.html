@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Curso: De las APIs a los gráficos: explorando datos sociales con R - 2&nbsp; “Práctica 5: CKAN y Datamx.io — Personas desaparecidas y no localizadas”</title>
+<title>Curso: De las APIs a los gráficos: explorando datos sociales con R - Práctica 5: CKAN y Datamx.io — Personas desaparecidas y no localizadas</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -110,7 +110,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P1.html">Práctica</a></li><li class="breadcrumb-item"><a href="./P5.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">"Práctica 5: CKAN y Datamx.io — Personas desaparecidas y no localizadas"</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P1.html">Práctica</a></li><li class="breadcrumb-item"><a href="./P5.html">Práctica 5: CKAN y Datamx.io — Personas desaparecidas y no localizadas</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -204,7 +204,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./P5.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">“Práctica 5: CKAN y Datamx.io — Personas desaparecidas y no localizadas”</span></span></a>
+ <span class="menu-text">Práctica 5: CKAN y Datamx.io — Personas desaparecidas y no localizadas</span></a>
   </div>
 </li>
       </ul>
@@ -225,32 +225,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#objetivo" id="toc-objetivo" class="nav-link active" data-scroll-target="#objetivo"><span class="header-section-number">2.1</span> Objetivo</a></li>
-  <li><a href="#paquetes" id="toc-paquetes" class="nav-link" data-scroll-target="#paquetes"><span class="header-section-number">2.2</span> Paquetes</a></li>
-  <li><a href="#ckan-en-3-ideas-para-comenzar" id="toc-ckan-en-3-ideas-para-comenzar" class="nav-link" data-scroll-target="#ckan-en-3-ideas-para-comenzar"><span class="header-section-number">2.3</span> CKAN en 3 ideas (para comenzar)</a></li>
-  <li><a href="#funciones-mínimas-para-hablar-con-ckan-datamx" id="toc-funciones-mínimas-para-hablar-con-ckan-datamx" class="nav-link" data-scroll-target="#funciones-mínimas-para-hablar-con-ckan-datamx"><span class="header-section-number">2.4</span> Funciones mínimas para hablar con CKAN (Datamx)</a></li>
-  <li><a href="#buscar-el-dataset-en-datamx.io" id="toc-buscar-el-dataset-en-datamx.io" class="nav-link" data-scroll-target="#buscar-el-dataset-en-datamx.io"><span class="header-section-number">2.5</span> Buscar el dataset en Datamx.io</a></li>
-  <li><a href="#ver-el-detalle-del-dataset-y-elegir-un-recurso-archivo" id="toc-ver-el-detalle-del-dataset-y-elegir-un-recurso-archivo" class="nav-link" data-scroll-target="#ver-el-detalle-del-dataset-y-elegir-un-recurso-archivo"><span class="header-section-number">2.6</span> Ver el detalle del dataset y elegir un recurso (archivo)</a>
+  <li><a href="#objetivo" id="toc-objetivo" class="nav-link active" data-scroll-target="#objetivo">Objetivo</a></li>
+  <li><a href="#paquetes" id="toc-paquetes" class="nav-link" data-scroll-target="#paquetes">Paquetes</a></li>
+  <li><a href="#ckan-en-3-ideas-para-comenzar" id="toc-ckan-en-3-ideas-para-comenzar" class="nav-link" data-scroll-target="#ckan-en-3-ideas-para-comenzar">CKAN en 3 ideas (para comenzar)</a></li>
+  <li><a href="#funciones-mínimas-para-hablar-con-ckan-datamx" id="toc-funciones-mínimas-para-hablar-con-ckan-datamx" class="nav-link" data-scroll-target="#funciones-mínimas-para-hablar-con-ckan-datamx">Funciones mínimas para hablar con CKAN (Datamx)</a></li>
+  <li><a href="#buscar-el-dataset-en-datamx.io" id="toc-buscar-el-dataset-en-datamx.io" class="nav-link" data-scroll-target="#buscar-el-dataset-en-datamx.io">Buscar el dataset en Datamx.io</a></li>
+  <li><a href="#ver-el-detalle-del-dataset-y-elegir-un-recurso-archivo" id="toc-ver-el-detalle-del-dataset-y-elegir-un-recurso-archivo" class="nav-link" data-scroll-target="#ver-el-detalle-del-dataset-y-elegir-un-recurso-archivo">Ver el detalle del dataset y elegir un recurso (archivo)</a>
   <ul class="collapse">
-  <li><a href="#elegir-un-csv" id="toc-elegir-un-csv" class="nav-link" data-scroll-target="#elegir-un-csv"><span class="header-section-number">2.6.1</span> Elegir un CSV</a></li>
+  <li><a href="#elegir-un-csv" id="toc-elegir-un-csv" class="nav-link" data-scroll-target="#elegir-un-csv">Elegir un CSV</a></li>
   </ul></li>
-  <li><a href="#descargar-y-cargar-el-csv" id="toc-descargar-y-cargar-el-csv" class="nav-link" data-scroll-target="#descargar-y-cargar-el-csv"><span class="header-section-number">2.7</span> Descargar y cargar el CSV</a>
+  <li><a href="#descargar-y-cargar-el-csv" id="toc-descargar-y-cargar-el-csv" class="nav-link" data-scroll-target="#descargar-y-cargar-el-csv">Descargar y cargar el CSV</a>
   <ul class="collapse">
-  <li><a href="#limpiar-nombres-de-variables" id="toc-limpiar-nombres-de-variables" class="nav-link" data-scroll-target="#limpiar-nombres-de-variables"><span class="header-section-number">2.7.1</span> Limpiar nombres de variables</a></li>
+  <li><a href="#limpiar-nombres-de-variables" id="toc-limpiar-nombres-de-variables" class="nav-link" data-scroll-target="#limpiar-nombres-de-variables">Limpiar nombres de variables</a></li>
   </ul></li>
-  <li><a href="#tabulados-con-janitor-rápidos-y-claros" id="toc-tabulados-con-janitor-rápidos-y-claros" class="nav-link" data-scroll-target="#tabulados-con-janitor-rápidos-y-claros"><span class="header-section-number">2.8</span> Tabulados con <code>{janitor}</code> (rápidos y claros)</a>
+  <li><a href="#tabulados-con-janitor-rápidos-y-claros" id="toc-tabulados-con-janitor-rápidos-y-claros" class="nav-link" data-scroll-target="#tabulados-con-janitor-rápidos-y-claros">Tabulados con <code>{janitor}</code> (rápidos y claros)</a>
   <ul class="collapse">
-  <li><a href="#una-tabla-de-frecuencias-simple" id="toc-una-tabla-de-frecuencias-simple" class="nav-link" data-scroll-target="#una-tabla-de-frecuencias-simple"><span class="header-section-number">2.8.1</span> Una tabla de frecuencias simple</a></li>
-  <li><a href="#top-10-entidades" id="toc-top-10-entidades" class="nav-link" data-scroll-target="#top-10-entidades"><span class="header-section-number">2.8.2</span> Top 10 entidades</a></li>
-  <li><a href="#tabla-de-contingencia-entidad-sexo" id="toc-tabla-de-contingencia-entidad-sexo" class="nav-link" data-scroll-target="#tabla-de-contingencia-entidad-sexo"><span class="header-section-number">2.8.3</span> Tabla de contingencia: entidad × sexo</a></li>
-  <li><a href="#un-tabulado-por-año-si-existe" id="toc-un-tabulado-por-año-si-existe" class="nav-link" data-scroll-target="#un-tabulado-por-año-si-existe"><span class="header-section-number">2.8.4</span> 7.4 Un tabulado por año (si existe)</a></li>
+  <li><a href="#una-tabla-de-frecuencias-simple" id="toc-una-tabla-de-frecuencias-simple" class="nav-link" data-scroll-target="#una-tabla-de-frecuencias-simple">Una tabla de frecuencias simple</a></li>
+  <li><a href="#top-10-entidades" id="toc-top-10-entidades" class="nav-link" data-scroll-target="#top-10-entidades">Top 10 entidades</a></li>
+  <li><a href="#tabla-de-contingencia-entidad-sexo" id="toc-tabla-de-contingencia-entidad-sexo" class="nav-link" data-scroll-target="#tabla-de-contingencia-entidad-sexo">Tabla de contingencia: entidad × sexo</a></li>
+  <li><a href="#un-tabulado-por-año-si-existe" id="toc-un-tabulado-por-año-si-existe" class="nav-link" data-scroll-target="#un-tabulado-por-año-si-existe">7.4 Un tabulado por año (si existe)</a></li>
   </ul></li>
-  <li><a href="#exportar-resultados-opcional" id="toc-exportar-resultados-opcional" class="nav-link" data-scroll-target="#exportar-resultados-opcional"><span class="header-section-number">2.9</span> Exportar resultados (opcional)</a>
+  <li><a href="#exportar-resultados-opcional" id="toc-exportar-resultados-opcional" class="nav-link" data-scroll-target="#exportar-resultados-opcional">Exportar resultados (opcional)</a>
   <ul class="collapse">
-  <li><a href="#exportar-como-csv" id="toc-exportar-como-csv" class="nav-link" data-scroll-target="#exportar-como-csv"><span class="header-section-number">2.9.1</span> Exportar como CSV</a></li>
+  <li><a href="#exportar-como-csv" id="toc-exportar-como-csv" class="nav-link" data-scroll-target="#exportar-como-csv">Exportar como CSV</a></li>
   </ul></li>
-  <li><a href="#ejercicio-práctico-para-entregar-o-discutir-en-clase" id="toc-ejercicio-práctico-para-entregar-o-discutir-en-clase" class="nav-link" data-scroll-target="#ejercicio-práctico-para-entregar-o-discutir-en-clase"><span class="header-section-number">2.10</span> Ejercicio práctico (para entregar o discutir en clase)</a></li>
-  <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias"><span class="header-section-number">2.11</span> Referencias</a></li>
+  <li><a href="#ejercicio-práctico-para-entregar-o-discutir-en-clase" id="toc-ejercicio-práctico-para-entregar-o-discutir-en-clase" class="nav-link" data-scroll-target="#ejercicio-práctico-para-entregar-o-discutir-en-clase">Ejercicio práctico (para entregar o discutir en clase)</a></li>
+  <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias">Referencias</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/aniuxa/r_api2026/edit/main/P5.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/aniuxa/r_api2026/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -259,7 +259,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">“Práctica 5: CKAN y Datamx.io — Personas desaparecidas y no localizadas”</span></h1>
+<h1 class="title">Práctica 5: CKAN y Datamx.io — Personas desaparecidas y no localizadas</h1>
 </div>
 
 
@@ -274,8 +274,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="objetivo" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="objetivo"><span class="header-section-number">2.1</span> Objetivo</h2>
+<section id="objetivo" class="level2">
+<h2 class="anchored" data-anchor-id="objetivo">Objetivo</h2>
 <p>En esta práctica vamos a:</p>
 <ol type="1">
 <li><strong>Buscar</strong> un dataset en Datamx.io usando el <strong>CKAN Action API</strong> (sin entrar al sitio manualmente).</li>
@@ -285,12 +285,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Guardar un resultado (opcional) como <strong>CSV</strong> o <strong>Excel</strong> para reutilizarlo fuera de R.</li>
 </ol>
 <blockquote class="blockquote">
-<p>Datamx.io es un catálogo cívico de datos abiertos en México y está montado sobre CKAN, por lo que expone el estándar <code>.../api/3/action/...</code>. citeturn4view1turn4view0<br>
-CKAN documenta estos endpoints en su guía oficial de API. citeturn3view0</p>
+<p>Datamx.io es un catálogo cívico de datos abiertos en México y está montado sobre CKAN, por lo que expone el estándar <code>.../api/3/action/...</code>. CKAN documenta estos endpoints en su guía oficial de API.</p>
 </blockquote>
 </section>
-<section id="paquetes" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="paquetes"><span class="header-section-number">2.2</span> Paquetes</h2>
+<section id="paquetes" class="level2">
+<h2 class="anchored" data-anchor-id="paquetes">Paquetes</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"pacman"</span>)) <span class="fu">install.packages</span>(<span class="st">"pacman"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -304,8 +303,8 @@ CKAN documenta estos endpoints en su guía oficial de API. citeturn3view0�
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="ckan-en-3-ideas-para-comenzar" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="ckan-en-3-ideas-para-comenzar"><span class="header-section-number">2.3</span> CKAN en 3 ideas (para comenzar)</h2>
+<section id="ckan-en-3-ideas-para-comenzar" class="level2">
+<h2 class="anchored" data-anchor-id="ckan-en-3-ideas-para-comenzar">CKAN en 3 ideas (para comenzar)</h2>
 <p>En CKAN, casi todo lo que hacemos desde R se puede resumir así:</p>
 <ul>
 <li><code>package_search</code>: <strong>buscar</strong> datasets por palabra clave (por ejemplo “desaparecidas”).</li>
@@ -314,8 +313,8 @@ CKAN documenta estos endpoints en su guía oficial de API. citeturn3view0�
 </ul>
 <p>Estos endpoints están documentados en la guía oficial de CKAN (Action API). citeturn3view0</p>
 </section>
-<section id="funciones-mínimas-para-hablar-con-ckan-datamx" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="funciones-mínimas-para-hablar-con-ckan-datamx"><span class="header-section-number">2.4</span> Funciones mínimas para hablar con CKAN (Datamx)</h2>
+<section id="funciones-mínimas-para-hablar-con-ckan-datamx" class="level2">
+<h2 class="anchored" data-anchor-id="funciones-mínimas-para-hablar-con-ckan-datamx">Funciones mínimas para hablar con CKAN (Datamx)</h2>
 <p>Vamos a construir dos funciones pequeñas. La idea es que puedas <strong>reutilizarlas</strong> con cualquier tema (educación, salud, seguridad, etc.).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ckan_action <span class="ot">&lt;-</span> <span class="cf">function</span>(action, <span class="at">query =</span> <span class="fu">list</span>(), <span class="at">base =</span> <span class="st">"https://datamx.io/api/3/action"</span>) {</span>
@@ -339,8 +338,8 @@ CKAN documenta estos endpoints en su guía oficial de API. citeturn3view0�
 <span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="buscar-el-dataset-en-datamx.io" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="buscar-el-dataset-en-datamx.io"><span class="header-section-number">2.5</span> Buscar el dataset en Datamx.io</h2>
+<section id="buscar-el-dataset-en-datamx.io" class="level2">
+<h2 class="anchored" data-anchor-id="buscar-el-dataset-en-datamx.io">Buscar el dataset en Datamx.io</h2>
 <p>En Datamx.io existe un dataset llamado <strong>“Personas desaparecidas y no localizadas en México”</strong> (publicado como CSV). En lugar de buscarlo a mano, lo vamos a encontrar con <code>package_search</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>res_search <span class="ot">&lt;-</span> <span class="fu">ckan_package_search</span>(<span class="at">q =</span> <span class="st">"Personas desaparecidas y no localizadas"</span>, <span class="at">rows =</span> <span class="dv">5</span>)</span>
@@ -372,8 +371,8 @@ CKAN documenta estos endpoints en su guía oficial de API. citeturn3view0�
 </div>
 </div>
 </section>
-<section id="ver-el-detalle-del-dataset-y-elegir-un-recurso-archivo" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="ver-el-detalle-del-dataset-y-elegir-un-recurso-archivo"><span class="header-section-number">2.6</span> Ver el detalle del dataset y elegir un recurso (archivo)</h2>
+<section id="ver-el-detalle-del-dataset-y-elegir-un-recurso-archivo" class="level2">
+<h2 class="anchored" data-anchor-id="ver-el-detalle-del-dataset-y-elegir-un-recurso-archivo">Ver el detalle del dataset y elegir un recurso (archivo)</h2>
 <p>Ahora pedimos el detalle con <code>package_show</code>. Esto nos trae una tabla con los recursos.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>pkg <span class="ot">&lt;-</span> <span class="fu">ckan_package_show</span>(dataset_id)</span>
@@ -396,8 +395,8 @@ CKAN documenta estos endpoints en su guía oficial de API. citeturn3view0�
 1 data.csv CSV    https://datamx.io/dataset/816b51f3-7e04-… 2025-07-02T0… 2.26e7</code></pre>
 </div>
 </div>
-<section id="elegir-un-csv" class="level3" data-number="2.6.1">
-<h3 data-number="2.6.1" class="anchored" data-anchor-id="elegir-un-csv"><span class="header-section-number">2.6.1</span> Elegir un CSV</h3>
+<section id="elegir-un-csv" class="level3">
+<h3 class="anchored" data-anchor-id="elegir-un-csv">Elegir un CSV</h3>
 <p>En Datamx suele haber varios recursos (a veces CSV, a veces ZIP, a veces ambos).<br>
 Aquí seleccionamos el <strong>primer recurso que diga CSV</strong>.</p>
 <div class="cell">
@@ -423,8 +422,8 @@ Aquí seleccionamos el <strong>primer recurso que diga CSV</strong>.</p>
 </div>
 </section>
 </section>
-<section id="descargar-y-cargar-el-csv" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="descargar-y-cargar-el-csv"><span class="header-section-number">2.7</span> Descargar y cargar el CSV</h2>
+<section id="descargar-y-cargar-el-csv" class="level2">
+<h2 class="anchored" data-anchor-id="descargar-y-cargar-el-csv">Descargar y cargar el CSV</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df_raw <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(csv_url, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -446,8 +445,8 @@ $ CVE_MUN            &lt;chr&gt; "999", "004", "999", "999", "999", "114", "999"
 $ MUNICIPIO          &lt;chr&gt; "CONFIDENCIAL", "CONCORDIA", "CONFIDENCIAL", "CONFI…</code></pre>
 </div>
 </div>
-<section id="limpiar-nombres-de-variables" class="level3" data-number="2.7.1">
-<h3 data-number="2.7.1" class="anchored" data-anchor-id="limpiar-nombres-de-variables"><span class="header-section-number">2.7.1</span> Limpiar nombres de variables</h3>
+<section id="limpiar-nombres-de-variables" class="level3">
+<h3 class="anchored" data-anchor-id="limpiar-nombres-de-variables">Limpiar nombres de variables</h3>
 <p>Casi siempre conviene estandarizar nombres con <code>janitor::clean_names()</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df_raw <span class="sc">%&gt;%</span> </span>
@@ -463,10 +462,10 @@ $ MUNICIPIO          &lt;chr&gt; "CONFIDENCIAL", "CONCORDIA", "CONFIDENCIAL", "C
 </div>
 </section>
 </section>
-<section id="tabulados-con-janitor-rápidos-y-claros" class="level2" data-number="2.8">
-<h2 data-number="2.8" class="anchored" data-anchor-id="tabulados-con-janitor-rápidos-y-claros"><span class="header-section-number">2.8</span> Tabulados con <code>{janitor}</code> (rápidos y claros)</h2>
-<section id="una-tabla-de-frecuencias-simple" class="level3" data-number="2.8.1">
-<h3 data-number="2.8.1" class="anchored" data-anchor-id="una-tabla-de-frecuencias-simple"><span class="header-section-number">2.8.1</span> Una tabla de frecuencias simple</h3>
+<section id="tabulados-con-janitor-rápidos-y-claros" class="level2">
+<h2 class="anchored" data-anchor-id="tabulados-con-janitor-rápidos-y-claros">Tabulados con <code>{janitor}</code> (rápidos y claros)</h2>
+<section id="una-tabla-de-frecuencias-simple" class="level3">
+<h3 class="anchored" data-anchor-id="una-tabla-de-frecuencias-simple">Una tabla de frecuencias simple</h3>
 <p>Primero, veamos qué variables tenemos. En este tipo de datos suele haber columnas como:</p>
 <ul>
 <li>entidad / estado</li>
@@ -492,8 +491,8 @@ $anio
 character(0)</code></pre>
 </div>
 </div>
-<section id="frecuencia-por-entidad" class="level4" data-number="2.8.1.1">
-<h4 data-number="2.8.1.1" class="anchored" data-anchor-id="frecuencia-por-entidad"><span class="header-section-number">2.8.1.1</span> Frecuencia por entidad</h4>
+<section id="frecuencia-por-entidad" class="level4">
+<h4 class="anchored" data-anchor-id="frecuencia-por-entidad">Frecuencia por entidad</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>  tab_entidad <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    janitor<span class="sc">::</span><span class="fu">tabyl</span>(entidad) <span class="sc">%&gt;%</span></span>
@@ -528,8 +527,8 @@ tabyl; consider combining columns of a one_way tabyl with tidyr::unite()</code><
 </div>
 </section>
 </section>
-<section id="top-10-entidades" class="level3" data-number="2.8.2">
-<h3 data-number="2.8.2" class="anchored" data-anchor-id="top-10-entidades"><span class="header-section-number">2.8.2</span> Top 10 entidades</h3>
+<section id="top-10-entidades" class="level3">
+<h3 class="anchored" data-anchor-id="top-10-entidades">Top 10 entidades</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>  top10 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">count</span>(entidad, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
@@ -553,8 +552,8 @@ tabyl; consider combining columns of a one_way tabyl with tidyr::unite()</code><
 </div>
 </div>
 </section>
-<section id="tabla-de-contingencia-entidad-sexo" class="level3" data-number="2.8.3">
-<h3 data-number="2.8.3" class="anchored" data-anchor-id="tabla-de-contingencia-entidad-sexo"><span class="header-section-number">2.8.3</span> Tabla de contingencia: entidad × sexo</h3>
+<section id="tabla-de-contingencia-entidad-sexo" class="level3">
+<h3 class="anchored" data-anchor-id="tabla-de-contingencia-entidad-sexo">Tabla de contingencia: entidad × sexo</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">%&gt;%</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    janitor<span class="sc">::</span><span class="fu">tabyl</span>(entidad, sexo) <span class="sc">%&gt;%</span></span>
@@ -600,8 +599,8 @@ tabyl; consider combining columns of a one_way tabyl with tidyr::unite()</code><
 </div>
 </div>
 </section>
-<section id="un-tabulado-por-año-si-existe" class="level3" data-number="2.8.4">
-<h3 data-number="2.8.4" class="anchored" data-anchor-id="un-tabulado-por-año-si-existe"><span class="header-section-number">2.8.4</span> 7.4 Un tabulado por año (si existe)</h3>
+<section id="un-tabulado-por-año-si-existe" class="level3">
+<h3 class="anchored" data-anchor-id="un-tabulado-por-año-si-existe">7.4 Un tabulado por año (si existe)</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">length</span>(posibles_anio) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  var_anio <span class="ot">&lt;-</span> posibles_anio[<span class="dv">1</span>]</span>
@@ -614,10 +613,10 @@ tabyl; consider combining columns of a one_way tabyl with tidyr::unite()</code><
 </div>
 </section>
 </section>
-<section id="exportar-resultados-opcional" class="level2" data-number="2.9">
-<h2 data-number="2.9" class="anchored" data-anchor-id="exportar-resultados-opcional"><span class="header-section-number">2.9</span> Exportar resultados (opcional)</h2>
-<section id="exportar-como-csv" class="level3" data-number="2.9.1">
-<h3 data-number="2.9.1" class="anchored" data-anchor-id="exportar-como-csv"><span class="header-section-number">2.9.1</span> Exportar como CSV</h3>
+<section id="exportar-resultados-opcional" class="level2">
+<h2 class="anchored" data-anchor-id="exportar-resultados-opcional">Exportar resultados (opcional)</h2>
+<section id="exportar-como-csv" class="level3">
+<h3 class="anchored" data-anchor-id="exportar-como-csv">Exportar como CSV</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>  readr<span class="sc">::</span><span class="fu">write_csv</span>(top10, <span class="st">"top10_entidades_desaparecidas.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -626,8 +625,8 @@ tabyl; consider combining columns of a one_way tabyl with tidyr::unite()</code><
 </blockquote>
 </section>
 </section>
-<section id="ejercicio-práctico-para-entregar-o-discutir-en-clase" class="level2" data-number="2.10">
-<h2 data-number="2.10" class="anchored" data-anchor-id="ejercicio-práctico-para-entregar-o-discutir-en-clase"><span class="header-section-number">2.10</span> Ejercicio práctico (para entregar o discutir en clase)</h2>
+<section id="ejercicio-práctico-para-entregar-o-discutir-en-clase" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicio-práctico-para-entregar-o-discutir-en-clase">Ejercicio práctico (para entregar o discutir en clase)</h2>
 <ol type="1">
 <li><strong>Busca</strong> en Datamx.io otro dataset del área <em>seguridad-y-justicia</em> (por ejemplo, homicidios, suicidios, delitos, etc.).</li>
 <li>Descárgalo con CKAN (sin bajar el archivo manualmente).</li>
@@ -639,8 +638,8 @@ tabyl; consider combining columns of a one_way tabyl with tidyr::unite()</code><
 </ul></li>
 </ol>
 </section>
-<section id="referencias" class="level2" data-number="2.11">
-<h2 data-number="2.11" class="anchored" data-anchor-id="referencias"><span class="header-section-number">2.11</span> Referencias</h2>
+<section id="referencias" class="level2">
+<h2 class="anchored" data-anchor-id="referencias">Referencias</h2>
 <ul>
 <li>CKAN. <em>API Guide (Action API).</em></li>
 <li>Datamx.io. <em>La plataforma cívica de datos abiertos de México.</em></li>

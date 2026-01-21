@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.361">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Curso: De las APIs a los gráficos: explorando datos sociales con R - 2&nbsp; “Práctica 5: CKAN y Datamx.io — Personas desaparecidas y no localizadas”</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./videos.html" rel="next">
+<link href="./P4.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P1.html">Práctica</a></li><li class="breadcrumb-item"><a href="./P5.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">"Práctica 5: CKAN y Datamx.io — Personas desaparecidas y no localizadas"</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Curso: De las APIs a los gráficos: explorando datos sociales con R</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/aniuxa/r_api2026/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Contenido</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./install.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instalación de R y RStudio</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Teoría</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./D1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Día 1: ¿Qué es una API? Tipos, ventajas y fuentes que usaremos</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Práctica</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./P1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Práctica 1: Búsquedas académicas con {rcrossref}</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./P2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Práctica 2: Paquetes de consulta</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./P3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Práctica 3: INEGI y Banxico</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./P4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Práctica 4: Tablascon <code>{kable}</code> y <code>{gt}</code>“</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./P5.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">“Práctica 5: CKAN y Datamx.io — Personas desaparecidas y no localizadas”</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./videos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Videos y extras</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#objetivo" id="toc-objetivo" class="nav-link active" data-scroll-target="#objetivo"><span class="header-section-number">2.1</span> Objetivo</a></li>
+  <li><a href="#paquetes" id="toc-paquetes" class="nav-link" data-scroll-target="#paquetes"><span class="header-section-number">2.2</span> Paquetes</a></li>
+  <li><a href="#ckan-en-3-ideas-para-comenzar" id="toc-ckan-en-3-ideas-para-comenzar" class="nav-link" data-scroll-target="#ckan-en-3-ideas-para-comenzar"><span class="header-section-number">2.3</span> CKAN en 3 ideas (para comenzar)</a></li>
+  <li><a href="#funciones-mínimas-para-hablar-con-ckan-datamx" id="toc-funciones-mínimas-para-hablar-con-ckan-datamx" class="nav-link" data-scroll-target="#funciones-mínimas-para-hablar-con-ckan-datamx"><span class="header-section-number">2.4</span> Funciones mínimas para hablar con CKAN (Datamx)</a></li>
+  <li><a href="#buscar-el-dataset-en-datamx.io" id="toc-buscar-el-dataset-en-datamx.io" class="nav-link" data-scroll-target="#buscar-el-dataset-en-datamx.io"><span class="header-section-number">2.5</span> Buscar el dataset en Datamx.io</a></li>
+  <li><a href="#ver-el-detalle-del-dataset-y-elegir-un-recurso-archivo" id="toc-ver-el-detalle-del-dataset-y-elegir-un-recurso-archivo" class="nav-link" data-scroll-target="#ver-el-detalle-del-dataset-y-elegir-un-recurso-archivo"><span class="header-section-number">2.6</span> Ver el detalle del dataset y elegir un recurso (archivo)</a>
+  <ul class="collapse">
+  <li><a href="#elegir-un-csv" id="toc-elegir-un-csv" class="nav-link" data-scroll-target="#elegir-un-csv"><span class="header-section-number">2.6.1</span> Elegir un CSV</a></li>
+  </ul></li>
+  <li><a href="#descargar-y-cargar-el-csv" id="toc-descargar-y-cargar-el-csv" class="nav-link" data-scroll-target="#descargar-y-cargar-el-csv"><span class="header-section-number">2.7</span> Descargar y cargar el CSV</a>
+  <ul class="collapse">
+  <li><a href="#limpiar-nombres-de-variables" id="toc-limpiar-nombres-de-variables" class="nav-link" data-scroll-target="#limpiar-nombres-de-variables"><span class="header-section-number">2.7.1</span> Limpiar nombres de variables</a></li>
+  </ul></li>
+  <li><a href="#tabulados-con-janitor-rápidos-y-claros" id="toc-tabulados-con-janitor-rápidos-y-claros" class="nav-link" data-scroll-target="#tabulados-con-janitor-rápidos-y-claros"><span class="header-section-number">2.8</span> Tabulados con <code>{janitor}</code> (rápidos y claros)</a>
+  <ul class="collapse">
+  <li><a href="#una-tabla-de-frecuencias-simple" id="toc-una-tabla-de-frecuencias-simple" class="nav-link" data-scroll-target="#una-tabla-de-frecuencias-simple"><span class="header-section-number">2.8.1</span> Una tabla de frecuencias simple</a></li>
+  <li><a href="#top-10-entidades" id="toc-top-10-entidades" class="nav-link" data-scroll-target="#top-10-entidades"><span class="header-section-number">2.8.2</span> Top 10 entidades</a></li>
+  <li><a href="#tabla-de-contingencia-entidad-sexo" id="toc-tabla-de-contingencia-entidad-sexo" class="nav-link" data-scroll-target="#tabla-de-contingencia-entidad-sexo"><span class="header-section-number">2.8.3</span> Tabla de contingencia: entidad × sexo</a></li>
+  <li><a href="#un-tabulado-por-año-si-existe" id="toc-un-tabulado-por-año-si-existe" class="nav-link" data-scroll-target="#un-tabulado-por-año-si-existe"><span class="header-section-number">2.8.4</span> 7.4 Un tabulado por año (si existe)</a></li>
+  </ul></li>
+  <li><a href="#exportar-resultados-opcional" id="toc-exportar-resultados-opcional" class="nav-link" data-scroll-target="#exportar-resultados-opcional"><span class="header-section-number">2.9</span> Exportar resultados (opcional)</a>
+  <ul class="collapse">
+  <li><a href="#exportar-como-csv" id="toc-exportar-como-csv" class="nav-link" data-scroll-target="#exportar-como-csv"><span class="header-section-number">2.9.1</span> Exportar como CSV</a></li>
+  </ul></li>
+  <li><a href="#ejercicio-práctico-para-entregar-o-discutir-en-clase" id="toc-ejercicio-práctico-para-entregar-o-discutir-en-clase" class="nav-link" data-scroll-target="#ejercicio-práctico-para-entregar-o-discutir-en-clase"><span class="header-section-number">2.10</span> Ejercicio práctico (para entregar o discutir en clase)</a></li>
+  <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias"><span class="header-section-number">2.11</span> Referencias</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/aniuxa/r_api2026/edit/main/P5.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/aniuxa/r_api2026/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">“Práctica 5: CKAN y Datamx.io — Personas desaparecidas y no localizadas”</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="objetivo" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="objetivo"><span class="header-section-number">2.1</span> Objetivo</h2>
+<p>En esta práctica vamos a:</p>
+<ol type="1">
+<li><strong>Buscar</strong> un dataset en Datamx.io usando el <strong>CKAN Action API</strong> (sin entrar al sitio manualmente).</li>
+<li><strong>Identificar</strong> el <em>dataset</em> y sus <strong>recursos</strong> (archivos disponibles: CSV, ZIP, etc.).</li>
+<li><strong>Descargar</strong> un recurso (por ejemplo, un CSV) y cargarlo en R.</li>
+<li><strong>Hacer tabulados rápidos</strong> con <code>{janitor}</code> (frecuencias, porcentajes y tablas de contingencia).</li>
+<li>Guardar un resultado (opcional) como <strong>CSV</strong> o <strong>Excel</strong> para reutilizarlo fuera de R.</li>
+</ol>
+<blockquote class="blockquote">
+<p>Datamx.io es un catálogo cívico de datos abiertos en México y está montado sobre CKAN, por lo que expone el estándar <code>.../api/3/action/...</code>. citeturn4view1turn4view0<br>
+CKAN documenta estos endpoints en su guía oficial de API. citeturn3view0</p>
+</blockquote>
+</section>
+<section id="paquetes" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="paquetes"><span class="header-section-number">2.2</span> Paquetes</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"pacman"</span>)) <span class="fu">install.packages</span>(<span class="st">"pacman"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Cargando paquete requerido: pacman</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  httr2, jsonlite,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  dplyr, tidyr, stringr, purrr,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  janitor, readr, tibble,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  lubridate</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="ckan-en-3-ideas-para-comenzar" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="ckan-en-3-ideas-para-comenzar"><span class="header-section-number">2.3</span> CKAN en 3 ideas (para comenzar)</h2>
+<p>En CKAN, casi todo lo que hacemos desde R se puede resumir así:</p>
+<ul>
+<li><code>package_search</code>: <strong>buscar</strong> datasets por palabra clave (por ejemplo “desaparecidas”).</li>
+<li><code>package_show</code>: <strong>ver el detalle</strong> de un dataset (título, descripción, recursos).</li>
+<li>cada dataset incluye una lista de <strong>resources</strong> (archivos), y cada recurso suele traer un <code>url</code> desde donde se descarga.</li>
+</ul>
+<p>Estos endpoints están documentados en la guía oficial de CKAN (Action API). citeturn3view0</p>
+</section>
+<section id="funciones-mínimas-para-hablar-con-ckan-datamx" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="funciones-mínimas-para-hablar-con-ckan-datamx"><span class="header-section-number">2.4</span> Funciones mínimas para hablar con CKAN (Datamx)</h2>
+<p>Vamos a construir dos funciones pequeñas. La idea es que puedas <strong>reutilizarlas</strong> con cualquier tema (educación, salud, seguridad, etc.).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ckan_action <span class="ot">&lt;-</span> <span class="cf">function</span>(action, <span class="at">query =</span> <span class="fu">list</span>(), <span class="at">base =</span> <span class="st">"https://datamx.io/api/3/action"</span>) {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  url <span class="ot">&lt;-</span> <span class="fu">paste0</span>(base, <span class="st">"/"</span>, action)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  req <span class="ot">&lt;-</span> httr2<span class="sc">::</span><span class="fu">request</span>(url)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">length</span>(query) <span class="sc">&gt;</span> <span class="dv">0</span>) req <span class="ot">&lt;-</span> httr2<span class="sc">::</span><span class="fu">req_url_query</span>(req, <span class="sc">!!!</span>query)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  resp <span class="ot">&lt;-</span> httr2<span class="sc">::</span><span class="fu">req_perform</span>(req)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  txt  <span class="ot">&lt;-</span> httr2<span class="sc">::</span><span class="fu">resp_body_string</span>(resp)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  jsonlite<span class="sc">::</span><span class="fu">fromJSON</span>(txt, <span class="at">simplifyVector =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>ckan_package_search <span class="ot">&lt;-</span> <span class="cf">function</span>(q, <span class="at">rows =</span> <span class="dv">10</span>) {</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ckan_action</span>(<span class="st">"package_search"</span>, <span class="at">query =</span> <span class="fu">list</span>(<span class="at">q =</span> q, <span class="at">rows =</span> rows))</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>ckan_package_show <span class="ot">&lt;-</span> <span class="cf">function</span>(id) {</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ckan_action</span>(<span class="st">"package_show"</span>, <span class="at">query =</span> <span class="fu">list</span>(<span class="at">id =</span> id))</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="buscar-el-dataset-en-datamx.io" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="buscar-el-dataset-en-datamx.io"><span class="header-section-number">2.5</span> Buscar el dataset en Datamx.io</h2>
+<p>En Datamx.io existe un dataset llamado <strong>“Personas desaparecidas y no localizadas en México”</strong> (publicado como CSV). En lugar de buscarlo a mano, lo vamos a encontrar con <code>package_search</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>res_search <span class="ot">&lt;-</span> <span class="fu">ckan_package_search</span>(<span class="at">q =</span> <span class="st">"Personas desaparecidas y no localizadas"</span>, <span class="at">rows =</span> <span class="dv">5</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Resultados (título y "name" del dataset)</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>hits <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> res_search<span class="sc">$</span>result<span class="sc">$</span>results<span class="sc">$</span>title,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">name  =</span> res_search<span class="sc">$</span>result<span class="sc">$</span>results<span class="sc">$</span>name</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>hits</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 2
+  title                                                                    name 
+  &lt;chr&gt;                                                                    &lt;chr&gt;
+1 Personas desaparecidas y no localizadas en México                        pers…
+2 Estadística de personas desaparecidas-no localizadas                     esta…
+3 Scraping Bases de Datos de personas no localizadas                       scra…
+4 Registro Nacional de Datos de Personas Extraviadas o Desaparecidas (RNP… regi…
+5 Registro Nacional de Datos de Personas Extraviadas o Desaparecidas del … regi…</code></pre>
+</div>
+</div>
+<p>Si el primer resultado es el que queremos, guardamos su <code>name</code> (que funciona como id dentro de CKAN).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dataset_id <span class="ot">&lt;-</span> hits<span class="sc">$</span>name[<span class="dv">1</span>]</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>dataset_id</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "personas-desaparecidas-y-no-localizadas-en-mexico"</code></pre>
+</div>
+</div>
+</section>
+<section id="ver-el-detalle-del-dataset-y-elegir-un-recurso-archivo" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="ver-el-detalle-del-dataset-y-elegir-un-recurso-archivo"><span class="header-section-number">2.6</span> Ver el detalle del dataset y elegir un recurso (archivo)</h2>
+<p>Ahora pedimos el detalle con <code>package_show</code>. Esto nos trae una tabla con los recursos.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>pkg <span class="ot">&lt;-</span> <span class="fu">ckan_package_show</span>(dataset_id)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>recursos <span class="ot">&lt;-</span> pkg<span class="sc">$</span>result<span class="sc">$</span>resources <span class="sc">%&gt;%</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    name,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    format,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    url,</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    last_modified,</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    size</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>recursos</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 5
+  name     format url                                       last_modified   size
+  &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;                                     &lt;chr&gt;          &lt;int&gt;
+1 data.csv CSV    https://datamx.io/dataset/816b51f3-7e04-… 2025-07-02T0… 2.26e7</code></pre>
+</div>
+</div>
+<section id="elegir-un-csv" class="level3" data-number="2.6.1">
+<h3 data-number="2.6.1" class="anchored" data-anchor-id="elegir-un-csv"><span class="header-section-number">2.6.1</span> Elegir un CSV</h3>
+<p>En Datamx suele haber varios recursos (a veces CSV, a veces ZIP, a veces ambos).<br>
+Aquí seleccionamos el <strong>primer recurso que diga CSV</strong>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>recurso_csv <span class="ot">&lt;-</span> recursos <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_to_upper</span>(format) <span class="sc">==</span> <span class="st">"CSV"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>recurso_csv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 5
+  name     format url                                       last_modified   size
+  &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;                                     &lt;chr&gt;          &lt;int&gt;
+1 data.csv CSV    https://datamx.io/dataset/816b51f3-7e04-… 2025-07-02T0… 2.26e7</code></pre>
+</div>
+</div>
+<p>Guardamos la URL del recurso:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>csv_url <span class="ot">&lt;-</span> recurso_csv<span class="sc">$</span>url[[<span class="dv">1</span>]]</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>csv_url</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "https://datamx.io/dataset/816b51f3-7e04-4834-9b58-d51e02cb4783/resource/e2e8fd8b-dc10-440a-a015-473f3616c83a/download/data.csv"</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="descargar-y-cargar-el-csv" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="descargar-y-cargar-el-csv"><span class="header-section-number">2.7</span> Descargar y cargar el CSV</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df_raw <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(csv_url, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>df_raw <span class="sc">%&gt;%</span> </span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 133,887
+Columns: 11
+$ ID_VICTIMA         &lt;chr&gt; "D49C001E-41E4-45B7-B8FD-D867578F093E", "2D2B5CD4-7…
+$ ORIGEN_REPORTE     &lt;chr&gt; "FISCALIA GENERAL DE DURANGO", "COMISION LOCAL DE B…
+$ FECHA_NACIMIENTO   &lt;chr&gt; "CONFIDENCIAL", "1971-06-13", "CONFIDENCIAL", "CONF…
+$ SEXO               &lt;chr&gt; "CONFIDENCIAL", "HOMBRE", "CONFIDENCIAL", "CONFIDEN…
+$ FECHA_DESAPARICION &lt;chr&gt; "CONFIDENCIAL", "2025-09-28 04:40:00", "CONFIDENCIA…
+$ FECHA_REGISTRO     &lt;chr&gt; "CONFIDENCIAL", "2025-09-29 10:00:00", "CONFIDENCIA…
+$ ESTATUS_VICTIMA    &lt;chr&gt; "CONFIDENCIAL", "DESAPARECIDA", "CONFIDENCIAL", "CO…
+$ CVE_ENT            &lt;chr&gt; "10", "25", "09", "02", "02", "21", "02", "21", "10…
+$ ENTIDAD            &lt;chr&gt; "DURANGO", "SINALOA", "CIUDAD DE MÉXICO", "BAJA CAL…
+$ CVE_MUN            &lt;chr&gt; "999", "004", "999", "999", "999", "114", "999", "1…
+$ MUNICIPIO          &lt;chr&gt; "CONFIDENCIAL", "CONCORDIA", "CONFIDENCIAL", "CONFI…</code></pre>
+</div>
+</div>
+<section id="limpiar-nombres-de-variables" class="level3" data-number="2.7.1">
+<h3 data-number="2.7.1" class="anchored" data-anchor-id="limpiar-nombres-de-variables"><span class="header-section-number">2.7.1</span> Limpiar nombres de variables</h3>
+<p>Casi siempre conviene estandarizar nombres con <code>janitor::clean_names()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df_raw <span class="sc">%&gt;%</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">clean_names</span>()</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "id_victima"         "origen_reporte"     "fecha_nacimiento"  
+ [4] "sexo"               "fecha_desaparicion" "fecha_registro"    
+ [7] "estatus_victima"    "cve_ent"            "entidad"           
+[10] "cve_mun"            "municipio"         </code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="tabulados-con-janitor-rápidos-y-claros" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="tabulados-con-janitor-rápidos-y-claros"><span class="header-section-number">2.8</span> Tabulados con <code>{janitor}</code> (rápidos y claros)</h2>
+<section id="una-tabla-de-frecuencias-simple" class="level3" data-number="2.8.1">
+<h3 data-number="2.8.1" class="anchored" data-anchor-id="una-tabla-de-frecuencias-simple"><span class="header-section-number">2.8.1</span> Una tabla de frecuencias simple</h3>
+<p>Primero, veamos qué variables tenemos. En este tipo de datos suele haber columnas como:</p>
+<ul>
+<li>entidad / estado</li>
+<li>sexo</li>
+<li>rango_edad o edad</li>
+<li>anio o fecha</li>
+</ul>
+<p>Como los nombres pueden variar, vamos a detectar algunas opciones comunes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>posibles_entidad <span class="ot">&lt;-</span> <span class="fu">intersect</span>(<span class="fu">names</span>(df), <span class="fu">c</span>(<span class="st">"entidad"</span>, <span class="st">"entidad_federativa"</span>, <span class="st">"estado"</span>, <span class="st">"estado_desaparicion"</span>, <span class="st">"entidad_desaparicion"</span>))</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>posibles_sexo    <span class="ot">&lt;-</span> <span class="fu">intersect</span>(<span class="fu">names</span>(df), <span class="fu">c</span>(<span class="st">"sexo"</span>, <span class="st">"genero"</span>))</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>posibles_anio    <span class="ot">&lt;-</span> <span class="fu">intersect</span>(<span class="fu">names</span>(df), <span class="fu">c</span>(<span class="st">"anio"</span>, <span class="st">"anio_desaparicion"</span>, <span class="st">"anio_hecho"</span>, <span class="st">"anio_registro"</span>, <span class="st">"year"</span>))</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="fu">list</span>(<span class="at">entidad =</span> posibles_entidad, <span class="at">sexo =</span> posibles_sexo, <span class="at">anio =</span> posibles_anio)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$entidad
+[1] "entidad"
+
+$sexo
+[1] "sexo"
+
+$anio
+character(0)</code></pre>
+</div>
+</div>
+<section id="frecuencia-por-entidad" class="level4" data-number="2.8.1.1">
+<h4 data-number="2.8.1.1" class="anchored" data-anchor-id="frecuencia-por-entidad"><span class="header-section-number">2.8.1.1</span> Frecuencia por entidad</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>  tab_entidad <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    janitor<span class="sc">::</span><span class="fu">tabyl</span>(entidad) <span class="sc">%&gt;%</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    janitor<span class="sc">::</span><span class="fu">adorn_totals</span>(<span class="st">"row"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    janitor<span class="sc">::</span><span class="fu">adorn_percentages</span>(<span class="st">"row"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    janitor<span class="sc">::</span><span class="fu">adorn_pct_formatting</span>(<span class="at">digits =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    janitor<span class="sc">::</span><span class="fu">adorn_ns</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in janitor::adorn_ns(.): adorn_ns() is meant to be called on a two_way
+tabyl; consider combining columns of a one_way tabyl with tidyr::unite()</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>  tab_entidad <span class="sc">%&gt;%</span> </span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">head</span>(<span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             entidad           n            percent
+      AGUASCALIENTES 1     (502) 0.0% (0.003749430)
+     BAJA CALIFORNIA 1   (4,478) 0.0% (0.033446115)
+ BAJA CALIFORNIA SUR 1   (1,024) 0.0% (0.007648241)
+            CAMPECHE 1     (135) 0.0% (0.001008313)
+             CHIAPAS 1   (1,678) 0.0% (0.012532957)
+           CHIHUAHUA 1   (4,107) 0.0% (0.030675122)
+    CIUDAD DE MÉXICO 1   (6,802) 0.0% (0.050804036)
+            COAHUILA 1   (3,647) 0.0% (0.027239388)
+              COLIMA 1   (1,436) 0.0% (0.010725463)
+             DURANGO 1   (1,067) 0.0% (0.007969407)
+    ESTADO DE MÉXICO 1  (14,344) 0.0% (0.107135121)
+          GUANAJUATO 1   (5,293) 0.0% (0.039533338)
+            GUERRERO 1   (4,416) 0.0% (0.032983038)
+             HIDALGO 1   (1,590) 0.0% (0.011875686)
+             JALISCO 1  (14,811) 0.0% (0.110623137)</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="top-10-entidades" class="level3" data-number="2.8.2">
+<h3 data-number="2.8.2" class="anchored" data-anchor-id="top-10-entidades"><span class="header-section-number">2.8.2</span> Top 10 entidades</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>  top10 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">count</span>(entidad, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  top10</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 2
+   entidad              n
+   &lt;chr&gt;            &lt;int&gt;
+ 1 JALISCO          14811
+ 2 ESTADO DE MÉXICO 14344
+ 3 TAMAULIPAS       13452
+ 4 MICHOACÁN         7112
+ 5 NUEVO LEÓN        7095
+ 6 VERACRUZ          6928
+ 7 CIUDAD DE MÉXICO  6802
+ 8 SINALOA           6596
+ 9 SONORA            5537
+10 GUANAJUATO        5293</code></pre>
+</div>
+</div>
+</section>
+<section id="tabla-de-contingencia-entidad-sexo" class="level3" data-number="2.8.3">
+<h3 data-number="2.8.3" class="anchored" data-anchor-id="tabla-de-contingencia-entidad-sexo"><span class="header-section-number">2.8.3</span> Tabla de contingencia: entidad × sexo</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">%&gt;%</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    janitor<span class="sc">::</span><span class="fu">tabyl</span>(entidad, sexo) <span class="sc">%&gt;%</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    janitor<span class="sc">::</span><span class="fu">adorn_totals</span>(<span class="fu">c</span>(<span class="st">"row"</span>, <span class="st">"col"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    janitor<span class="sc">::</span><span class="fu">adorn_percentages</span>(<span class="st">"row"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    janitor<span class="sc">::</span><span class="fu">adorn_pct_formatting</span>(<span class="at">digits =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             entidad CONFIDENCIAL HOMBRE INDETERMINADO MUJER  Total
+      AGUASCALIENTES        45.0%  41.4%          0.2% 13.3% 100.0%
+     BAJA CALIFORNIA        32.9%  49.4%          0.1% 17.6% 100.0%
+ BAJA CALIFORNIA SUR        51.8%  42.0%          0.2%  6.1% 100.0%
+            CAMPECHE        53.3%  31.9%          0.0% 14.8% 100.0%
+             CHIAPAS        20.9%  61.2%          0.0% 17.9% 100.0%
+           CHIHUAHUA         8.4%  78.7%          0.0% 12.9% 100.0%
+    CIUDAD DE MÉXICO        58.4%  26.6%          1.6% 13.4% 100.0%
+            COAHUILA        29.1%  54.9%          0.1% 15.9% 100.0%
+              COLIMA         8.9%  69.4%          0.1% 21.6% 100.0%
+             DURANGO        38.5%  50.2%          0.2% 11.1% 100.0%
+    ESTADO DE MÉXICO        22.6%  46.0%          0.1% 31.4% 100.0%
+          GUANAJUATO        58.7%  34.9%          0.9%  5.6% 100.0%
+            GUERRERO         9.1%  75.8%          0.3% 14.8% 100.0%
+             HIDALGO        13.3%  55.2%          0.1% 31.3% 100.0%
+             JALISCO        67.5%  28.0%          0.1%  4.4% 100.0%
+           MICHOACÁN        17.2%  69.1%          0.0% 13.6% 100.0%
+             MORELOS        37.0%  42.9%          0.0% 20.0% 100.0%
+             NAYARIT        66.0%  29.6%          0.1%  4.3% 100.0%
+          NUEVO LEÓN        48.3%  38.2%          0.0% 13.4% 100.0%
+              OAXACA        45.0%  40.5%          0.3% 14.2% 100.0%
+              PUEBLA        57.0%  28.1%          0.0% 14.9% 100.0%
+           QUERÉTARO        17.6%  65.6%          0.0% 16.8% 100.0%
+        QUINTANA ROO        36.2%  46.1%          0.1% 17.6% 100.0%
+     SAN LUIS POTOSÍ        40.9%  48.9%          0.1% 10.2% 100.0%
+        SE DESCONOCE        19.8%  58.2%          2.7% 19.3% 100.0%
+             SINALOA        28.6%  65.2%          0.0%  6.2% 100.0%
+              SONORA        19.1%  68.6%          0.1% 12.2% 100.0%
+             TABASCO        19.2%  40.0%          0.3% 40.5% 100.0%
+          TAMAULIPAS        39.3%  48.1%          0.1% 12.5% 100.0%
+            TLAXCALA        43.1%  37.2%          0.0% 19.7% 100.0%
+            VERACRUZ        34.9%  51.7%          0.3% 13.1% 100.0%
+             YUCATÁN        62.7%  31.5%          0.0%  5.8% 100.0%
+           ZACATECAS        39.7%  52.0%          0.0%  8.3% 100.0%
+               Total        36.7%  48.3%          0.3% 14.7% 100.0%</code></pre>
+</div>
+</div>
+</section>
+<section id="un-tabulado-por-año-si-existe" class="level3" data-number="2.8.4">
+<h3 data-number="2.8.4" class="anchored" data-anchor-id="un-tabulado-por-año-si-existe"><span class="header-section-number">2.8.4</span> 7.4 Un tabulado por año (si existe)</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">length</span>(posibles_anio) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  var_anio <span class="ot">&lt;-</span> posibles_anio[<span class="dv">1</span>]</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">%&gt;%</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    janitor<span class="sc">::</span><span class="fu">tabyl</span>(.data[[var_anio]]) <span class="sc">%&gt;%</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(<span class="fu">desc</span>(n)) <span class="sc">%&gt;%</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">head</span>(<span class="dv">15</span>)</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="exportar-resultados-opcional" class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="exportar-resultados-opcional"><span class="header-section-number">2.9</span> Exportar resultados (opcional)</h2>
+<section id="exportar-como-csv" class="level3" data-number="2.9.1">
+<h3 data-number="2.9.1" class="anchored" data-anchor-id="exportar-como-csv"><span class="header-section-number">2.9.1</span> Exportar como CSV</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>  readr<span class="sc">::</span><span class="fu">write_csv</span>(top10, <span class="st">"top10_entidades_desaparecidas.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<blockquote class="blockquote">
+<p>Si estás trabajando dentro de un proyecto, este archivo se guardará en la carpeta del proyecto.</p>
+</blockquote>
+</section>
+</section>
+<section id="ejercicio-práctico-para-entregar-o-discutir-en-clase" class="level2" data-number="2.10">
+<h2 data-number="2.10" class="anchored" data-anchor-id="ejercicio-práctico-para-entregar-o-discutir-en-clase"><span class="header-section-number">2.10</span> Ejercicio práctico (para entregar o discutir en clase)</h2>
+<ol type="1">
+<li><strong>Busca</strong> en Datamx.io otro dataset del área <em>seguridad-y-justicia</em> (por ejemplo, homicidios, suicidios, delitos, etc.).</li>
+<li>Descárgalo con CKAN (sin bajar el archivo manualmente).</li>
+<li>Crea:
+<ul>
+<li>un <strong>top 10</strong> de la unidad territorial (entidad/municipio),</li>
+<li>un tabulado con <code>{janitor}</code> (una variable × otra variable),</li>
+<li>un archivo exportado (CSV) con tu tabla final.</li>
+</ul></li>
+</ol>
+</section>
+<section id="referencias" class="level2" data-number="2.11">
+<h2 data-number="2.11" class="anchored" data-anchor-id="referencias"><span class="header-section-number">2.11</span> Referencias</h2>
+<ul>
+<li>CKAN. <em>API Guide (Action API).</em></li>
+<li>Datamx.io. <em>La plataforma cívica de datos abiertos de México.</em></li>
+<li>Datamx.io. <em>Listado de datasets (incluye “Personas desaparecidas y no localizadas en México”).</em></li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./P4.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Práctica 4: Tablascon <code>{kable}</code> y <code>{gt}</code>“</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./videos.html" class="pagination-link">
+        <span class="nav-page-text">Videos y extras</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

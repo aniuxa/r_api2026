@@ -21,6 +21,8 @@ book:
       - P1.qmd
       - P2.qmd
       - P3.qmd
+      - P4.qmd
+      - P5.qmd
     - videos.qmd
 
 bibliography: references.bib
@@ -30,8 +32,6 @@ format:
     theme:
       light: cosmo
       dark: darkly
-  pdf:
-    documentclass: scrreprt
 
 editor: visual
 

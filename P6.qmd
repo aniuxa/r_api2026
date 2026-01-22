@@ -1,0 +1,405 @@
+
+# Práctica 6: Visualización con ggplot2 (WDI)" {.unnumbered}
+
+# Objetivos de la práctica
+
+En esta práctica aprenderás a:
+
+- Consultar datos del Banco Mundial (WDI) desde R y preparar un conjunto listo para graficar.
+- Crear gráficas básicas con **ggplot2** (barras y líneas) y mejorar su legibilidad.
+- Comparar países a lo largo del tiempo usando medidas comparables (tasas, per cápita, índices).
+- Evaluar desempeño con una gráfica de dispersión que compara dos años separados por una década.
+- Personalizar apariencia con **ggthemes** y escalas de color (**RColorBrewer** y **viridis**) y exportar figuras.
+
+## Paquetes
+
+```{r}
+if (!require("pacman")) install.packages("pacman")
+
+pacman::p_load(
+  tidyverse,
+  WDI,
+  scales,
+  ggthemes,
+  RColorBrewer,
+  viridis,
+  ggrepel,
+  plotly
+)
+```
+
+## Selección de países de América Latina y el Caribe (LAC)
+
+El paquete `{WDI}` trae un directorio interno con metadatos de países (incluye región). Aquí filtramos los países de **Latin America & Caribbean** y excluimos agregados.
+
+```{r}
+lac <- WDI_data$country %>%
+  as_tibble() %>%
+  filter(region == "Latin America & Caribbean") %>%
+  filter(iso2c != "") %>%
+  filter(!region %in% c("Aggregates")) %>%
+  distinct(iso2c, country)
+
+lac %>%
+  slice_sample(n = 10) # aleatorio
+```
+
+## Cinco indicadores (para un año específico)
+
+Elegimos 5 indicadores típicos de análisis social y económico. (Si en algún país falta un indicador, aparecerá como `NA`.)
+
+```{r}
+anio_ref <- 2022
+
+indicadores_5 <- c(
+  pob_total   = "SP.POP.TOTL",        # población total
+  pib_pc      = "NY.GDP.PCAP.CD",     # PIB per cápita (US$ corrientes)
+  esperanza   = "SP.DYN.LE00.IN",     # esperanza de vida (años)
+  mort_inf    = "SP.DYN.IMRT.IN",     # mortalidad infantil (por 1000 nacidos vivos)
+  educ_gdp    = "SE.XPD.TOTL.GD.ZS"   # gasto público en educación (% del PIB)
+)
+```
+
+```{r}
+wdi_5_2022 <- WDI(
+  country = lac$iso2c,
+  indicator = indicadores_5,
+  start = anio_ref, end = anio_ref
+) %>%
+  as_tibble() %>%
+  select(iso2c, country, year, everything())
+
+wdi_5_2022 %>% slice_sample(n = 10)
+```
+
+## Básicos de ggplot2 con una variable: gráfico de barras
+
+La idea aquí es practicar lo mínimo indispensable:
+
+- elegir una variable
+- ordenar categorías (países)
+- hacer un gráfico de barras legible
+
+Ejemplo: **PIB per cápita** en LAC (año 2022) para los 15 países con mayor PIB per cápita.
+
+```{r}
+top15_pibpc <- wdi_5_2022 %>%
+  select(country, year, pib_pc) %>%
+  filter(!is.na(pib_pc)) %>%
+  slice_max(pib_pc, n = 15)
+
+top15_pibpc
+```
+
+```{r}
+top15_pibpc %>%
+  mutate(country = fct_reorder(country, pib_pc)) %>%
+  ggplot(aes(x = country, y = pib_pc)) +
+  geom_col() +
+  coord_flip() +
+  scale_y_continuous(labels = scales::dollar) +
+  labs(
+    title = "PIB per cápita en América Latina y el Caribe",
+    subtitle = paste0("Top 15 países, año ", anio_ref),
+    x = NULL,
+    y = "PIB per cápita (US$ corrientes)"
+  ) +
+  theme_minimal()
+```
+
+Un poco más avanzado:
+
+```{r}
+top15_pibpc %>%
+  mutate(country = fct_reorder(country, pib_pc)) %>%
+  ggplot(aes(x = country, y = pib_pc)) +
+  geom_col() +
+  geom_text(
+    aes(label = scales::dollar(pib_pc)),
+    hjust = -0.1,
+    size = 3
+  ) +
+  coord_flip() +
+  scale_y_continuous(labels = scales::dollar,
+                     expand = expansion(mult = c(0, 0.12))) +
+  labs(
+    title = "PIB per cápita en América Latina y el Caribe",
+    subtitle = paste0("Top 15 países, año ", anio_ref),
+    x = NULL,
+    y = "PIB per cápita (US$ corrientes)"
+  ) +
+  theme_minimal()
+```
+
+## Un país a lo largo del tiempo: líneas, periodos y choques (COVID)
+
+Para series de tiempo, lo más claro suele ser:
+
+- una línea (y puntos si quieres enfatizar años)
+- un eje temporal limpio
+- anotaciones discretas para eventos relevantes
+
+### Consulta: crecimiento del PIB de México (WDI)
+
+Indicador de WDI: crecimiento anual del PIB (variación % anual).
+
+```{r}
+mex_gdp_growth <- WDI(
+  country = "MX",
+  indicator = c(gdp_growth = "NY.GDP.MKTP.KD.ZG"),
+  start = 2000, end = 2024
+) %>%
+  as_tibble() %>%
+  select(country, iso2c, year, gdp_growth) %>%
+  arrange(year)
+
+mex_gdp_growth %>% slice_head(n = 10)
+```
+
+### Gráfica: crecimiento del PIB + anotaciones
+
+- Marcamos **COVID-19** con una línea vertical en 2020.
+- Sombreado por periodos presidenciales (aproximado a años completos por ser datos anuales):
+  - AMLO: 2019–2024 (toma de posesión: 1 de diciembre de 2018; se sombrea desde 2019).
+  - Sheinbaum: desde 2025 (toma de posesión: 1 de octubre de 2024; primer año completo: 2025).
+
+
+```{r}
+periodos <- tibble(
+  inicio = c(2019, 2025),
+  fin    = c(2024, 2024),
+  etiqueta = c("Periodo AMLO (años completos)", "Periodo Sheinbaum (años completos)")
+) %>%
+  mutate(fin = pmin(fin, max(mex_gdp_growth$year)))
+
+mex_gdp_growth %>%
+  ggplot(aes(x = year, y = gdp_growth)) +
+  geom_rect(
+    data = periodos,
+    aes(xmin = inicio - 0.5, xmax = fin + 0.5, ymin = -Inf, ymax = Inf),
+    inherit.aes = FALSE,
+    alpha = 0.10
+  ) +
+  geom_hline(yintercept = 0, linewidth = 0.4) +
+  geom_line(linewidth = 0.8) +
+  geom_point(size = 2) +
+  geom_vline(xintercept = 2020, linetype = "dashed", linewidth = 0.6) +
+  annotate("text",
+           x = 2020.2,
+           y = max(mex_gdp_growth$gdp_growth, na.rm = TRUE),
+           label = "COVID-19 (2020)",
+           hjust = 0, vjust = 1, size = 3.5) +
+  scale_x_continuous(breaks = seq(2000, 2024, 4)) +
+  labs(
+    title = "México: crecimiento anual del PIB",
+    subtitle = "WDI (NY.GDP.MKTP.KD.ZG) con anotación de COVID-19 y periodos (aprox.)",
+    x = NULL,
+    y = "Crecimiento del PIB (% anual)"
+  ) +
+  theme_minimal()
+```
+
+## Comparación de tendencias entre países
+
+Comparar países en valores absolutos puede ser engañoso si difieren en tamaño. Para comparar trayectorias es mejor usar:
+
+- **tasas** (porcentajes),
+- **per cápita**,
+- **% del PIB**,
+- o un **índice** (por ejemplo, 2010 = 100).
+
+### Ejemplo: PIB per cápita (constante) como índice (2010 = 100)
+
+```{r}
+paises_comp <- c("MEX", "BRA", "ARG", "CHL", "COL", "PER", "ECU", "URY")
+
+pibpc_ts <- WDI(
+  country = paises_comp,
+  indicator = c(pibpc_const = "NY.GDP.PCAP.KD"),
+  start = 2010, end = 2024
+) %>%
+  as_tibble() %>%
+  select(country, iso2c, year, pibpc_const) %>%
+  arrange(country, year)
+```
+
+```{r}
+pibpc_indice <- pibpc_ts %>%
+  group_by(country) %>%
+  mutate(base_2010 = pibpc_const[year == 2010][1]) %>%
+  ungroup() %>%
+  mutate(indice_2010 = 100 * pibpc_const / base_2010)
+
+pibpc_indice %>% slice_head(n = 10)
+```
+
+```{r}
+pibpc_indice %>%
+  ggplot(aes(x = year, y = indice_2010, color = country)) +
+  geom_line(linewidth = 0.9) +
+  scale_x_continuous(breaks = seq(2010, 2024, 2)) +
+  labs(
+    title = "PIB per cápita (constante): comparación de tendencias",
+    subtitle = "Índice 2010 = 100 (valores relativos para comparar trayectorias)",
+    x = NULL,
+    y = "Índice (2010 = 100)",
+    color = "País"
+  ) +
+  theme_minimal()
+```
+
+## Evaluación de desempeño: dispersión (dos años con 10 años de diferencia)
+
+La idea es comparar un indicador en dos momentos:
+
+- Eje X: valor en 2014
+- Eje Y: valor en 2024
+- Diagonal: “sin cambio” (y = x)
+
+Arriba de la diagonal implica aumento; debajo implica disminución.
+
+##Ejemplo: esperanza de vida (2013 vs 2023) en 10 países
+
+```{r}
+paises_10 <- c("MEX", "BRA", "ARG", "CHL", "COL", "PER", "ECU", "URY", "GTM", "DOM")
+
+ev_2013_2023 <- WDI(
+  country = paises_10,
+  indicator = c(ev = "SP.DYN.LE00.IN"),
+  start = 2013, end = 2023
+) %>%
+  as_tibble() %>%
+  select(country, iso2c, year, ev) %>%
+  filter(year %in% c(2013, 2023)) %>%
+  pivot_wider(names_from = year, 
+              values_from = ev) %>%
+  rename(ev_2013 = `2013`, ev_2023 = `2023`) %>%
+  mutate(cambio = ev_2023 - ev_2013)
+
+ev_2013_2023
+```
+
+```{r}
+lims <- range(c(ev_2013_2023$ev_2013, ev_2013_2023$ev_2023), na.rm = TRUE)
+
+ev_2013_2023 %>%
+  ggplot(aes(x = ev_2013, y = ev_2023, label = country, color = cambio)) +
+  geom_abline(slope = 1, intercept = 0, linewidth = 0.6) +
+  geom_point(size = 3) +
+  ggrepel::geom_text_repel(show.legend = FALSE, max.overlaps = 20) +
+  scale_x_continuous(limits = lims) +
+  scale_y_continuous(limits = lims) +
+  scale_color_viridis_c(option = "C") +
+  labs(
+    title = "Esperanza de vida: comparación 2013 vs 2023",
+    subtitle = "La diagonal representa ‘sin cambio’ (y = x). El color muestra el cambio (2023 - 2013).",
+    x = "Esperanza de vida (años) en 2013",
+    y = "Esperanza de vida (años) en 2023",
+    color = "Cambio"
+  ) +
+  theme_minimal() -> g_ev
+g_ev
+```
+
+# Temas, escalas de color y exportación
+
+## ggthemes (cambiar el estilo)
+
+```{r}
+g_ev +
+  labs(
+    title = "Ejemplo con ggthemes: theme_economist()",
+    x = "2013",
+    y = "2023"
+  ) +
+  ggthemes::theme_economist()
+```
+
+##  Escalas de color
+
+### Discretas (categorías): RColorBrewer
+
+```{r}
+pibpc_indice %>%
+  filter(year %in% c(2013, 2024)) %>%
+  ggplot(aes(x = factor(year), y = indice_2010, fill = country)) +
+  geom_col(position = "dodge") +
+  scale_fill_brewer(palette = "Set2") +
+  labs(
+    title = "Paleta discreta (RColorBrewer)",
+    x = NULL,
+    y = "Índice (2010=100)",
+    fill = "País"
+  ) +
+  theme_minimal()
+```
+
+### Continuas (gradiente): viridis
+
+```{r}
+ev_2013_2023 %>%
+  ggplot(aes(x = ev_2013, y = ev_2023, color = cambio)) +
+  geom_point(size = 3) +
+  scale_color_viridis_c(option = "D") +
+  labs(
+    title = "Paleta continua (viridis)",
+    x = "2013",
+    y = "2023",
+    color = "Cambio"
+  ) +
+  theme_minimal()
+```
+
+## Exportación con ggsave()
+
+```{r}
+g1 <- top15_pibpc %>%
+  mutate(country = fct_reorder(country, pib_pc)) %>%
+  ggplot(aes(x = country, y = pib_pc)) +
+  geom_col() +
+  coord_flip() +
+  scale_y_continuous(labels = scales::dollar) +
+  labs(
+    title = "PIB per cápita en LAC (Top 15)",
+    subtitle = paste0("Año ", anio_ref),
+    x = NULL,
+    y = "US$ corrientes"
+  ) +
+  theme_minimal()
+
+g1
+```
+
+```{r}
+ggsave("fig_pibpc_top15.png", 
+       plot = g1, 
+       width = 9, height = 5,
+       dpi = 300)
+
+ggsave("fig_pibpc_top15.pdf",
+       plot = g1,
+       width = 9,
+       height = 5)
+```
+
+## Interactivo
+
+```{r}
+interactivo<- ggplotly(g1)
+interactivo
+
+```
+
+
+# Ejercicio práctico
+
+1. Elige **un indicador WDI** (pobreza, escolaridad, emisiones, desempleo, mortalidad, etc.).  
+2. Selecciona **8–12 países**.  
+3. Produce:
+
+- Una **barra** (un año) comparando países.  
+- Una **serie de tiempo** (un país) con una anotación (p.ej., COVID-19 en 2020).  
+- Una comparación de **tendencias** (varios países) usando una medida comparable (tasa, per cápita, % del PIB o índice).  
+- Una **dispersión** comparando 2014 vs 2024, con diagonal y etiquetas.
+
+4. Exporta al menos **dos figuras** (PNG o PDF) con `ggsave()`.

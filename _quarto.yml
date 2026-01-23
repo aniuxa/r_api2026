@@ -24,6 +24,7 @@ book:
       - P4.qmd
       - P5.qmd
       - P6.qmd
+      - P7.qmd
     - videos.qmd
 
 bibliography: references.bib

@@ -1,0 +1,290 @@
+
+# Práctica 7: Proyecto integrador (individual) {.unnumbered}
+
+
+## 1. Producto final
+
+En esta práctica integradora construirás un mini-reporte reproducible que combine:
+
+1)  Una consulta a una fuente vía API (en este proyecto: WDI).\
+2)  Una tabla lista para compartir con `gt()`.\
+3)  Dos gráficas con `ggplot2`:
+    -   comparación entre países en un año (barras),
+    -   evolución de un país en el tiempo (línea).
+4)  Interpretación breve (4 a 6 líneas).
+
+Al final renderizarás el documento en el formato que prefieras.
+
+------------------------------------------------------------------------
+
+## 2. Render en Quarto: HTML, PDF o Word
+
+Quarto puede generar distintos formatos. Para elegir, ajusta el YAML del inicio.
+
+### 2.1 HTML (recomendado)
+
+``` yaml
+format:
+  html:
+    toc: true
+    number-sections: true
+```
+
+### 2.2 PDF
+
+Requiere tener instalado LaTeX (por ejemplo TinyTeX).
+
+``` yaml
+format: pdf
+```
+
+### 2.3 Word (docx)
+
+``` yaml
+format: docx
+```
+
+Puedes dejar más de un formato:
+
+``` yaml
+format:
+  html: default
+  pdf: default
+  docx: default
+```
+
+------------------------------------------------------------------------
+
+## 3. Tu pregunta de investigación (elige una)
+
+Elige UNA pregunta (o una variante muy similar):
+
+**Opción A (comparación anual):**\
+¿Qué países de América Latina y el Caribe presentan mejores resultados en \[indicador\] en el año \[año\]?
+
+**Opción B (tendencia en el tiempo):**\
+¿Cómo cambió \[indicador\] en \[país\] entre \[año inicial\] y \[año final\]?
+
+------------------------------------------------------------------------
+
+## 4. Preparación: paquetes y parámetros
+
+```{r}
+#| label: setup
+#| include: false
+
+if (!requireNamespace("pacman", quietly = TRUE)) install.packages("pacman")
+
+pacman::p_load(
+  dplyr, tidyr, tibble, stringr,
+  ggplot2, scales, forcats,
+  WDI,
+  gt
+)
+```
+
+### 4.1 Indicador (elige uno)
+
+```{r}
+#| label: indicadores_sugeridos
+
+indicadores <- tibble::tribble(
+  ~nombre_corto, ~codigo_wdi, ~descripcion,
+  "PIB_pc",      "NY.GDP.PCAP.CD", "PIB per cápita (US$ corrientes)",
+  "Esperanza",   "SP.DYN.LE00.IN", "Esperanza de vida al nacer (años)",
+  "Inflacion",   "FP.CPI.TOTL.ZG", "Inflación, precios al consumidor (anual %)",
+  "Desempleo",   "SL.UEM.TOTL.ZS", "Desempleo total (% de la fuerza laboral)",
+  "Gini",        "SI.POV.GINI",    "Índice de Gini"
+)
+
+indicadores
+```
+
+Selecciona aquí tu indicador:
+
+```{r}
+#| label: seleccion_indicador
+
+indicador_elegido <- "PIB_pc"  ## Cambia aquí: "Esperanza", "Inflacion", "Desempleo", "Gini"
+cod_wdi <- indicadores %>% dplyr::filter(nombre_corto == indicador_elegido) %>% dplyr::pull(codigo_wdi)
+desc_ind <- indicadores %>% dplyr::filter(nombre_corto == indicador_elegido) %>% dplyr::pull(descripcion)
+
+cod_wdi
+desc_ind
+```
+
+### 4.2 Países ALC (lista sugerida)
+
+Trabajaremos con un conjunto manejable (10 a 20 países).
+
+```{r}
+#| label: paises_alc
+
+paises_alc <- c(
+  "ARG","BOL","BRA","CHL","COL","CRI","CUB","DOM","ECU","GTM",
+  "HND","HTI","JAM","MEX","NIC","PAN","PER","PRY","SLV","URY"
+)
+
+length(paises_alc)
+```
+
+### 4.3 Año de comparación y rango temporal
+
+```{r}
+#| label: parametros_tiempo
+
+anio_ref <- 2022
+
+anio_ini <- 2000
+anio_fin <- 2024
+
+pais_tendencia <- "MEX"  ## Cambia si quieres, por ejemplo "CHL"
+```
+
+------------------------------------------------------------------------
+
+## 5. Consulta a WDI y datos listos para análisis
+
+### 5.1 Descarga del indicador (ALC + rango temporal)
+
+```{r}
+#| label: descarga_wdi
+
+wdi_raw <- WDI::WDI(
+  country = paises_alc,
+  indicator = cod_wdi,
+  start = anio_ini,
+  end = anio_fin,
+  extra = TRUE,
+  cache = NULL
+)
+
+dplyr::glimpse(wdi_raw)
+```
+
+### 5.2 Limpieza mínima
+
+```{r}
+#| label: wdi_limpio
+
+wdi <- wdi_raw %>%
+  dplyr::transmute(
+    country = country,
+    iso3c = iso3c,
+    year = as.integer(year),
+    value = as.numeric(.data[[cod_wdi]])
+  ) %>%
+  dplyr::filter(!is.na(value))
+
+wdi %>% dplyr::slice_head(n = 5)
+```
+
+------------------------------------------------------------------------
+
+## 6. Tabla con gt(): Top 10 en un año
+
+```{r}
+#| label: tabla_top10_gt
+
+top10 <- wdi %>%
+  dplyr::filter(year == anio_ref) %>%
+  dplyr::arrange(dplyr::desc(value)) %>%
+  dplyr::slice_head(n = 10)
+
+top10 %>%
+  dplyr::select(country, value) %>%
+  gt::gt() %>%
+  gt::tab_header(
+    title = gt::md(paste0("**Top 10 países (ALC) — ", desc_ind, "**")),
+    subtitle = paste0("Año: ", anio_ref, " | Indicador: ", cod_wdi)
+  ) %>%
+  gt::cols_label(
+    country = "País",
+    value = "Valor"
+  ) %>%
+  gt::fmt_number(
+    columns = value,
+    decimals = 2
+  )
+```
+
+------------------------------------------------------------------------
+
+## 7. Gráfica 1: barras (comparación en un año)
+
+```{r}
+#| label: grafica_barras
+
+top15 <- wdi %>%
+  dplyr::filter(year == anio_ref) %>%
+  dplyr::arrange(dplyr::desc(value)) %>%
+  dplyr::slice_head(n = 15)
+
+top15 %>%
+  dplyr::mutate(country = forcats::fct_reorder(country, value)) %>%
+  ggplot2::ggplot(ggplot2::aes(x = country, y = value)) +
+  ggplot2::geom_col() +
+  ggplot2::coord_flip() +
+  ggplot2::geom_text(
+    ggplot2::aes(label = scales::comma(value, accuracy = 1)),
+    hjust = -0.05,
+    size = 3
+  ) +
+  ggplot2::scale_y_continuous(
+    labels = scales::comma,
+    expand = ggplot2::expansion(mult = c(0, .15))
+  ) +
+  ggplot2::labs(
+    title = paste0("Comparación entre países (Top 15) — ", indicador_elegido),
+    subtitle = paste0("Año ", anio_ref, " | ", desc_ind),
+    x = NULL,
+    y = desc_ind
+  ) +
+  ggplot2::theme_minimal()
+```
+
+------------------------------------------------------------------------
+
+## 8. Gráfica 2: un país a lo largo del tiempo (línea)
+
+```{r}
+#| label: grafica_linea
+
+serie_pais <- wdi %>%
+  dplyr::filter(iso3c == pais_tendencia) %>%
+  dplyr::arrange(year)
+
+serie_pais %>%
+  ggplot2::ggplot(ggplot2::aes(x = year, y = value)) +
+  ggplot2::geom_line(linewidth = 1) +
+  ggplot2::geom_point(size = 1.5) +
+  ggplot2::scale_y_continuous(labels = scales::comma) +
+  ggplot2::labs(
+    title = paste0("Evolución en el tiempo — ", pais_tendencia),
+    subtitle = paste0(desc_ind, " (", cod_wdi, ")"),
+    x = "Año",
+    y = desc_ind
+  ) +
+  ggplot2::theme_minimal()
+```
+
+------------------------------------------------------------------------
+
+## 9. Interpretación breve (4–6 líneas)
+
+Escribe un párrafo corto respondiendo:
+
+-   ¿Qué indicador elegiste y por qué?
+-   ¿Qué país(es) destacan en el año de referencia?
+-   ¿Qué tendencia observas en el país elegido?
+-   ¿Qué limitación simple tiene tu análisis? (por ejemplo, comparabilidad, contexto, indicador incompleto)
+
+------------------------------------------------------------------------
+
+## 10. Checklist de entrega
+
+-   [ ] El documento renderiza sin errores en el formato elegido (HTML/PDF/Word).\
+-   [ ] Incluye 1 tabla con `gt()`.\
+-   [ ] Incluye 2 gráficas (barras y línea).\
+-   [ ] Incluye interpretación breve (4–6 líneas).\
+-   [ ] Incluye el YAML con el formato deseado.

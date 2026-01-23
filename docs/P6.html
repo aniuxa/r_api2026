@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./videos.html" rel="next">
+<link href="./P7.html" rel="next">
 <link href="./P5.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -207,7 +207,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./P4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Práctica 4: Tablascon <code>{kable}</code> y <code>{gt}</code></span></a>
+ <span class="menu-text">Práctica 4: Tablas con <code>{kableExtra}</code> y <code>{gt}</code></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -220,6 +220,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="./P6.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Práctica 6: Visualización con ggplot2 (WDI)”</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./P7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Práctica 7: Proyecto integrador (individual)</span></a>
   </div>
 </li>
       </ul>
@@ -240,8 +246,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#objetivos-de-la-práctica" id="toc-objetivos-de-la-práctica" class="nav-link active" data-scroll-target="#objetivos-de-la-práctica">Objetivos de la práctica</a>
-  <ul class="collapse">
+  <li><a href="#objetivos-de-la-práctica" id="toc-objetivos-de-la-práctica" class="nav-link active" data-scroll-target="#objetivos-de-la-práctica">Objetivos de la práctica</a></li>
   <li><a href="#paquetes" id="toc-paquetes" class="nav-link" data-scroll-target="#paquetes">Paquetes</a></li>
   <li><a href="#selección-de-países-de-américa-latina-y-el-caribe-lac" id="toc-selección-de-países-de-américa-latina-y-el-caribe-lac" class="nav-link" data-scroll-target="#selección-de-países-de-américa-latina-y-el-caribe-lac">Selección de países de América Latina y el Caribe (LAC)</a></li>
   <li><a href="#cinco-indicadores-para-un-año-específico" id="toc-cinco-indicadores-para-un-año-específico" class="nav-link" data-scroll-target="#cinco-indicadores-para-un-año-específico">Cinco indicadores (para un año específico)</a></li>
@@ -256,18 +261,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#ejemplo-pib-per-cápita-constante-como-índice-2010-100" id="toc-ejemplo-pib-per-cápita-constante-como-índice-2010-100" class="nav-link" data-scroll-target="#ejemplo-pib-per-cápita-constante-como-índice-2010-100">Ejemplo: PIB per cápita (constante) como índice (2010 = 100)</a></li>
   </ul></li>
   <li><a href="#evaluación-de-desempeño-dispersión-dos-años-con-10-años-de-diferencia" id="toc-evaluación-de-desempeño-dispersión-dos-años-con-10-años-de-diferencia" class="nav-link" data-scroll-target="#evaluación-de-desempeño-dispersión-dos-años-con-10-años-de-diferencia">Evaluación de desempeño: dispersión (dos años con 10 años de diferencia)</a></li>
-  </ul></li>
   <li><a href="#temas-escalas-de-color-y-exportación" id="toc-temas-escalas-de-color-y-exportación" class="nav-link" data-scroll-target="#temas-escalas-de-color-y-exportación">Temas, escalas de color y exportación</a>
   <ul class="collapse">
   <li><a href="#ggthemes-cambiar-el-estilo" id="toc-ggthemes-cambiar-el-estilo" class="nav-link" data-scroll-target="#ggthemes-cambiar-el-estilo">ggthemes (cambiar el estilo)</a></li>
-  <li><a href="#escalas-de-color" id="toc-escalas-de-color" class="nav-link" data-scroll-target="#escalas-de-color">Escalas de color</a>
-  <ul class="collapse">
-  <li><a href="#discretas-categorías-rcolorbrewer" id="toc-discretas-categorías-rcolorbrewer" class="nav-link" data-scroll-target="#discretas-categorías-rcolorbrewer">Discretas (categorías): RColorBrewer</a></li>
-  <li><a href="#continuas-gradiente-viridis" id="toc-continuas-gradiente-viridis" class="nav-link" data-scroll-target="#continuas-gradiente-viridis">Continuas (gradiente): viridis</a></li>
+  <li><a href="#escalas-de-color" id="toc-escalas-de-color" class="nav-link" data-scroll-target="#escalas-de-color">Escalas de color</a></li>
   </ul></li>
   <li><a href="#exportación-con-ggsave" id="toc-exportación-con-ggsave" class="nav-link" data-scroll-target="#exportación-con-ggsave">Exportación con ggsave()</a></li>
   <li><a href="#interactivo" id="toc-interactivo" class="nav-link" data-scroll-target="#interactivo">Interactivo</a></li>
-  </ul></li>
   <li><a href="#ejercicio-práctico" id="toc-ejercicio-práctico" class="nav-link" data-scroll-target="#ejercicio-práctico">Ejercicio práctico</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/aniuxa/r_api2026/edit/main/P6.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/aniuxa/r_api2026/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -292,8 +292,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="objetivos-de-la-práctica" class="level1">
-<h1>Objetivos de la práctica</h1>
+<section id="objetivos-de-la-práctica" class="level2">
+<h2 class="anchored" data-anchor-id="objetivos-de-la-práctica">Objetivos de la práctica</h2>
 <p>En esta práctica aprenderás a:</p>
 <ul>
 <li>Consultar datos del Banco Mundial (WDI) desde R y preparar un conjunto listo para graficar.</li>
@@ -302,6 +302,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Evaluar desempeño con una gráfica de dispersión que compara dos años separados por una década.</li>
 <li>Personalizar apariencia con <strong>ggthemes</strong> y escalas de color (<strong>RColorBrewer</strong> y <strong>viridis</strong>) y exportar figuras.</li>
 </ul>
+</section>
 <section id="paquetes" class="level2">
 <h2 class="anchored" data-anchor-id="paquetes">Paquetes</h2>
 <div class="cell">
@@ -336,18 +337,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">10</span>) <span class="co"># aleatorio</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 2
-   iso2c country                       
-   &lt;chr&gt; &lt;chr&gt;                         
- 1 PY    Paraguay                      
- 2 VE    Venezuela, RB                 
- 3 BB    Barbados                      
- 4 LC    St. Lucia                     
- 5 KN    St. Kitts and Nevis           
- 6 GT    Guatemala                     
- 7 KY    Cayman Islands                
- 8 BR    Brazil                        
- 9 VC    St. Vincent and the Grenadines
-10 BO    Bolivia                       </code></pre>
+   iso2c country                  
+   &lt;chr&gt; &lt;chr&gt;                    
+ 1 NI    Nicaragua                
+ 2 BB    Barbados                 
+ 3 CO    Colombia                 
+ 4 SX    Sint Maarten (Dutch part)
+ 5 BZ    Belize                   
+ 6 JM    Jamaica                  
+ 7 AG    Antigua and Barbuda      
+ 8 CR    Costa Rica               
+ 9 VG    British Virgin Islands   
+10 PR    Puerto Rico              </code></pre>
 </div>
 </div>
 </section>
@@ -379,16 +380,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code># A tibble: 10 × 9
    iso2c country         year iso3c pob_total pib_pc esperanza mort_inf educ_gdp
    &lt;chr&gt; &lt;chr&gt;          &lt;int&gt; &lt;chr&gt;     &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
- 1 AW    Aruba           2022 ABW      107310 30976.      76.2     NA      NA   
- 2 JM    Jamaica         2022 JAM     2839144  6626.      71.5     18.3     5.35
- 3 EC    Ecuador         2022 ECU    17823897  6516.      76.6     11.2     3.60
- 4 SV    El Salvador     2022 SLV     6280319  5075.      72.0      9.5     3.26
- 5 NI    Nicaragua       2022 NIC     6730654  2323.      74.5     10.7     3.80
- 6 PA    Panama          2022 PAN     4400773 17379.      79.3     11.1     3.38
- 7 LC    St. Lucia       2022 LCA      178781 13104.      72.7     14.4     4.64
- 8 HN    Honduras        2022 HND    10463872  3003.      72.7     13.7     4.48
- 9 CU    Cuba            2022 CUB    11059820    NA       77.6      6.3     8.44
-10 DO    Dominican Rep…  2022 DOM    11230734 10104.      74.2     29.1     3.61</code></pre>
+ 1 UY    Uruguay         2022 URY     3390913 20819.      76.5      5.6     4.51
+ 2 HN    Honduras        2022 HND    10463872  3003.      72.7     13.7     4.48
+ 3 BS    Bahamas, The    2022 BHS      397538 34957.      74.5     11.6     2.62
+ 4 DO    Dominican Rep…  2022 DOM    11230734 10104.      74.2     29.1     3.61
+ 5 KN    St. Kitts and…  2022 KNA       46709 21012.      70.3     14.7     3.56
+ 6 SR    Suriname        2022 SUR      623164  6084.      73.3     15.7     3.43
+ 7 TC    Turks and Cai…  2022 TCA       45847 31281.      77.9      4.1     3.28
+ 8 HT    Haiti           2022 HTI    11503606  1761.      63.9     41.5     1.03
+ 9 CR    Costa Rica      2022 CRI     5081765 13626.      79.3      8.8    NA   
+10 BB    Barbados        2022 BRB      282318 24387.      75.7      9.6     4.14</code></pre>
 </div>
 </div>
 </section>
@@ -695,11 +696,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-</section>
-<section id="temas-escalas-de-color-y-exportación" class="level1">
-<h1>Temas, escalas de color y exportación</h1>
-<section id="ggthemes-cambiar-el-estilo" class="level2">
-<h2 class="anchored" data-anchor-id="ggthemes-cambiar-el-estilo">ggthemes (cambiar el estilo)</h2>
+<section id="temas-escalas-de-color-y-exportación" class="level2">
+<h2 class="anchored" data-anchor-id="temas-escalas-de-color-y-exportación">Temas, escalas de color y exportación</h2>
+<section id="ggthemes-cambiar-el-estilo" class="level3">
+<h3 class="anchored" data-anchor-id="ggthemes-cambiar-el-estilo">ggthemes (cambiar el estilo)</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>g_ev <span class="sc">+</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
@@ -713,10 +713,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="escalas-de-color" class="level2">
-<h2 class="anchored" data-anchor-id="escalas-de-color">Escalas de color</h2>
-<section id="discretas-categorías-rcolorbrewer" class="level3">
-<h3 class="anchored" data-anchor-id="discretas-categorías-rcolorbrewer">Discretas (categorías): RColorBrewer</h3>
+<section id="escalas-de-color" class="level3">
+<h3 class="anchored" data-anchor-id="escalas-de-color">Escalas de color</h3>
+<section id="discretas-categorías-rcolorbrewer" class="level4">
+<h4 class="anchored" data-anchor-id="discretas-categorías-rcolorbrewer">Discretas (categorías): RColorBrewer</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>pibpc_indice <span class="sc">%&gt;%</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2013</span>, <span class="dv">2024</span>)) <span class="sc">%&gt;%</span></span>
@@ -735,8 +735,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="continuas-gradiente-viridis" class="level3">
-<h3 class="anchored" data-anchor-id="continuas-gradiente-viridis">Continuas (gradiente): viridis</h3>
+<section id="continuas-gradiente-viridis" class="level4">
+<h4 class="anchored" data-anchor-id="continuas-gradiente-viridis">Continuas (gradiente): viridis</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>ev_2013_2023 <span class="sc">%&gt;%</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> ev_2013, <span class="at">y =</span> ev_2023, <span class="at">color =</span> cambio)) <span class="sc">+</span></span>
@@ -753,6 +753,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="P6_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+</section>
 </section>
 </section>
 <section id="exportación-con-ggsave" class="level2">
@@ -795,14 +796,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>interactivo<span class="ot">&lt;-</span> <span class="fu">ggplotly</span>(g1)</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>interactivo</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-d90e9a57e28789c9c1b8" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-d90e9a57e28789c9c1b8">{"x":{"data":[{"orientation":"h","width":[0.89999999999999858,0.89999999999999858,0.89999999999999858,0.89999999999999858,0.89999999999999858,0.89999999999999858,0.89999999999999858,0.89999999999999947,0.90000000000000036,0.90000000000000036,0.90000000000000036,0.90000000000000036,0.90000000000000036,0.90000000000000013,0.89999999999999991],"base":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"x":[93030.705144780295,44320.909185773999,37793.128439915701,35353.6821570014,34957.161327973699,31280.541802080799,30975.9989121779,24387.038729376101,21011.5744209816,20818.6146091144,20750.520243465198,20105.198908516399,20057.1404747175,17913.4928066879,17378.607001755699],"y":[15,14,13,12,11,10,9,8,7,6,5,4,3,2,1],"text":["country: Cayman Islands<br />pib_pc: 93030.71","country: Virgin Islands (U.S.)<br />pib_pc: 44320.91","country: Sint Maarten (Dutch part)<br />pib_pc: 37793.13","country: Puerto Rico (US)<br />pib_pc: 35353.68","country: Bahamas, The<br />pib_pc: 34957.16","country: Turks and Caicos Islands<br />pib_pc: 31280.54","country: Aruba<br />pib_pc: 30976.00","country: Barbados<br />pib_pc: 24387.04","country: St. Kitts and Nevis<br />pib_pc: 21011.57","country: Uruguay<br />pib_pc: 20818.61","country: Trinidad and Tobago<br />pib_pc: 20750.52","country: Antigua and Barbuda<br />pib_pc: 20105.20","country: Curacao<br />pib_pc: 20057.14","country: Guyana<br />pib_pc: 17913.49","country: Panama<br />pib_pc: 17378.61"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(89,89,89,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":40.840182648401829,"r":7.3059360730593621,"b":37.260273972602747,"l":157.07762557077629},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"PIB per cápita en LAC (Top 15)","font":{"color":"rgba(0,0,0,1)","family":"","size":17.534246575342465},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-4651.5352572390148,97682.240402019306],"tickmode":"array","ticktext":["$0","$25,000","$50,000","$75,000"],"tickvals":[0,25000,49999.999999999985,75000],"categoryorder":"array","categoryarray":["$0","$25,000","$50,000","$75,000"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"US$ corrientes","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,15.6],"tickmode":"array","ticktext":["Panama","Guyana","Curacao","Antigua and Barbuda","Trinidad and Tobago","Uruguay","St. Kitts and Nevis","Barbados","Aruba","Turks and Caicos Islands","Bahamas, The","Puerto Rico (US)","Sint Maarten (Dutch part)","Virgin Islands (U.S.)","Cayman Islands"],"tickvals":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],"categoryorder":"array","categoryarray":["Panama","Guyana","Curacao","Antigua and Barbuda","Trinidad and Tobago","Uruguay","St. Kitts and Nevis","Barbados","Aruba","Turks and Caicos Islands","Bahamas, The","Puerto Rico (US)","Sint Maarten (Dutch part)","Virgin Islands (U.S.)","Cayman Islands"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"13d4e58970b8c":{"x":{},"y":{},"type":"bar"}},"cur_data":"13d4e58970b8c","visdat":{"13d4e58970b8c":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-e644f17aa38c5d45a397" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-e644f17aa38c5d45a397">{"x":{"data":[{"orientation":"h","width":[0.89999999999999858,0.89999999999999858,0.89999999999999858,0.89999999999999858,0.89999999999999858,0.89999999999999858,0.89999999999999858,0.89999999999999947,0.90000000000000036,0.90000000000000036,0.90000000000000036,0.90000000000000036,0.90000000000000036,0.90000000000000013,0.89999999999999991],"base":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"x":[93030.705144780295,44320.909185773999,37793.128439915701,35353.6821570014,34957.161327973699,31280.541802080799,30975.9989121779,24387.038729376101,21011.5744209816,20818.6146091144,20750.520243465198,20105.198908516399,20057.1404747175,17913.4928066879,17378.607001755699],"y":[15,14,13,12,11,10,9,8,7,6,5,4,3,2,1],"text":["country: Cayman Islands<br />pib_pc: 93030.71","country: Virgin Islands (U.S.)<br />pib_pc: 44320.91","country: Sint Maarten (Dutch part)<br />pib_pc: 37793.13","country: Puerto Rico (US)<br />pib_pc: 35353.68","country: Bahamas, The<br />pib_pc: 34957.16","country: Turks and Caicos Islands<br />pib_pc: 31280.54","country: Aruba<br />pib_pc: 30976.00","country: Barbados<br />pib_pc: 24387.04","country: St. Kitts and Nevis<br />pib_pc: 21011.57","country: Uruguay<br />pib_pc: 20818.61","country: Trinidad and Tobago<br />pib_pc: 20750.52","country: Antigua and Barbuda<br />pib_pc: 20105.20","country: Curacao<br />pib_pc: 20057.14","country: Guyana<br />pib_pc: 17913.49","country: Panama<br />pib_pc: 17378.61"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(89,89,89,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":40.840182648401829,"r":7.3059360730593621,"b":37.260273972602747,"l":157.07762557077629},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"PIB per cápita en LAC (Top 15)","font":{"color":"rgba(0,0,0,1)","family":"","size":17.534246575342465},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-4651.5352572390148,97682.240402019306],"tickmode":"array","ticktext":["$0","$25,000","$50,000","$75,000"],"tickvals":[0,25000,49999.999999999985,75000],"categoryorder":"array","categoryarray":["$0","$25,000","$50,000","$75,000"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"US$ corrientes","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,15.6],"tickmode":"array","ticktext":["Panama","Guyana","Curacao","Antigua and Barbuda","Trinidad and Tobago","Uruguay","St. Kitts and Nevis","Barbados","Aruba","Turks and Caicos Islands","Bahamas, The","Puerto Rico (US)","Sint Maarten (Dutch part)","Virgin Islands (U.S.)","Cayman Islands"],"tickvals":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],"categoryorder":"array","categoryarray":["Panama","Guyana","Curacao","Antigua and Barbuda","Trinidad and Tobago","Uruguay","St. Kitts and Nevis","Barbados","Aruba","Turks and Caicos Islands","Bahamas, The","Puerto Rico (US)","Sint Maarten (Dutch part)","Virgin Islands (U.S.)","Cayman Islands"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"163f84dc46a9c":{"x":{},"y":{},"type":"bar"}},"cur_data":"163f84dc46a9c","visdat":{"163f84dc46a9c":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
-</section>
-<section id="ejercicio-práctico" class="level1">
-<h1>Ejercicio práctico</h1>
+<section id="ejercicio-práctico" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicio-práctico">Ejercicio práctico</h2>
 <ol type="1">
 <li>Elige <strong>un indicador WDI</strong> (pobreza, escolaridad, emisiones, desempleo, mortalidad, etc.).<br>
 </li>
@@ -1182,8 +1182,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./videos.html" class="pagination-link">
-        <span class="nav-page-text">Videos y extras</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./P7.html" class="pagination-link">
+        <span class="nav-page-text">Práctica 7: Proyecto integrador (individual)</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
